@@ -133,7 +133,7 @@ import { ReactComponent as I132 } from '../../assets/svg/132.svg';
 import { ReactComponent as I133 } from '../../assets/svg/133.svg';
 import { ReactComponent as I134 } from '../../assets/svg/134.svg';
 import { ReactComponent as I135 } from '../../assets/svg/135.svg';
-// import { ReactComponent as I136 } from '../../assets/svg/136.svg';
+import { ReactComponent as I136 } from '../../assets/svg/136.svg';
 // import { ReactComponent as I137 } from '../../assets/svg/137.svg';
 // import { ReactComponent as I138 } from '../../assets/svg/138.svg';
 // import { ReactComponent as I139 } from '../../assets/svg/139.svg';
@@ -294,7 +294,7 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
     if (item === 133) Component = I133;
     if (item === 134) Component = I134;
     if (item === 135) Component = I135;
-    // if (item === 136) Component = I136;
+    if (item === 136) Component = I136;
     // if (item === 137) Component = I137;
     // if (item === 138) Component = I138;
     // if (item === 139) Component = I139;
