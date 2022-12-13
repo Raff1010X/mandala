@@ -312,8 +312,8 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
 
 
     
-    let rotateX = 5
-    let rotateY = 10
+    let rotateX = 0
+    let rotateY = 7
     let rotateZ = 0
 
     return (
@@ -323,7 +323,6 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
             style={{
                 position: 'absolute',
                 transform: `rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`,
-                // filter: `drop-shadow(0px 0px 0px rgb(0 0 0 / 1))`
             }}
         />
     );

@@ -10,7 +10,7 @@ interface SvgProps {
 
 function SvgContainer({ item, items, rotate, diameter, children }: SvgProps) {
 
-    let perspective = 11
+    let perspective = 0.5
 
     return (
         <div
@@ -22,7 +22,7 @@ function SvgContainer({ item, items, rotate, diameter, children }: SvgProps) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 transform: `rotate(${(item * 360) / items + rotate}deg) translateX(${diameter}vw)`,
-                perspective: `${perspective}px`
+                perspective: `${perspective}vw`
             }}
         >
             {children}

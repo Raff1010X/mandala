@@ -1,197 +1,86 @@
-import SvgCircle from './components/svgCircle/SvgCircle';
-
+import SvgBoard from './components/board/SvgBoard';
 import './App.css';
 
 function App() {
-        let mandalaArr = [
-                {
-                        items:4,
-                        rotate:0,
-                        diameter:3,
-                        svgItem:30,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:6,
-                        rotate:0,
-                        diameter:4,
-                        svgItem:31,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:8,
-                        rotate:0,
-                        diameter:5,
-                        svgItem:32,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:10,
-                        rotate:0,
-                        diameter:6,
-                        svgItem:33,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:12,
-                        rotate:0,
-                        diameter:7,
-                        svgItem:34,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:14,
-                        rotate:0,
-                        diameter:8,
-                        svgItem:35,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:16,
-                        rotate:0,
-                        diameter:9,
-                        svgItem:36,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-                {
-                        items:18,
-                        rotate:0,
-                        diameter:10,
-                        svgItem:37,
-                        stroke:"#018686",
-                        fill:"transparent",
-                        svgRotate:90,
-                        scale:.1,
-                },
-        ]
 
-
-
-        let mandala =[]
-
-        mandalaArr.forEach(el => {
-                mandala.push(
-                <SvgCircle 
-                        items={el.items}
-                        rotate={el.rotate}
-                        diameter={el.diameter}
-                        svgItem={el.svgItem}
-                        stroke={el.stroke}
-                        fill={el.fill}
-                        svgRotate={el.svgRotate}
-                        scale={el.scale}
-                />)
-        })
-
-console.log(mandala)
 
 
     return (
         <div className="App">
-            <header className="App-header">
-                {mandala}
-            <SvgCircle 
-                    items={4}
-                    rotate={0}
-                    diameter={3}
-                    svgItem={37}
-                    stroke="#018686"
-                    fill="transparent"
-                    svgRotate={90}
-                    scale={.1}
-               />
-            <SvgCircle 
-                    items={8}
-                    rotate={0}
-                    diameter={10}
-                    svgItem={38}
-                    stroke="#215f43"
-                    fill="#fff5"
-                    svgRotate={90}
-                    scale={.09}
-               />
-            <SvgCircle 
-                    items={10}
-                    rotate={0}
-                    diameter={20}
-                    svgItem={39}
-                    stroke="#00680a"
-                    fill="#fff0"
-                    svgRotate={12}
-                    scale={.1}
-               />
-            <SvgCircle 
-                    items={12}
-                    rotate={0}
-                    diameter={125}
-                    svgItem={40}
-                    stroke="#ffe772"
-                    fill="#ffffff27"
-                    svgRotate={90}
-                    scale={.1}
-               />
-            <SvgCircle 
-                    items={4}
-                    rotate={0}
-                    diameter={3}
-                    svgItem={52}
-                    stroke="#018686"
-                    fill="transparent"
-                    svgRotate={90}
-                    scale={.1}
-               />
-            <SvgCircle 
-                    items={8}
-                    rotate={22.5}
-                    diameter={15}
-                    svgItem={53}
-                    stroke="#5f2121"
-                    fill="#fff5"
-                    svgRotate={90}
-                    scale={.09}
-               />
-            <SvgCircle 
-                    items={10}
-                    rotate={18}
-                    diameter={20}
-                    svgItem={54}
-                    stroke="#00680a"
-                    fill="#fff0"
-                    svgRotate={12}
-                    scale={.1}
-               />
-            <SvgCircle 
-                    items={12}
-                    rotate={0}
-                    diameter={125}
-                    svgItem={55}
-                    stroke="#ffe772"
-                    fill="#ffffff27"
-                    svgRotate={90}
-                    scale={.1}
-               />
-            </header>
+            {/* <div className="app-menu">
+                <div className="app-menu--top-bar">
+
+                </div>
+                <div className="app-menu--leyers">
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                    <div className="app-menu--leyer"></div>
+                </div>
+            </div> */}
+
+            <div className="app-menu">
+                <div className="app-menu--top-bar">
+
+                </div>
+                <div className="app-menu--leyers">
+<div className="app-menu--item">
+
+</div>
+<div className="app-menu--select">
+    <label htmlFor='noif'>Number of items:</label>
+    <input type="range" id="noif"/>
+</div>
+<div className="app-menu--select">
+    <label htmlFor='dol'>Diameter of layer:</label>
+    <input type="range" id="dol"/>
+</div>
+<div className="app-menu--select">
+    <label htmlFor='rol'>Rotation of layer:</label>
+    <input type="range" id="rol"/>
+</div>
+<div className="app-menu--select-color">
+    <label htmlFor='foi'>Fill:</label>
+    <input type="checkbox" id="foich"/>
+    <input type="color" id="foi" value="#e66465"/>
+</div>
+<div className="app-menu--select-color">
+    <label htmlFor='stoi'>Stroke:</label>
+    <input type="color" id="stoi" value="#e66465"/>
+</div>
+<div className="app-menu--select">
+    <label htmlFor='roi'>Rotation of item:</label>
+    <input type="range" id="roi"/>
+</div>
+<div className="app-menu--select">
+    <label htmlFor='soi'>Scale of item:</label>
+    <input type="range" id="soi"/>
+</div>
+
+                </div>
+            </div>
+
+            <SvgBoard />
         </div>
     );
 }

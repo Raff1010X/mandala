@@ -1,5 +1,5 @@
-import SvGItem from '../svgItem/SvgItem';
-import SvGContainer from '../svgContainer/SvgContainer';
+import SvGItem from './SvgItem';
+import SvGContainer from './SvgContainer';
 import React from 'react';
 
 interface SvgProps {
@@ -11,6 +11,7 @@ interface SvgProps {
     fill: string;
     svgRotate: number;
     scale: number;
+    keys: string;
 }
 
 function SvgCircle({
@@ -22,11 +23,13 @@ function SvgCircle({
     fill,
     svgRotate,
     scale,
+    keys,
 }: SvgProps) {
     let elements = [];
     for (let i = 0; i < items; i++) {
         elements.push(
             <SvGContainer
+                key={`SvgContainer${i}${keys}`}
                 item={i}
                 items={items}
                 rotate={rotate}
