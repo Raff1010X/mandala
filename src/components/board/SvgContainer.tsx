@@ -10,7 +10,7 @@ interface SvgProps {
 
 function SvgContainer({ item, items, rotate, diameter, children }: SvgProps) {
 
-    let perspective = 1000
+    let perspective = 4
 
     return (
         <div

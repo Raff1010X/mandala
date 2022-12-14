@@ -312,9 +312,9 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
 
 
     
-    let rotateX = 0
-    let rotateY = 0
-    let rotateZ = 0
+    let rotateX = 50
+    let rotateY = 50
+    let rotateZ = -50
 
     return (
         <Component
