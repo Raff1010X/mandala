@@ -313,7 +313,7 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
 
     
     let rotateX = 0
-    let rotateY = 7
+    let rotateY = 0
     let rotateZ = 0
 
     return (

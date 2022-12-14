@@ -15,25 +15,38 @@
   backdrop-filter: blur( 9px );
   -webkit-backdrop-filter: blur( 9px );
   border-radius: 1vh;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid #cb40ad50;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   overflow: hidden;
-  gap: 2vh;
+  /* gap: 2vh; */
   z-index: 1000;
 
   color: white;
-  font-size: 2vh;
+  font-size: 1.9vh;
 }
 
 .app-menu--top-bar {
   width: 100%;
   height: 5vh;
-  background-color: rgba(0, 200, 255, 0.8);
+  background-color: #cb40ad;
   justify-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-menu--top-bar > * {
+  padding: 1.2vh;
+  cursor: pointer;
+}
+.app-menu--top-bar > i > * {
+  cursor: pointer;
+  background-color: rgb(255, 0, 225);
+  margin-top: .5vh;
 }
 
 .app-menu--leyers {
@@ -49,9 +62,9 @@
 .app-menu--leyer {
   width: 5vh;
   height: 5vh;
-  background-color: rgba(0, 200, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: .5vh;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   transition: .25s;
   cursor: pointer;
 }
@@ -63,17 +76,22 @@
 .app-menu--item {
   width: 15vh;
   height: 15vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: .5vh;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  transition: .25s;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin-top: 1vh;
 }
 
 .app-menu--select {
-  width: 100%;
+  width: 17vh;
   height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #00FFF1;
 }
 .app-menu--select-color {
   width: 75%;
@@ -84,6 +102,54 @@
   justify-content: space-between;
 }
 
-input[type="range"] {
-   width: 90%;
+.app-menu--item-selector {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh;
+  overflow-y: scroll;
+  padding: 1vh 0 1vh 0;
+}
+
+.app-menu--item-select {
+  margin-left: .5vh;
+  width: 15vh;
+  height: 15vh;
+  background-color: red;
+  border-radius: .5vh;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  transition: .25s;
+  cursor: pointer;
+}
+
+
+
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00FFF1 transparent;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #00FFF1;
 }
