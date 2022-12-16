@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 function menuLayers() {
 
     function handleClickLayer()  {
-        document.getElementsByClassName('burger-menu')[0].classList.remove('burger-menu--hidden')
         let element = document.getElementById('menu-layers') as HTMLDivElement
             element.classList.remove('menu-layers--open')
         element = document.getElementById('menu-layer') as HTMLDivElement
@@ -32,6 +31,7 @@ function menuLayers() {
             <div className="menu--item-selector">
                 <div className="menu--item-select" onClick={() => handleClickLayer()}></div>
 
+                <div className="menu--item-select"></div>
                 <div className="menu--item-select"></div>
             </div>
         </div>

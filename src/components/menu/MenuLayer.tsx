@@ -24,6 +24,13 @@ function menuLayer() {
             element.classList.add('menu-layers--open')
     }
 
+    function handleClickOpenImageMenu() {
+        let element = document.getElementById('menu-image') as HTMLDivElement
+            element.classList.add('menu-layers--open')
+        element = document.getElementById('menu-layer') as HTMLDivElement
+            element.classList.remove('menu-layers--open')
+    }
+
     return (
                 <div id="menu-layer" className="menu">
                 <div className="menu--top-bar" onClick={() => handleClickCloseMenu()}>
@@ -32,8 +39,8 @@ function menuLayer() {
                         <CloseIcon />
                     </i>
                 </div>
-                <div className="menu--item-selector no-scroll">
-                    <div className="menu--item-select"></div>
+                <div className="menu--item-selector no-scroll fit-height">
+                    <div className="menu--item-select" onClick={() => handleClickOpenImageMenu()}></div>
                     <div className="menu--select">
                         <label htmlFor="number">Number of items:</label>
                         <Slider
