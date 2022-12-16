@@ -16,9 +16,17 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
 
 
 function menuLayer() {
+
+    function handleClickCloseMenu()  {
+        let element = document.getElementById('menu-layer') as HTMLDivElement
+            element.classList.remove('menu-layers--open')
+        element = document.getElementById('menu-layers') as HTMLDivElement
+            element.classList.add('menu-layers--open')
+    }
+
     return (
-                <div className="menu">
-                <div className="menu--top-bar">
+                <div id="menu-layer" className="menu">
+                <div className="menu--top-bar" onClick={() => handleClickCloseMenu()}>
                     <div>Layer</div>
                     <i>
                         <CloseIcon />

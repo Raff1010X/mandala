@@ -310,11 +310,11 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
     // if (item === 149) Component = I149;
     // if (item === 150) Component = I150;
 
-
+    // const Component = require(`../../assets/svg/${item.toString()}.svg`)
     
-    let rotateX = 50
-    let rotateY = 50
-    let rotateZ = -50
+    let rotateX = 0
+    let rotateY = 0
+    let rotateZ = 0
 
     return (
         <Component
