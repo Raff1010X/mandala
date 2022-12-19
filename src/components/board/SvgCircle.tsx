@@ -41,6 +41,7 @@ function SvgCircle({
                     fill={fill}
                     rotate={svgRotate}
                     scale={scale}
+                    position='absolute'
                 />
             </SvGContainer>
         );

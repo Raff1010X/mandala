@@ -155,9 +155,10 @@ interface SvgProps {
     fill: string;
     rotate: number;
     scale: number;
+    position:  'absolute' | 'relative';
 }
 
-function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
+function SvgItem({ item, stroke, fill, rotate, scale, position }: SvgProps) {
     let Component = I1;
     if (item === 1) Component = I1;
     if (item === 2) Component = I2;
@@ -320,8 +321,8 @@ function SvgItem({ item, stroke, fill, rotate, scale }: SvgProps) {
         <Component
             stroke={stroke}
             fill={fill}
-            style={{
-                position: 'absolute',
+            style ={{
+                position: position,
                 transform: `rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`,
             }}
         />

@@ -1,8 +1,8 @@
-import './menu.css';
-
 import CloseIcon from '@mui/icons-material/Close';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';
 import { Checkbox, Tooltip } from '@mui/material';
+import './menu.css';
+
 
 function ValueLabelComponent(props: SliderValueLabelProps) {
     const { children, value } = props;

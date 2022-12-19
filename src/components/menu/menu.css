@@ -98,9 +98,9 @@
   }
   
   .menu--item-select:hover {
-    background-color: #cb40ad;
+    background-color: #cb40ad2d;
   }
-  
+
   .no-scroll {
     overflow: hidden !important;
   }
@@ -183,6 +183,20 @@
     font-size: 4vh;
   }
 
+
+  .menu-image-title {
+    height: 0;
+    margin: 0 0 0 .5vh;
+    font-size: 1.75vh;
+    color: #cb40ad;
+    text-align: left;
+  }
+
+  .menu-layer-plus {
+    margin: 0;
+    font-size: 10vh;
+    text-align: center;
+  }
 
   @media only screen and (max-height: 640px) {
     .menu {
