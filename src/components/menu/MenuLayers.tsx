@@ -1,20 +1,28 @@
 import { ReactNode } from 'react';
-import SvgItem from '../board/SvgItem';
-import './menu.css';
 
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import {selectMandalaArr, setLayer} from '../../features/mandala/mandalaSlice';
+
+import SvgItem from '../board/SvgItem';
 import CloseIcon from '@mui/icons-material/Close';
 
-import mandalaArr from '../../features/mandala/mandalaArr';
+import './menu.css';
+
+
+
 
 function MenuLayers() {
 
-    function handleClickLayer() {
+    const mandalaArr = useAppSelector(selectMandalaArr);
+    const dispatch = useAppDispatch();
+
+    function handleClickLayer(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+        const selectedLayer = (e.currentTarget.dataset.index || 0) as number
+        dispatch(setLayer(selectedLayer))
         let element = document.getElementById('menu-layers') as HTMLDivElement;
         element.classList.remove('menu-layers--open');
         element = document.getElementById('menu-layer') as HTMLDivElement;
         element.classList.add('menu-layers--open');
-
-        
     }
 
     function handleClickCloseMenu() {
@@ -33,8 +41,9 @@ function MenuLayers() {
         return (
             <div
                 key={el.svgItem}
+                data-index={index}
                 className="menu--item-select"
-                onClick={() => handleClickLayer()}
+                onClick={(e) => handleClickLayer(e)}
             >
                 <p className="menu-image-title">Layer {index + 1}</p>
                 <SvgItem
