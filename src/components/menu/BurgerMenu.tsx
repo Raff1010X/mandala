@@ -1,15 +1,14 @@
-
-import MenuIcon from '@mui/icons-material/Menu';
 import './menu.css';
+import {ReactComponent as Menu} from "../../assets/menu.svg"
 
 interface burgerMenuProps {
-    onClick: () => void
+    onClick: () => void;
 }
 
-function BurgerMenu({onClick}:burgerMenuProps) {
+function BurgerMenu({ onClick }: burgerMenuProps) {
     return (
         <div className="burger-menu" onClick={() => onClick()}>
-            <i><MenuIcon /></i>
+            <i><Menu /></i>
             <i>Menu</i>
         </div>
     );

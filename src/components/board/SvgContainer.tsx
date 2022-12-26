@@ -6,11 +6,10 @@ interface SvgProps {
     rotate: number;
     diameter: number;
     children: ReactNode;
+    perspective: number;
 }
 
-function SvgContainer({ item, items, rotate, diameter, children }: SvgProps) {
-
-    let perspective = 4
+function SvgContainer({ item, items, rotate, diameter, children, perspective }: SvgProps) {
 
     return (
         <div
@@ -30,4 +29,4 @@ function SvgContainer({ item, items, rotate, diameter, children }: SvgProps) {
     );
 }
 
-export default SvgContainer;
+export default SvgContainer ;

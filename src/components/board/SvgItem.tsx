@@ -118,47 +118,36 @@ import { ReactComponent as I117 } from '../../assets/svg/117.svg';
 import { ReactComponent as I118 } from '../../assets/svg/118.svg';
 import { ReactComponent as I119 } from '../../assets/svg/119.svg';
 import { ReactComponent as I120 } from '../../assets/svg/120.svg';
-import { ReactComponent as I121 } from '../../assets/svg/121.svg';
-import { ReactComponent as I122 } from '../../assets/svg/122.svg';
-import { ReactComponent as I123 } from '../../assets/svg/123.svg';
-import { ReactComponent as I124 } from '../../assets/svg/124.svg';
-import { ReactComponent as I125 } from '../../assets/svg/125.svg';
-import { ReactComponent as I126 } from '../../assets/svg/126.svg';
-import { ReactComponent as I127 } from '../../assets/svg/127.svg';
-import { ReactComponent as I128 } from '../../assets/svg/128.svg';
-import { ReactComponent as I129 } from '../../assets/svg/129.svg';
-import { ReactComponent as I130 } from '../../assets/svg/130.svg';
-import { ReactComponent as I131 } from '../../assets/svg/131.svg';
-import { ReactComponent as I132 } from '../../assets/svg/132.svg';
-import { ReactComponent as I133 } from '../../assets/svg/133.svg';
-import { ReactComponent as I134 } from '../../assets/svg/134.svg';
-import { ReactComponent as I135 } from '../../assets/svg/135.svg';
-import { ReactComponent as I136 } from '../../assets/svg/136.svg';
-// import { ReactComponent as I137 } from '../../assets/svg/137.svg';
-// import { ReactComponent as I138 } from '../../assets/svg/138.svg';
-// import { ReactComponent as I139 } from '../../assets/svg/139.svg';
-// import { ReactComponent as I140 } from '../../assets/svg/140.svg';
-// import { ReactComponent as I141 } from '../../assets/svg/141.svg';
-// import { ReactComponent as I142 } from '../../assets/svg/142.svg';
-// import { ReactComponent as I143 } from '../../assets/svg/143.svg';
-// import { ReactComponent as I144 } from '../../assets/svg/144.svg';
-// import { ReactComponent as I145 } from '../../assets/svg/145.svg';
-// import { ReactComponent as I146 } from '../../assets/svg/146.svg';
-// import { ReactComponent as I147 } from '../../assets/svg/147.svg';
-// import { ReactComponent as I148 } from '../../assets/svg/148.svg';
-// import { ReactComponent as I149 } from '../../assets/svg/149.svg';
-// import { ReactComponent as I150 } from '../../assets/svg/150.svg';
 
 interface SvgProps {
     item: number;
     stroke: string;
+    strokeWidth: number;
+    strokeOpacity: number;
     fill: string;
+    fillOpacity: number;
     rotate: number;
     scale: number;
-    position:  'absolute' | 'relative';
+    position: 'absolute' | 'relative';
+    rotateX: number;
+    rotateY: number;
+    rotateZ: number;
 }
 
-function SvgItem({ item, stroke, fill, rotate, scale, position }: SvgProps) {
+function SvgItem({
+    item,
+    stroke,
+    strokeWidth,
+    strokeOpacity,
+    fill,
+    fillOpacity,
+    rotate,
+    scale,
+    position,
+    rotateX = 0,
+    rotateY = 0,
+    rotateZ = 0,
+}: SvgProps) {
     let Component = I1;
     if (item === 1) Component = I1;
     if (item === 2) Component = I2;
@@ -280,48 +269,16 @@ function SvgItem({ item, stroke, fill, rotate, scale, position }: SvgProps) {
     if (item === 118) Component = I118;
     if (item === 119) Component = I119;
     if (item === 120) Component = I120;
-    if (item === 121) Component = I121;
-    if (item === 122) Component = I122;
-    if (item === 123) Component = I123;
-    if (item === 124) Component = I124;
-    if (item === 125) Component = I125;
-    if (item === 126) Component = I126;
-    if (item === 127) Component = I127;
-    if (item === 128) Component = I128;
-    if (item === 129) Component = I129;
-    if (item === 130) Component = I130;
-    if (item === 131) Component = I131;
-    if (item === 132) Component = I132;
-    if (item === 133) Component = I133;
-    if (item === 134) Component = I134;
-    if (item === 135) Component = I135;
-    if (item === 136) Component = I136;
-    // if (item === 137) Component = I137;
-    // if (item === 138) Component = I138;
-    // if (item === 139) Component = I139;
-    // if (item === 140) Component = I140;
-    // if (item === 141) Component = I141;
-    // if (item === 142) Component = I142;
-    // if (item === 143) Component = I143;
-    // if (item === 144) Component = I144;
-    // if (item === 145) Component = I145;
-    // if (item === 146) Component = I146;
-    // if (item === 147) Component = I147;
-    // if (item === 148) Component = I148;
-    // if (item === 149) Component = I149;
-    // if (item === 150) Component = I150;
 
     // const Component = require(`../../assets/svg/${item.toString()}.svg`)
-    
-    let rotateX = 0
-    let rotateY = 0
-    let rotateZ = 0
-
     return (
         <Component
             stroke={stroke}
             fill={fill}
-            style ={{
+            fillOpacity={fillOpacity}
+            strokeWidth={strokeWidth}
+            strokeOpacity={strokeOpacity}
+            style={{
                 position: position,
                 transform: `rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`,
             }}

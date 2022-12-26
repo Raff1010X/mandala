@@ -1,1 +1,417 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.73 141.73"><defs><style>.cls-1{fill:current;}.cls-2{fill:none;fill:current;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75px;}</style></defs><title>Artboard 5</title><g id="_5_fill" data-name="5 fill"><path class="cls-1" d="M115.77,88.52c5.45-11.41,1.53-19.47-6.74-14.59h0c3.71-10.7,1.23-18.17-8-14.63v0c1.73-9.35-1.24-15.19-9.14-12v0c1.34-10.89-3.51-15.21-10.44-10.51V37c-.22-9.22-3.37-16.23-10.55-16.23S60.53,27.75,60.31,37v-.09c-6.93-4.7-11.78-.37-10.44,10.52v0C42,44.15,39,50,40.71,59.33h0c-9.23-3.54-11.71,3.92-8,14.62h0C24.43,69.05,20.51,77.12,26,88.52,8.69,81,18.27,111.23,41.41,121a11.43,11.43,0,0,0,6.23-4.71,5.59,5.59,0,0,0,.8-2.24h0a13.62,13.62,0,0,0,6.32-4.81,6.73,6.73,0,0,0,1.32-3.14h0a12.6,12.6,0,0,0,5.14-3.4,7.63,7.63,0,0,0,1.58-2.9h0c3.35-.62,7-6.41,7.23-9.52h0c.26.66.54,1.33.83,2,.3-.7.57-1.37.83-2h0c.22,3.1,3.88,8.9,7.23,9.52h0a7.63,7.63,0,0,0,1.58,2.9,12.6,12.6,0,0,0,5.14,3.4h0A6.73,6.73,0,0,0,87,109.23,13.62,13.62,0,0,0,93.29,114h0a5.59,5.59,0,0,0,.8,2.23,11.43,11.43,0,0,0,6.23,4.71C123.46,111.23,133,81,115.77,88.52Z"/></g><g id="_5_stroke" data-name="5 stroke"><path class="cls-2" d="M67.23,81.12c-1.29-1-4.17-2.13-6-.71-6.18,4.79,6.45,14.76,0,22.29a12.6,12.6,0,0,1-5.14,3.4"/><path class="cls-2" d="M59.67,85.88a4.65,4.65,0,0,0-4.41.55c-7.47,5.66,4.87,15.7-.5,22.8A13.62,13.62,0,0,1,48.44,114"/><path class="cls-2" d="M53,93a5.48,5.48,0,0,0-6,1.41c-5.83,6.93,4.51,15.76.68,21.84A11.43,11.43,0,0,1,41.41,121"/><path class="cls-2" d="M70,90.29c-.22,3.1-3.88,8.9-7.23,9.52"/><path class="cls-2" d="M45.31,101.4c-4.21-1.6-10,2.2-7.3,8.69a42.8,42.8,0,0,1,3.4,10.9"/><path class="cls-2" d="M60.31,36.88c-11.87-8-17.66,10.33,3.33,42.86"/><path class="cls-2" d="M54.73,86.87C37.43,66,35.36,41.45,49.86,47.38"/><path class="cls-2" d="M46.27,95.37c-17.81-19-20.42-41.75-5.57-36.05"/><path class="cls-2" d="M38.11,103.92C18,86.14,21,67,32.7,73.94"/><path class="cls-2" d="M26,88.53C8.68,81,18.27,111.23,41.41,121"/><path class="cls-2" d="M70.86,92.31c6.52-15.29,3.9-20.1,0-20.1S64.34,77,70.86,92.31Z"/><path class="cls-2" d="M74.5,81.12c1.29-1,4.17-2.13,6-.71,6.18,4.79-6.45,14.76,0,22.29a12.6,12.6,0,0,0,5.14,3.4"/><path class="cls-2" d="M82.06,85.88a4.65,4.65,0,0,1,4.41.55c7.47,5.66-4.87,15.7.5,22.8A13.62,13.62,0,0,0,93.29,114"/><path class="cls-2" d="M88.78,93a5.48,5.48,0,0,1,6,1.41c5.83,6.93-4.51,15.76-.68,21.84a11.43,11.43,0,0,0,6.23,4.71"/><path class="cls-2" d="M71.7,90.29c.22,3.1,3.88,8.9,7.23,9.52"/><path class="cls-2" d="M96.42,101.4c4.21-1.6,10,2.2,7.3,8.69a42.8,42.8,0,0,0-3.4,10.9"/><path class="cls-2" d="M70.86,72.21c12-16.47,16.07-51.47,0-51.47S58.88,55.74,70.86,72.21Z"/><path class="cls-2" d="M70.86,35c9.21,0,4.57,25.76,0,37.17C66.3,60.79,61.65,35,70.86,35"/><path class="cls-2" d="M81.42,36.88c11.87-8,17.66,10.33-3.33,42.86"/><path class="cls-2" d="M87,86.87C104.3,66,106.37,41.45,91.87,47.38"/><path class="cls-2" d="M95.46,95.37c17.81-19,20.42-41.75,5.57-36.05"/><path class="cls-2" d="M103.62,103.92c20.14-17.78,17.15-36.92,5.41-30"/><path class="cls-2" d="M115.77,88.53C133,81,123.46,111.23,100.32,121"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 147 147" xml:space="preserve">
+<g id="_x31_.1_Fill">
+</g>
+<g id="_x31_.1_Stroke">
+</g>
+<g id="_x31_.2_Fll">
+</g>
+<g id="_x31_.2_Stroke">
+</g>
+<g id="_x31_.3_Fill">
+</g>
+<g id="_x31_.3_Stroke">
+</g>
+<g id="_x32_.1_fill">
+</g>
+<g id="_x32_.1_kontur">
+</g>
+<g id="_x32_.2_fill">
+</g>
+<g id="_x32_.2_kontur">
+</g>
+<g id="_x32_.3_fill">
+</g>
+<g id="_x32_.3_kontur">
+</g>
+<g id="_x32_.4_fill">
+</g>
+<g id="_x32_.4_kontur">
+</g>
+<g id="_x32_.5_fill">
+</g>
+<g id="_x32_.5_kontur">
+</g>
+<g id="_x33_.1_fill">
+</g>
+<g id="_x33_.1_kontur">
+</g>
+<g id="_x33_.2_fil">
+</g>
+<g id="_x33_.2_kontur">
+</g>
+<g id="_x33_.3_fill">
+</g>
+<g id="_x33_.3_kontur">
+</g>
+<g id="_x33_.4_fill">
+</g>
+<g id="_x33_.4_kontur">
+</g>
+<g id="_x33_.5_fill">
+</g>
+<g id="_x33_.5_kontur">
+</g>
+<g id="_x34_.1_Fill">
+</g>
+<g id="_x34_.1_Stroke">
+</g>
+<g id="_x34_.2_Fll">
+</g>
+<g id="_x34_.2_Stroke">
+</g>
+<g id="_x34_.3_Fill">
+</g>
+<g id="_x34_.3_Stroke">
+</g>
+<g id="_x35_.1_fill">
+</g>
+<g id="_x35_.1_kontur">
+</g>
+<g id="_x35_.2_fill">
+</g>
+<g id="_x35_.2_kontur">
+</g>
+<g id="_x35_.3_fill">
+</g>
+<g id="_x35_.3_kontur">
+</g>
+<g id="_x35_.4_fill">
+</g>
+<g id="_x35_.4_kontur">
+</g>
+<g id="_x35_.5_fill">
+</g>
+<g id="_x35_.5_kontur">
+</g>
+<g id="_x35_.6_fill">
+</g>
+<g id="_x35_.6_kontur">
+</g>
+<g id="_x35_.7_fill">
+</g>
+<g id="_x35_.7_kontur">
+</g>
+<g id="_x35_.8_fill">
+</g>
+<g id="_x35_.8_kontur">
+</g>
+<g id="_x36_.1_fill">
+</g>
+<g id="_x36_.1_kontur">
+</g>
+<g id="_x36_.2_fill">
+</g>
+<g id="_x36_.2_kontur">
+</g>
+<g id="_x36_.3_Fill">
+</g>
+<g id="_x36_.3_kontur">
+</g>
+<g id="_x36_.4_fill">
+</g>
+<g id="_x36_.4_kontur">
+</g>
+<g id="_x36_.5_fill">
+</g>
+<g id="_x36_.5_kontur">
+</g>
+<g id="_x37_.1_fill">
+</g>
+<g id="_x37_.1_kontur">
+</g>
+<g id="_x37_.2_fill">
+</g>
+<g id="_x37_.2_kontur">
+</g>
+<g id="_x38_.1_fill">
+</g>
+<g id="_x38_.1_kontur">
+</g>
+<g id="_x38_.2_fill">
+</g>
+<g id="_x38_.2_kontur">
+</g>
+<g id="_x38_.3_fill">
+</g>
+<g id="_x38_.3_kontur">
+</g>
+<g id="_x38_.4_fill">
+</g>
+<g id="_x38_.4_kontur">
+</g>
+<g id="_x38_.5_fill">
+</g>
+<g id="_x38_.5_kontur">
+</g>
+<g id="_x39_.1_fill">
+</g>
+<g id="_x39_.1_kontur">
+</g>
+<g id="_x39_.2_fill">
+</g>
+<g id="_x39_.2_kontur">
+</g>
+<g id="_x39_.3_fill">
+</g>
+<g id="_x39_.3_kontur">
+</g>
+<g id="_x39_.4_fill">
+</g>
+<g id="_x39_.4_kontur">
+</g>
+<g id="_x39_.5_fill">
+</g>
+<g id="_x39_.5_kontur">
+</g>
+<g id="_x31_0.1_fill">
+</g>
+<g id="_x31_0.1_kontur">
+</g>
+<g id="_x31_0.2_fill">
+</g>
+<g id="_x31_0.2_kontur">
+</g>
+<g id="_x31_0.3_fill">
+</g>
+<g id="_x31_0.3_kontur">
+</g>
+<g id="_x31_0.4_fill">
+</g>
+<g id="_x31_0.4_kontur">
+</g>
+<g id="_x31_1.1_fill">
+</g>
+<g id="_x31_1.1_kontur">
+</g>
+<g id="_x31_1.2_fill">
+	<g>
+		<path fill="current" d="M81.7,81.6c9,15.3,21.3,29.7,36.4,36.5C111.4,102.9,97,90.6,81.7,81.6z"/>
+		<path fill="current" d="M123.4,123.3c-4.2,1-8.5,1.9-12.7,2.6c-0.1,0-0.2,0-0.3,0c-53.7,9.8-71.1-43.2-86.5-86.7
+			c-1.8-5.5-3.7-11.2-6.1-16.7c-1-2.7-2.1-5.3-3.2-7.8c0-0.1-0.1-0.2-0.1-0.3c0.1,0,0.2,0.1,0.3,0.1c2.5,1.1,5.1,2.1,7.8,3.2
+			c5.5,2.3,11.2,4.3,16.7,6.1c43.5,15.3,96.5,32.7,86.7,86.5c0,0.1,0,0.2,0,0.3C125.3,114.8,124.4,119.1,123.4,123.3z"/>
+	</g>
+</g>
+<g id="_x31_1.2_kontur">
+	<g>
+		<path fill="none" stroke="current" stroke-width="0.75" stroke-miterlimit="10" d="M81.7,81.6c9,15.3,21.3,29.7,36.4,36.5
+			C111.5,102.9,97.1,90.6,81.7,81.6z"/>
+		<path fill="none" stroke="current" stroke-width="0.75" stroke-miterlimit="10" d="M123.5,123.3c-4.2,1-8.5,1.9-12.7,2.6
+			c-0.1,0-0.2,0-0.3,0C56.7,135.7,39.3,82.7,24,39.2c-1.8-5.5-3.7-11.2-6.1-16.7c-1-2.7-2.1-5.3-3.2-7.8c0-0.1-0.1-0.2-0.1-0.3
+			c0.1,0,0.2,0.1,0.3,0.1c2.5,1.1,5.1,2.1,7.8,3.2c5.5,2.3,11.2,4.3,16.7,6.1c43.5,15.3,96.5,32.7,86.7,86.5c0,0.1,0,0.2,0,0.3
+			C125.3,114.8,124.5,119.1,123.5,123.3z"/>
+	</g>
+</g>
+<g id="_x31_1.3_fill">
+</g>
+<g id="_x31_1.3_kontur">
+</g>
+<g id="_x31_1.4_fill">
+</g>
+<g id="_x31_1.4_kontur">
+</g>
+<g id="_x31_1.5_fill">
+</g>
+<g id="_x31_1.5_kontur">
+</g>
+<g id="_x31_2.1_fill">
+</g>
+<g id="_x31_2.1_kontur">
+</g>
+<g id="_x31_2.2_fill">
+</g>
+<g id="_x31_2.2_kontur">
+</g>
+<g id="_x31_2.3_fill">
+</g>
+<g id="_x31_2.3_kontur">
+</g>
+<g id="_x31_2.4_fill">
+</g>
+<g id="_x31_2.4_kontur">
+</g>
+<g id="_x31_3.1_fill">
+</g>
+<g id="_x31_3.1_kontur">
+</g>
+<g id="_x31_3.2_fill">
+</g>
+<g id="_x31_3.2_kontur">
+</g>
+<g id="_x31_3.3_fill">
+</g>
+<g id="_x31_3.3_kontur">
+</g>
+<g id="_x31_3.4_fill">
+</g>
+<g id="_x31_3.4_kontur">
+</g>
+<g id="_x31_3.5_fill">
+</g>
+<g id="_x31_3.5_kontur">
+</g>
+<g id="_x31_4.1_fill">
+</g>
+<g id="_x31_4.1_kontur">
+</g>
+<g id="_x31_4.2_fil">
+</g>
+<g id="_x31_4.2_kontur">
+</g>
+<g id="_x31_4.3_fill">
+</g>
+<g id="_x31_4.3_kontur">
+</g>
+<g id="_x31_4.4_fill">
+</g>
+<g id="_x31_4.4_kontur">
+</g>
+<g id="_x31_4.5_fill">
+</g>
+<g id="_x31_4.5_kontur">
+</g>
+<g id="_x31_4.6_fill">
+</g>
+<g id="_x31_4.6_kontur">
+</g>
+<g id="_x31_4.7_fill">
+</g>
+<g id="_x31_4.7_kontur">
+</g>
+<g id="_x31_4.8_fill">
+</g>
+<g id="_x31_4.8_kontur">
+</g>
+<g id="_x31_5.1_fill">
+</g>
+<g id="_x31_5.1_kontur">
+</g>
+<g id="_x31_5.2_kontur">
+</g>
+<g id="_x31_5.3_fill">
+</g>
+<g id="_x31_5.3_kontur">
+</g>
+<g id="_x31_6.1_Fill">
+</g>
+<g id="_x31_6.1_Stroke">
+</g>
+<g id="_x31_6.2_Fll">
+</g>
+<g id="_x31_6.2_Stroke">
+	<g id="_x31_.2_Fll_copy">
+	</g>
+</g>
+<g id="_x31_6.3_Fill">
+</g>
+<g id="_x31_6.3_Stroke">
+	<g id="_x31_.3_Fill_copy">
+	</g>
+</g>
+<g id="_x31_7.1_Fill">
+</g>
+<g id="_x31_78.1_Stroke">
+</g>
+<g id="_x31_7.2_Fll">
+</g>
+<g id="_x31_7.2_Stroke">
+	<g id="_x31_7.2_Fll_copy">
+	</g>
+</g>
+<g id="_x31_7.3_Fill">
+</g>
+<g id="_x31_7.3_Stroke">
+	<g id="_x31_7.3_Fill_copy">
+	</g>
+</g>
+<g id="_x31_9.1_fill">
+</g>
+<g id="_x31_9.1_kontur">
+</g>
+<g id="_x31_9.2_fill">
+</g>
+<g id="_x31_9.2_kontur">
+</g>
+<g id="_x31_9.3_fill">
+</g>
+<g id="_x31_9.3_kontur">
+</g>
+<g id="_x31_9.4_fill">
+</g>
+<g id="_x31_9.4_kontur">
+</g>
+<g id="_x32_0.1_fill">
+</g>
+<g id="_x32_0.1_kontur">
+</g>
+<g id="_x32_0.2_fill">
+</g>
+<g id="_x32_0.2_kontur">
+</g>
+<g id="_x32_0.3_fill">
+</g>
+<g id="_x32_0.3_kontur">
+</g>
+<g id="_x32_0.4_fill">
+</g>
+<g id="_x32_0.4_kontur">
+</g>
+<g id="_x31_8.1_Fill">
+</g>
+<g id="_x31_8.1_Stroke">
+</g>
+<g id="_x31_8.2_Fll">
+</g>
+<g id="_x31_8.2_Stroke">
+	<g id="_x31_.2_Fll_copy_1_">
+	</g>
+</g>
+<g id="_x31_8.3_Fill">
+</g>
+<g id="_x31_8.3_Stroke">
+	<g id="_x31_.3_Fill_copy_1_">
+	</g>
+</g>
+<g id="_x32_2.1_Fill">
+</g>
+<g id="_x32_2.1_Stroke">
+	<g id="_x31_8.1_Fill_copy">
+	</g>
+</g>
+<g id="_x32_2.2_Fll">
+</g>
+<g id="_x32_2.2_Stroke">
+</g>
+<g id="_x32_2.3_Fill">
+</g>
+<g id="_x32_2.3_Stroke">
+</g>
+<g id="_x32_2.4_Fill_copy">
+</g>
+<g id="_x32_2.4_Stroke_copy">
+</g>
+<g id="_x32_3.1_fill">
+</g>
+<g id="_x32_3.1_kontur">
+</g>
+<g id="_x32_3.2_fill">
+</g>
+<g id="_x32_3.2_kontur">
+</g>
+<g id="_x32_3.3_fill">
+</g>
+<g id="_x32_3.3_kontur">
+</g>
+<g id="_x32_3.4_fill">
+</g>
+<g id="_x32_3.4_kontur">
+</g>
+<g id="_x32_3.2_Fll_copy_2">
+</g>
+<g id="_x32_3.2_Stroke_copy">
+	<g id="_x31_7.2_Fll_copy_3">
+	</g>
+</g>
+</svg>

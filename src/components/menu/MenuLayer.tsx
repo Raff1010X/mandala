@@ -2,14 +2,15 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
     selectMandalaArr,
     selectLayer,
-    changeLayerArr
+    changeLayerArr,
 } from '../../features/mandala/mandalaSlice';
 
 import CloseIcon from '@mui/icons-material/Close';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';
-import { Checkbox, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import './menu.css';
 import SvgItem from '../board/SvgItem';
+import React from 'react';
 
 function ValueLabelComponent(props: SliderValueLabelProps) {
     const { children, value } = props;
@@ -25,14 +26,20 @@ function MenuLayer() {
     const dispatch = useAppDispatch();
     const layer = useAppSelector(selectLayer);
     const mandalaArr = useAppSelector(selectMandalaArr)[layer];
-    let { items, rotate, diameter, svgItem, stroke, fill, svgRotate, scale } =
-        mandalaArr;
 
-    let fillCheck = true;
-    if (fill === "transparent") {
-        fill = "#ffffff";
-        fillCheck = false;
-    }
+    let {
+        items,
+        rotate,
+        diameter,
+        svgItem,
+        stroke,
+        strokeWidth,
+        strokeOpacity,
+        fill,
+        fillOpacity,
+        svgRotate,
+        scale,
+    } = mandalaArr;
 
     function handleClickCloseMenu() {
         let element = document.getElementById('menu-layer') as HTMLDivElement;
@@ -49,12 +56,9 @@ function MenuLayer() {
     }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement> | any) {
-        if ( e.target.name === "fill-check") {
-            if (e.target.checked) dispatch(changeLayerArr({name: 'fill', value: '#ffffff'}))
-            else dispatch(changeLayerArr({name: 'fill', value: 'transparent'}))
-        } else {
-            dispatch(changeLayerArr({name: e.target.name, value: e.target.value}))
-        }
+        dispatch(
+            changeLayerArr({ name: e.target.name, value: e.target.value })
+        );
     }
 
     return (
@@ -63,17 +67,31 @@ function MenuLayer() {
                 className="menu--top-bar"
                 onClick={() => handleClickCloseMenu()}
             >
-                <div>Layer</div>
+                <div>Layer {Number(layer) + 1}</div>
                 <i>
                     <CloseIcon />
                 </i>
             </div>
-            <div className="menu--item-selector no-scroll fit-height">
+            <div className="menu--item-selector">
                 <div
                     className="menu--item-select"
                     onClick={() => handleClickOpenImageMenu()}
                 >
-                    <SvgItem item={svgItem} stroke="#940083" fill="white" rotate={0} scale={1} position="relative"/>
+                    <p className="menu-image-title">Image {svgItem}</p>
+                    <SvgItem
+                        item={svgItem}
+                        strokeWidth={0.75}
+                        strokeOpacity={1}
+                        fillOpacity={0.25}
+                        stroke={stroke}
+                        fill={fill}
+                        rotate={0}
+                        scale={1}
+                        position="relative"
+                        rotateX = {0}
+                        rotateY = {0}
+                        rotateZ = {0}
+                    />
                 </div>
                 <div className="menu--select">
                     <label htmlFor="items">Number of items:</label>
@@ -103,14 +121,14 @@ function MenuLayer() {
                         color="secondary"
                         id="diameter"
                         name="diameter"
-                        min={1}
+                        min={0}
                         max={60}
                         value={diameter}
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="rorate">Rotation of layer:</label>
+                    <label htmlFor="rotate">Rotation of layer:</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -127,13 +145,78 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select-color">
-                    <label htmlFor="fill">Fill:</label>
-                    <Checkbox size="small" color="secondary" id="fill-check" name="fill-check" checked={fillCheck} onChange={(e) => handleChange(e)}/>
-                    <input type="color" id="fill" name="fill" value={fill} onChange={(e) => handleChange(e)}/>
+                    <label htmlFor="stroke">Stroke:</label>
+                    <input
+                        type="color"
+                        id="stroke"
+                        name="stroke"
+                        value={stroke}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </div>
+                <div className="menu--select">
+                    <label htmlFor="strokeWidth">Stroke width:</label>
+                    <Slider
+                        valueLabelDisplay="auto"
+                        components={{
+                            ValueLabel: ValueLabelComponent,
+                        }}
+                        size="small"
+                        color="secondary"
+                        id="strokeWidth"
+                        name="strokeWidth"
+                        min={0}
+                        max={5}
+                        step={0.1}
+                        value={strokeWidth}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </div>
+                <div className="menu--select">
+                    <label htmlFor="strokeOpacity">Stroke opacity:</label>
+                    <Slider
+                        valueLabelDisplay="auto"
+                        components={{
+                            ValueLabel: ValueLabelComponent,
+                        }}
+                        size="small"
+                        color="secondary"
+                        id="strokeOpacity"
+                        name="strokeOpacity"
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        value={strokeOpacity}
+                        onChange={(e) => handleChange(e)}
+                    />
                 </div>
                 <div className="menu--select-color">
-                    <label htmlFor="stroke">Stroke:</label>
-                    <input type="color" id="stroke" name="stroke" value={stroke} onChange={(e) => handleChange(e)}/>
+                    <label htmlFor="fill">Fill:</label>
+                    <input
+                        type="color"
+                        id="fill"
+                        name="fill"
+                        value={fill}
+                        onChange={(e) => handleChange(e)}
+                    />
+                </div>
+                <div className="menu--select">
+                    <label htmlFor="fillOpacity">Fill opacity:</label>
+                    <Slider
+                        valueLabelDisplay="auto"
+                        components={{
+                            ValueLabel: ValueLabelComponent,
+                        }}
+                        size="small"
+                        color="secondary"
+                        id="fillOpacity"
+                        name="fillOpacity"
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        value={fillOpacity}
+                        onChange={(e) => handleChange(e)}
+                    />
                 </div>
                 <div className="menu--select">
                     <label htmlFor="svgRotate">Rotation of item:</label>
