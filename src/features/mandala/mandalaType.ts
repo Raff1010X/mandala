@@ -17,9 +17,20 @@ export const mandalaTransform = {
     rotateY: 0,
     rotateZ: 0,
     perspective: 3,
-}
+};
 
-export type mandalaType = 'items' | 'rotate' | 'diameter' | 'svgItem' | 'stroke' | 'strokeWidth' | 'strokeOpacity' | 'fill' | 'fillOpacity' | 'svgRotate' | 'scale';
+export type mandalaType =
+    | 'items'
+    | 'rotate'
+    | 'diameter'
+    | 'svgItem'
+    | 'stroke'
+    | 'strokeWidth'
+    | 'strokeOpacity'
+    | 'fill'
+    | 'fillOpacity'
+    | 'svgRotate'
+    | 'scale';
 export type transformType = 'rotateX' | 'rotateY' | 'rotateZ' | 'perspective';
 
 export interface MandalaArrProps {
@@ -54,105 +65,14 @@ export let mandalaArr = [
     {
         items: 6,
         rotate: 0,
-        diameter: 4,
-        svgItem: 30,
-        stroke: '#ff00e1',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
-        scale: 0.1,
-    },
-    {
-        items: 6,
-        rotate: 0,
-        diameter: 7,
-        svgItem: 31,
-        stroke: '#ff00e1',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
-        scale: 0.1,
-    },
-    {
-        items: 6,
-        rotate: 29,
         diameter: 10,
-        svgItem: 32,
-        stroke: '#ff00e1',
+        svgItem: 1,
+        stroke: '#000000',
         strokeWidth: 0.75,
         strokeOpacity: 1,
         fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
-        scale: 0.1,
-    },
-    {
-        items: 24,
-        rotate: 0,
-        diameter: 14,
-        svgItem: 33,
-        stroke: '#ff00e1',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
-        scale: 0.05,
-    },
-    {
-        items: 18,
-        rotate: 0,
-        diameter: 16,
-        svgItem: 34,
-        stroke: '#ff00e1',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
-        scale: 0.1,
-    },
-    {
-        items: 18,
-        rotate: 10,
-        diameter: 18,
-        svgItem: 35,
-        stroke: '#cb02a0',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 270,
-        scale: 0.1,
-    },
-    {
-        items: 18,
-        rotate: 0,
-        diameter: 22,
-        svgItem: 36,
-        stroke: '#ff00e1',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
-        scale: 0.1,
-    },
-    {
-        items: 18,
-        rotate: 10,
-        diameter: 22,
-        svgItem: 37,
-        stroke: '#ff00e1',
-        strokeWidth: 0.75,
-        strokeOpacity: 1,
-        fill: '#ffffff',
-        fillOpacity: 0.5,
-        svgRotate: 90,
+        fillOpacity: 1,
+        svgRotate: 89,
         scale: 0.1,
     },
 ];

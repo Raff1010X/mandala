@@ -1,6 +1,6 @@
+import React, { memo } from 'react';
 import SvGItem from './SvgItem';
 import SvGContainer from './SvgContainer';
-import React, { memo } from 'react';
 
 interface SvgProps {
     items: number;
@@ -37,7 +37,7 @@ function SvgCircle({
     rotateX,
     rotateY,
     rotateZ,
-    perspective
+    perspective,
 }: SvgProps) {
     let elements = [];
     for (let i = 0; i < items; i++) {
@@ -59,7 +59,7 @@ function SvgCircle({
                     fillOpacity={fillOpacity}
                     rotate={svgRotate}
                     scale={scale}
-                    position='absolute'
+                    position="absolute"
                     rotateX={rotateX}
                     rotateY={rotateY}
                     rotateZ={rotateZ}
@@ -71,4 +71,4 @@ function SvgCircle({
     return <React.Fragment>{elements}</React.Fragment>;
 }
 
-export default memo(SvgCircle) ;
+export default memo(SvgCircle);

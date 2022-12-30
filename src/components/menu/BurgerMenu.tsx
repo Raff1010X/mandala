@@ -1,14 +1,20 @@
-import './menu.css';
-import {ReactComponent as Menu} from "../../assets/menu.svg"
+import { ReactComponent as Menu } from '../../assets/menu.svg';
 
 interface burgerMenuProps {
-    onClick: () => void;
+    onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 function BurgerMenu({ onClick }: burgerMenuProps) {
     return (
-        <div className="burger-menu" onClick={() => onClick()}>
-            <i><Menu /></i>
+        <div
+            id="burger-menu"
+            data-item="burger-menu"
+            className="burger-menu"
+            onClick={(e) => onClick(e)}
+        >
+            <i>
+                <Menu />
+            </i>
             <i>Menu</i>
         </div>
     );

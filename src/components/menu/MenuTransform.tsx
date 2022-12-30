@@ -1,14 +1,14 @@
+import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
     changeTransform,
     selectTransform,
 } from '../../features/mandala/mandalaSlice';
-
+import { classRemove } from './handleMenu';
 import CloseIcon from '@mui/icons-material/Close';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';
 import { Tooltip } from '@mui/material';
-import './menu.css';
-import React from 'react';
+
 
 function ValueLabelComponent(props: SliderValueLabelProps) {
     const { children, value } = props;
@@ -27,13 +27,8 @@ function MenuTransform() {
     let { rotateX, rotateY, rotateZ, perspective } = transform;
 
     function handleClickCloseMenu() {
-        let element = document.getElementById(
-            'menu-transform'
-        ) as HTMLDivElement;
-        element.classList.remove('menu-layers--open');
-        document
-            .getElementsByClassName('burger-menu')[0]
-            .classList.remove('burger-menu--hidden');
+        classRemove('menu-transform', 'menu-layers--open')
+        classRemove('burger-menu', 'burger-menu--hidden')
     }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement> | any) {

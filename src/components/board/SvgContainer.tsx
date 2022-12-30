@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface SvgProps {
     item: number;
@@ -9,8 +9,14 @@ interface SvgProps {
     perspective: number;
 }
 
-function SvgContainer({ item, items, rotate, diameter, children, perspective }: SvgProps) {
-
+function SvgContainer({
+    item,
+    items,
+    rotate,
+    diameter,
+    children,
+    perspective,
+}: SvgProps) {
     return (
         <div
             style={{
@@ -20,8 +26,10 @@ function SvgContainer({ item, items, rotate, diameter, children, perspective }: 
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transform: `rotate(${(item * 360) / items + rotate}deg) translateX(${diameter}vw)`,
-                perspective: `${perspective}vw`
+                transform: `rotate(${
+                    (item * 360) / items + rotate
+                }deg) translateX(${diameter}vw)`,
+                perspective: `${perspective}vw`,
             }}
         >
             {children}
@@ -29,4 +37,4 @@ function SvgContainer({ item, items, rotate, diameter, children, perspective }: 
     );
 }
 
-export default SvgContainer ;
+export default SvgContainer;

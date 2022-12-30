@@ -3,18 +3,18 @@ import { useAppDispatch } from '../../app/hooks';
 import { changeLayerArr } from '../../features/mandala/mandalaSlice';
 import SvgItem from '../board/SvgItem';
 import CloseIcon from '@mui/icons-material/Close';
-import './menu.css';
+import {classAdd, classRemove} from './handleMenu'
+
 
 function MenuImage() {
     const dispatch = useAppDispatch();
 
     function handleClickCloseMenu(e: React.MouseEvent<HTMLElement>) {
-        const item = e.currentTarget.dataset.item
-        if (item) dispatch(changeLayerArr({name: 'svgItem', value: Number(item)}))
-        let element = document.getElementById('menu-image') as HTMLDivElement;
-        element.classList.remove('menu-layers--open');
-        element = document.getElementById('menu-layer') as HTMLDivElement;
-        element.classList.add('menu-layers--open');
+        const item = e.currentTarget.dataset.item;
+        if (item)
+            dispatch(changeLayerArr({ name: 'svgItem', value: Number(item) }));
+        classRemove('menu-image', 'menu-layers--open');
+        classAdd('menu-layers', 'menu-layers--open');
     }
 
     let images = useMemo(() => {
@@ -38,15 +38,15 @@ function MenuImage() {
                         rotate={0}
                         scale={1}
                         position="relative"
-                        rotateX = {0}
-                        rotateY = {0}
-                        rotateZ = {0}
+                        rotateX={0}
+                        rotateY={0}
+                        rotateZ={0}
                     />
                 </div>
             );
         }
         return images;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

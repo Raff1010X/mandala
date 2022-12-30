@@ -11,7 +11,7 @@ interface mainMenuProps {
 
 function MainMenu({ onClick }: mainMenuProps) {
     return (
-        <div className="menu-main-frame">
+        <div id="menu-main-frame" className="menu-main-frame">
             <div className="menu-main">
                 <div
                     data-item="draw"

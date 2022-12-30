@@ -1,20 +1,22 @@
 import { LegacyRef, ReactNode } from 'react';
-import SvgCircle from './SvgCircle';
-import './svgBoard.css'
-
 import { useAppSelector } from '../../app/hooks';
-import {selectMandalaArr, selectTransform} from '../../features/mandala/mandalaSlice';
+import {
+    selectMandalaArr,
+    selectTransform,
+} from '../../features/mandala/mandalaSlice';
+import { classRemove } from '../menu/handleMenu';
+import SvgCircle from './SvgCircle';
+import './svgBoard.css';
 
-
-
-function SvgBoard({refs}: {refs: LegacyRef<HTMLDivElement> | undefined}) {
-    
-    const { rotateX, rotateY, rotateZ, perspective } = useAppSelector(selectTransform);
+function SvgBoard({ refs }: { refs: LegacyRef<HTMLDivElement> | undefined }) {
+    const { rotateX, rotateY, rotateZ, perspective } =
+        useAppSelector(selectTransform);
 
     const mandalaArr = useAppSelector(selectMandalaArr);
 
-    let mandala: ReactNode[] =  [...mandalaArr].reverse().map((el, index) => {
-        return <SvgCircle
+    let mandala: ReactNode[] = [...mandalaArr].reverse().map((el, index) => {
+        return (
+            <SvgCircle
                 items={el.items}
                 rotate={el.rotate}
                 diameter={el.diameter}
@@ -33,25 +35,23 @@ function SvgBoard({refs}: {refs: LegacyRef<HTMLDivElement> | undefined}) {
                 rotateZ={rotateZ}
                 perspective={perspective}
             />
-    })
+        );
+    });
 
     const handleClick = () => {
-        document
-        .getElementsByClassName('menu-main-frame')[0]
-        .classList.remove('menu-main-frame--open');
-        document
-        .getElementsByClassName('burger-menu')[0]
-        .classList.remove('burger-menu--hidden');
-    }
+        classRemove('menu-main-frame', 'menu-main-frame--open');
+        classRemove('burger-menu', 'burger-menu--hidden');
+    };
 
     return (
-        <div 
-        onClick={handleClick}
-        ref={refs}
-        className="svgBoard"
-        style={{
-            backgroundColor: "#feffeb"
-        }}>
+        <div
+            onClick={handleClick}
+            ref={refs}
+            className="svgBoard"
+            style={{
+                backgroundColor: '#feffeb',
+            }}
+        >
             {mandala}
         </div>
     );

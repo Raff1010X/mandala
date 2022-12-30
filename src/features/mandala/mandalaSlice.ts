@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import {newLayer, mandalaTransform, transformType, mandalaType, MandalaState, mandalaArr} from './mandalaType'
+import {
+    newLayer,
+    mandalaTransform,
+    transformType,
+    mandalaType,
+    MandalaState,
+    mandalaArr,
+} from './mandalaType';
 
 const initialState: MandalaState = {
     mandalaArr,
@@ -16,25 +23,42 @@ export const mandalaSlice = createSlice({
         setLayer: (state, action: PayloadAction<number>) => {
             state.layer = action.payload;
         },
-        changeLayerArr: (state, action: PayloadAction<{name: string, value: any}>) => {
-            state.mandalaArr[state.layer][action.payload['name'] as mandalaType ] = action.payload['value']
+        changeLayerArr: (
+            state,
+            action: PayloadAction<{ name: string; value: any }>
+        ) => {
+            state.mandalaArr[state.layer][
+                action.payload['name'] as mandalaType
+            ] = action.payload['value'];
         },
         deleteLayer: (state, action: PayloadAction<number>) => {
             if (action.payload > -1 && state.mandalaArr.length > 1) {
-                state.layer = 0
-                state.mandalaArr = state.mandalaArr.filter((el, index) => index !== Number(action.payload) )
+                state.layer = 0;
+                state.mandalaArr = state.mandalaArr.filter(
+                    (el, index) => index !== Number(action.payload)
+                );
             }
         },
         addLayer: (state) => {
-            state.mandalaArr = [...state.mandalaArr, newLayer]
+            state.mandalaArr = [...state.mandalaArr, newLayer];
         },
-        changeTransform: (state, action: PayloadAction<{name: string, value: number}>) => {
-            state.transform[action.payload['name'] as transformType ] = action.payload['value']
-        }
+        changeTransform: (
+            state,
+            action: PayloadAction<{ name: string; value: number }>
+        ) => {
+            state.transform[action.payload['name'] as transformType] =
+                action.payload['value'];
+        },
     },
 });
 
-export const { setLayer, changeLayerArr, deleteLayer, addLayer, changeTransform } = mandalaSlice.actions;
+export const {
+    setLayer,
+    changeLayerArr,
+    deleteLayer,
+    addLayer,
+    changeTransform,
+} = mandalaSlice.actions;
 
 export const selectMandalaArr = (state: RootState) => state.mandala.mandalaArr;
 export const selectLayer = (state: RootState) => state.mandala.layer;

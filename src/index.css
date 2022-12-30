@@ -85,6 +85,11 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -122,26 +127,10 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-html {
-    width: 100vw;
-    height: 100%;
-}
-* {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
 
 body {
-    font-family: 'Segoe UI', 'Roboto',
-        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: 100vw;
-    height: 100%;
     overflow: hidden;
-    position: fixed;
 }

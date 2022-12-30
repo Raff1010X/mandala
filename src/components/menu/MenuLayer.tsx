@@ -1,16 +1,15 @@
+import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
     selectMandalaArr,
     selectLayer,
     changeLayerArr,
 } from '../../features/mandala/mandalaSlice';
-
+import { classAdd, classRemove } from './handleMenu';
 import CloseIcon from '@mui/icons-material/Close';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';
 import { Tooltip } from '@mui/material';
-import './menu.css';
 import SvgItem from '../board/SvgItem';
-import React from 'react';
 
 function ValueLabelComponent(props: SliderValueLabelProps) {
     const { children, value } = props;
@@ -42,17 +41,13 @@ function MenuLayer() {
     } = mandalaArr;
 
     function handleClickCloseMenu() {
-        let element = document.getElementById('menu-layer') as HTMLDivElement;
-        element.classList.remove('menu-layers--open');
-        element = document.getElementById('menu-layers') as HTMLDivElement;
-        element.classList.add('menu-layers--open');
+        classRemove('menu-layer', 'menu-layers--open');
+        classAdd('menu-layers', 'menu-layers--open');
     }
 
     function handleClickOpenImageMenu() {
-        let element = document.getElementById('menu-image') as HTMLDivElement;
-        element.classList.add('menu-layers--open');
-        element = document.getElementById('menu-layer') as HTMLDivElement;
-        element.classList.remove('menu-layers--open');
+        classAdd('menu-image', 'menu-layers--open');
+        classRemove('menu-layer', 'menu-layers--open');
     }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement> | any) {
@@ -88,9 +83,9 @@ function MenuLayer() {
                         rotate={0}
                         scale={1}
                         position="relative"
-                        rotateX = {0}
-                        rotateY = {0}
-                        rotateZ = {0}
+                        rotateX={0}
+                        rotateY={0}
+                        rotateZ={0}
                     />
                 </div>
                 <div className="menu--select">

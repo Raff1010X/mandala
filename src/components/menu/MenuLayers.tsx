@@ -7,35 +7,24 @@ import {
     deleteLayer,
     addLayer,
 } from '../../features/mandala/mandalaSlice';
-
+import { classAdd, classRemove } from './handleMenu';
 import SvgItem from '../board/SvgItem';
 import CloseIcon from '@mui/icons-material/Close';
-
-import './menu.css';
 
 function MenuLayers() {
     const mandalaArr = useAppSelector(selectMandalaArr);
     const dispatch = useAppDispatch();
 
-    function openLayer() {
-        let element = document.getElementById('menu-layers') as HTMLDivElement;
-        element.classList.remove('menu-layers--open');
-        element = document.getElementById('menu-layer') as HTMLDivElement;
-        element.classList.add('menu-layers--open');
-    }
-
     function handleClickLayer(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         const selectedLayer = (e.currentTarget.dataset.index || 0) as number;
         dispatch(setLayer(selectedLayer));
-        openLayer();
+        classRemove('menu-layers', 'menu-layers--open')
+        classAdd('menu-layer', 'menu-layers--open')
     }
 
     function handleClickCloseMenu() {
-        document
-            .getElementsByClassName('burger-menu')[0]
-            .classList.remove('burger-menu--hidden');
-        let element = document.getElementById('menu-layers') as HTMLDivElement;
-        element.classList.remove('menu-layers--open');
+        classRemove('burger-menu', 'burger-menu--hidden')
+        classRemove('menu-layers', 'menu-layers--open')
     }
 
     function handleClickDeleteLayer(
@@ -48,7 +37,7 @@ function MenuLayers() {
     function handleNewLayer() {
         dispatch(addLayer());
         dispatch(setLayer(mandalaArr.length));
-        openLayer();
+        classAdd('menu-layers', 'menu-layers--open')
     }
 
     let layers: ReactNode[] = mandalaArr.map((el, index) => {
@@ -75,9 +64,9 @@ function MenuLayers() {
                         rotate={0}
                         scale={1}
                         position="relative"
-                        rotateX = {0}
-                        rotateY = {0}
-                        rotateZ = {0}
+                        rotateX={0}
+                        rotateY={0}
+                        rotateZ={0}
                     />
                 </div>
             </div>
