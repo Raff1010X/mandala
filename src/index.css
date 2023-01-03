@@ -116,6 +116,11 @@ blockquote,
 q {
     quotes: none;
 }
+
+div:focus-visible {
+    outline: none;
+}
+
 blockquote:before,
 blockquote:after,
 q:before,

@@ -24,8 +24,9 @@ function Main() {
     const heading = useRef<HTMLDivElement>(null);
     const headingSmall = useRef<HTMLDivElement>(null);
     const mainMoverDiv = useRef<HTMLDivElement>(null);
+    const background = useRef<HTMLDivElement>(null);
 
-    useAutoScroll(main, mainTopDiv, mainBottomDiv);
+    useAutoScroll(main, mainTopDiv, mainBottomDiv, background);
     useMover(mainMoverDiv, heading, headingSmall);
 
     return (
@@ -40,8 +41,8 @@ function Main() {
                 </div>
             </div>
             <div id="main-bottom" className="main-bottom" ref={mainBottomDiv}>
-                <div className="main-bottom-background-1" />
-                <div className="main-bottom-container">
+                <div className="main-bottom-background-1" tabIndex={3} ref={background}/>
+                <div className="main-bottom-container" tabIndex={0}>
                     <div className="main-bottom-background-2" />
                     <i>
                         <FacebookIcon />
@@ -67,7 +68,7 @@ function Main() {
                         </a>
                     </div>
                 </div>
-                <div className="main-bottom-container">
+                <div className="main-bottom-container" tabIndex={1}>
                     <div className="main-bottom-background-2" />
                     <i>
                         <FilterVintageIcon />
@@ -89,7 +90,7 @@ function Main() {
                         </Link>
                     </div>
                 </div>
-                <div className="main-bottom-container">
+                <div className="main-bottom-container" tabIndex={2}>
                     <div className="main-bottom-background-2" />
                     <i>
                         <ImageIcon />

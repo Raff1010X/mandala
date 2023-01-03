@@ -2,7 +2,7 @@ import { RefObject, useEffect } from "react";
 
 type refType = RefObject<HTMLDivElement> | null
 
-const useAutoScroll = (main: refType, mainTop: refType, mainBottom: refType) => {
+const useAutoScroll = (main: refType, mainTop: refType, mainBottom: refType, background: refType) => {
 
     useEffect(() => {
         const MainTop = mainTop?.current as HTMLDivElement;
@@ -38,6 +38,9 @@ const useAutoScroll = (main: refType, mainTop: refType, mainBottom: refType) => 
                     MainBottom?.classList.add(
                         'main-bottom--visible'
                     );
+                    if (background?.current) {
+                        background.current.focus()
+                    }
                 }
             });
         }
@@ -45,7 +48,7 @@ const useAutoScroll = (main: refType, mainTop: refType, mainBottom: refType) => 
         return () => {
             observerBottom.unobserve(MainBottom);
         };
-    }, [main, mainBottom, mainTop]);
+    }, [main, mainBottom, mainTop, background]);
 
 };
 
