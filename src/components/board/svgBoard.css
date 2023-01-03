@@ -6,4 +6,5 @@
     align-items: center;
     justify-content: center;
     z-index: -1;
+    background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
   }

@@ -9,6 +9,10 @@ import BackVideo from './BackVideo';
 import Heading from './Heading';
 import MouseScroll from './MouseScroll';
 
+import FilterVintageIcon from '@mui/icons-material/FilterVintage';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import ImageIcon from '@mui/icons-material/Image';
+
 import './main.css';
 
 function Main() {
@@ -36,28 +40,76 @@ function Main() {
                 </div>
             </div>
             <div id="main-bottom" className="main-bottom" ref={mainBottomDiv}>
-                <div className="main-bottom-text">
-                    <div className="main-bottom-title">Inspiration</div>
+                <div className="main-bottom-background-1" />
+                <div className="main-bottom-container">
+                    <div className="main-bottom-background-2" />
+                    <i>
+                        <FacebookIcon />
+                    </i>
+                    <div className="main-bottom-title">Homo Affectus</div>
                     <div className="main-bottom-content">
-                        <div>Inspiration</div>
-                        <div>Inspiration</div>
-                        <div>Inspiration</div>
+                        <i>
+                            <FacebookIcon />
+                        </i>
+                        <div>Homo Affectus</div>
+                        <div className="main-bottom-text">
+                            Discover Homo Afectus project.
+                            <br />
+                            Interdisciplinary art initiative.
+                            <br />
+                            See more at Facebook page.
+                        </div>
+                        <a
+                            href="https://www.facebook.com/hominis.affectus"
+                            className="main-bottom-link"
+                        >
+                            Go to Facebook Page
+                        </a>
                     </div>
                 </div>
-                <div className="main-bottom-text">
-                    <div className="main-bottom-title">Create Mandala</div>
+                <div className="main-bottom-container">
+                    <div className="main-bottom-background-2" />
+                    <i>
+                        <FilterVintageIcon />
+                    </i>
+                    <div className="main-bottom-title">Mandala Creator</div>
                     <div className="main-bottom-content">
-                        <div>Create Mandala</div>
-                        <div>Create Mandala</div>
-                        <Link to="/mandala">Open editor</Link>
+                        <i>
+                            <FilterVintageIcon />
+                        </i>
+                        <div>Mandala Creator</div>
+                        <div className="main-bottom-text">
+                            Create Your individual mandala.
+                            <br />
+                            Transform it to new visual level. <br />
+                            Save it and share with others.
+                        </div>
+                        <Link to="/mandala" className="main-bottom-link">
+                            Open editor
+                        </Link>
                     </div>
                 </div>
-                <div className="main-bottom-text">
+                <div className="main-bottom-container">
+                    <div className="main-bottom-background-2" />
+                    <i>
+                        <ImageIcon />
+                    </i>
                     <div className="main-bottom-title">Art Gallery</div>
                     <div className="main-bottom-content">
+                        <i>
+                            <ImageIcon />
+                        </i>
                         <div>Art Gallery</div>
-                        <div>Art Gallery</div>
-                        <div>Art Gallery</div>
+                        <div className="main-bottom-text">
+                            See other people's creations.
+                            <br />
+                            Colors and shapes of Mandalas.
+                            <br />
+                            What is Homo Affectus?.
+                        </div>
+                        <Link to="/mandala" className="main-bottom-link">
+                            Open Art Gallery
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
     backdrop-filter: blur( 9px );
     -webkit-backdrop-filter: blur( 9px );
     border-radius: 1vh;
-    border: 1px solid #cb40ad50;
+    border: 1px solid #ff004250;
   
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@
   .menu--top-bar {
     width: 100%;
     height: 5vh;
-    background-color: #cb40ad;
+    background-color: #ff0042;
     justify-self: flex-start;
     display: flex;
     flex-direction: row;
@@ -43,7 +43,7 @@
   }
   .menu--top-bar > i > * {
     cursor: pointer;
-    background-color: #ff00e1;
+    background-color: #ff396e;
     margin-top: .5vh;
     font-size: 3vh;
   }
@@ -100,7 +100,7 @@
   }
   
   .menu--item-select:hover {
-    background-color: #cb40ad2d;
+    background-color: #ff00422d;
   }
 
 
@@ -112,7 +112,7 @@
     margin-top: 2.5vh;
     margin-left: 2.5vh;
     position: absolute;
-    color:#cb40ad;
+    color:#ff0042;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -131,7 +131,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    fill: #cb40ad;
+    fill: #ff0042;
   }
   .burger-menu > i > * {
     font-size: 4vh;
@@ -162,7 +162,7 @@
   
   .menu-main {
     height: 100%;
-    background-color: #cb40ad;
+    background-color: #ff0042;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -203,7 +203,7 @@
     height: 0;
     margin: 0 0 0 .5vh;
     font-size: 1.75vh;
-    color: #cb40ad;
+    color: #ff0042;
     text-align: left;
   }
   .menu-image-delete {
@@ -211,7 +211,7 @@
     height: 0;
     margin: 0 .5vh 0 0;
     font-size: 1.75vh;
-    color: #cb40ad;
+    color: #ff0042;
     text-align: right;
     cursor: pointer;
     z-index: 100;
@@ -258,7 +258,7 @@
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #ff00e1 transparent;
+    scrollbar-color: #ff396e transparent;
   }
   
   /* Chrome, Edge and Safari */
@@ -276,5 +276,5 @@
   
   *::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #ff00e1;
+    background-color: #ff396e;
   }

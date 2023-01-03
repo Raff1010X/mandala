@@ -49,7 +49,7 @@ function SvgBoard({ refs }: { refs: LegacyRef<HTMLDivElement> | undefined }) {
             ref={refs}
             className="svgBoard"
             style={{
-                backgroundColor: '#feffeb',
+                backgroundColor: '#ececec',
             }}
         >
             {mandala}
