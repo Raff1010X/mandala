@@ -16,11 +16,7 @@ function Heading({ refs }: { refs: LegacyRef<HTMLDivElement>[] | undefined[] }) 
                 <span>e</span>
                 <span>c</span>
                 <span>t</span>
-                <span className="red">u</span>
-                <span className="red">s</span>
-                <span className="red">&nbsp;</span>
-                <span className="red">&nbsp;</span>
-                <span className="red">&nbsp;</span>
+                <span className="red">us&nbsp;&nbsp;&nbsp;</span>
             </div>
             <div className="letters small" ref={refs[1]}>
                 <span>m</span>

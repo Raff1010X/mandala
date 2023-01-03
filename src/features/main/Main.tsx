@@ -41,18 +41,25 @@ function Main() {
                 </div>
             </div>
             <div id="main-bottom" className="main-bottom" ref={mainBottomDiv}>
-                <div className="main-bottom-background-1" tabIndex={3} ref={background}/>
-                <div className="main-bottom-container" tabIndex={0}>
+                <div
+                    className="main-bottom-background-1"
+                    tabIndex={0}
+                    ref={background}
+                />
+
+                <div className="main-bottom-container" tabIndex={1}>
                     <div className="main-bottom-background-2" />
                     <i>
                         <FacebookIcon />
                     </i>
                     <div className="main-bottom-title">Homo Affectus</div>
                     <div className="main-bottom-content">
-                        <i>
-                            <FacebookIcon />
-                        </i>
-                        <div>Homo Affectus</div>
+                        <div className="main-bottom-content-header">
+                            <i>
+                                <FacebookIcon />
+                            </i>
+                            <div>Homo Affectus</div>
+                        </div>
                         <div className="main-bottom-text">
                             Discover Homo Afectus project.
                             <br />
@@ -68,17 +75,19 @@ function Main() {
                         </a>
                     </div>
                 </div>
-                <div className="main-bottom-container" tabIndex={1}>
+                <div className="main-bottom-container" tabIndex={2}>
                     <div className="main-bottom-background-2" />
                     <i>
                         <FilterVintageIcon />
                     </i>
                     <div className="main-bottom-title">Mandala Creator</div>
                     <div className="main-bottom-content">
-                        <i>
-                            <FilterVintageIcon />
-                        </i>
-                        <div>Mandala Creator</div>
+                        <div className="main-bottom-content-header">
+                            <i>
+                                <FilterVintageIcon />
+                            </i>
+                            <div>Mandala Creator</div>
+                        </div>
                         <div className="main-bottom-text">
                             Create Your individual mandala.
                             <br />
@@ -90,17 +99,19 @@ function Main() {
                         </Link>
                     </div>
                 </div>
-                <div className="main-bottom-container" tabIndex={2}>
+                <div className="main-bottom-container" tabIndex={3}>
                     <div className="main-bottom-background-2" />
                     <i>
                         <ImageIcon />
                     </i>
                     <div className="main-bottom-title">Art Gallery</div>
                     <div className="main-bottom-content">
-                        <i>
-                            <ImageIcon />
-                        </i>
-                        <div>Art Gallery</div>
+                        <div className="main-bottom-content-header">
+                            <i>
+                                <ImageIcon />
+                            </i>
+                            <div>Art Gallery</div>
+                        </div>
                         <div className="main-bottom-text">
                             See other people's creations.
                             <br />
