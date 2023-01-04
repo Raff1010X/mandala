@@ -10,10 +10,10 @@ const useMover = (main: refType, heading: refType, headingSmall: refType) => {
             const target = e.target as HTMLDivElement
             const posRotX =
                 (e.offsetY - target?.offsetHeight / 2) /
-                (target?.offsetHeight / 22);
+                (target?.offsetHeight / 30);
             const posRotY =
                 (e.offsetX - target?.offsetWidth / 2) /
-                (target?.offsetWidth / 22);
+                (target?.offsetWidth / 30);
             heading?.current?.setAttribute(
                 'style',
                 `transform: rotateX(${-posRotX}deg) rotateY(${-posRotY}deg);`

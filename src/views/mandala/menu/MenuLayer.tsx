@@ -1,10 +1,10 @@
 import React from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
     selectMandalaArr,
     selectLayer,
     changeLayerArr,
-} from '../../features/mandala/mandalaSlice';
+} from '../mandalaSlice';
 import { classAdd, classRemove } from './handleMenu';
 import CloseIcon from '@mui/icons-material/Close';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';

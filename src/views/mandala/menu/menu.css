@@ -1,5 +1,5 @@
 .menu {
-    height: 85vh;
+    height: 90vh;
     width: 20vh;
     position: absolute;
     top: 2.5vh;
@@ -73,9 +73,6 @@
   
   .menu--item-selector {
     width: 100%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -87,6 +84,16 @@
     padding: 1vh 0 1vh 0;
   }
   
+  #menu-layer > .menu--item-selector {
+    height: 100%;
+  }
+
+  #menu-layers > .menu--item-selector {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
   .menu--item-select {
     margin-left: .5vh;
     width: 15vh;
@@ -142,7 +149,6 @@
     opacity: 0;
   }
   
-
   .menu-main-frame {
     position: absolute;
     height: 100%;
@@ -218,10 +224,9 @@
   }
 
   .menu-layer-plus {
-    margin-top: 2vh;
+    margin-top: 2.5vh;
     font-size: 10vh;
     text-align: center;
-    justify-self: center;
   }
 
   .menu-transform {

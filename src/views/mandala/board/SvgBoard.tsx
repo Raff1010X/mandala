@@ -1,14 +1,15 @@
-import { LegacyRef, ReactNode } from 'react';
-import { useAppSelector } from '../../app/hooks';
+import { ReactNode, RefObject } from 'react';
+import { useAppSelector } from '../../../app/hooks';
 import {
     selectMandalaArr,
     selectTransform,
-} from '../../features/mandala/mandalaSlice';
+} from '../mandalaSlice';
 import { classRemove } from '../menu/handleMenu';
 import SvgCircle from './SvgCircle';
 import './svgBoard.css';
+import ReactDOM from 'react-dom';
 
-function SvgBoard({ refs }: { refs: LegacyRef<HTMLDivElement> | undefined }) {
+function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     const { rotateX, rotateY, rotateZ, perspective } =
         useAppSelector(selectTransform);
 
@@ -39,8 +40,11 @@ function SvgBoard({ refs }: { refs: LegacyRef<HTMLDivElement> | undefined }) {
     });
 
     const handleClick = () => {
-        classRemove('menu-main-frame', 'menu-main-frame--open');
-        classRemove('burger-menu', 'burger-menu--hidden');
+        const menu = ReactDOM.findDOMNode(document.querySelector(".menu-main-frame")) as HTMLDivElement
+        if (menu.classList.contains('menu-main-frame--open')) {
+            classRemove('menu-main-frame', 'menu-main-frame--open');
+            classRemove('burger-menu', 'burger-menu--hidden');
+        }
     };
 
     return (

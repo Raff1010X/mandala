@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import mandalaReducer from '../features/mandala/mandalaSlice';
+import mandalaReducer from '../views/mandala/mandalaSlice';
 
 export const store = configureStore({
   reducer: {

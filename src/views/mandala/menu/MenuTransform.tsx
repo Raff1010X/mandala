@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
     changeTransform,
     selectTransform,
-} from '../../features/mandala/mandalaSlice';
+} from '../mandalaSlice';
 import { classRemove } from './handleMenu';
 import CloseIcon from '@mui/icons-material/Close';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';

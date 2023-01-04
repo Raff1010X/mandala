@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from 'react';
-import { useAppDispatch } from '../../app/hooks';
-import { changeLayerArr } from '../../features/mandala/mandalaSlice';
+import { useAppDispatch } from '../../../app/hooks';
+import { changeLayerArr } from '../mandalaSlice';
 import SvgItem from '../board/SvgItem';
 import CloseIcon from '@mui/icons-material/Close';
 import {classAdd, classRemove} from './handleMenu'

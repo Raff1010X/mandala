@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
     selectMandalaArr,
     setLayer,
     deleteLayer,
     addLayer,
-} from '../../features/mandala/mandalaSlice';
+} from '../mandalaSlice';
 import { classAdd, classRemove } from './handleMenu';
 import SvgItem from '../board/SvgItem';
 import CloseIcon from '@mui/icons-material/Close';

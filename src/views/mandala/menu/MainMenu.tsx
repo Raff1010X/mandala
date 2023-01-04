@@ -1,3 +1,5 @@
+import Heading from '../../main/Heading';
+
 import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
 import ShareIcon from '@mui/icons-material/Share';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
@@ -12,7 +14,9 @@ interface mainMenuProps {
 function MainMenu({ onClick }: mainMenuProps) {
     return (
         <div id="menu-main-frame" className="menu-main-frame">
+            
             <div className="menu-main">
+                <Heading refs={[undefined, undefined]}/>
                 <div
                     data-item="draw"
                     className="menu-main--item"

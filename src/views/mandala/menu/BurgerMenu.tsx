@@ -1,4 +1,4 @@
-import { ReactComponent as Menu } from '../../assets/menu.svg';
+import { ReactComponent as Menu } from '../../../assets/menu.svg';
 
 interface burgerMenuProps {
     onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

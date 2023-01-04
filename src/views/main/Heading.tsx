@@ -1,6 +1,7 @@
-import { LegacyRef } from "react";
+import { RefObject } from "react";
 
-function Heading({ refs }: { refs: LegacyRef<HTMLDivElement>[] | undefined[] }) {
+function Heading({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
+
     return (
         <div className="heading" ref={refs[0]}>
             <div className="letters">
