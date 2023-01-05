@@ -5,38 +5,11 @@ function Heading({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) 
     return (
         <div className="heading" ref={refs[0]}>
             <div className="letters">
-                <span>H</span>
-                <span>o</span>
-                <span>m</span>
-                <span>o</span>
-                <span> </span>
-                <br />
-                <span>a</span>
-                <span>f</span>
-                <span>f</span>
-                <span>e</span>
-                <span>c</span>
-                <span>t</span>
+                <span>homo<br/>affect</span>
                 <span className="red">us&nbsp;&nbsp;&nbsp;</span>
             </div>
             <div className="letters small" ref={refs[1]}>
-                <span>m</span>
-                <span>a</span>
-                <span>n</span>
-                <span>d</span>
-                <span>a</span>
-                <span>l</span>
-                <span>a</span>
-                <span> </span>
-                <span>c</span>
-                <span>r</span>
-                <span>e</span>
-                <span>a</span>
-                <span>t</span>
-                <span>o</span>
-                <span>r</span>
-                <span>s</span>
-                <span>&nbsp;</span>
+                <span>mandala creators&nbsp;</span>
             </div>
         </div>
     );

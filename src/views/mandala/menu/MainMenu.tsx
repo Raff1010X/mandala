@@ -1,4 +1,4 @@
-import Heading from '../../main/Heading';
+import Logo from './Logo';
 
 import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
 import ShareIcon from '@mui/icons-material/Share';
@@ -16,7 +16,7 @@ function MainMenu({ onClick }: mainMenuProps) {
         <div id="menu-main-frame" className="menu-main-frame">
             
             <div className="menu-main">
-                <Heading refs={[undefined, undefined]}/>
+                <Logo/>
                 <div
                     data-item="draw"
                     className="menu-main--item"
@@ -67,6 +67,7 @@ function MainMenu({ onClick }: mainMenuProps) {
                     </i>
                     <p>Fullscreen</p>
                 </div>
+                <div className="menu-background"></div>
             </div>
         </div>
     );

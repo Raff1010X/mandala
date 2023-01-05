@@ -1,3 +1,42 @@
+  /* ----------------------------------------------------logo */
+.logo {
+  position: absolute;
+  top: 7.5vh;
+  left: center;
+}
+.logo-letters {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 5vh;
+  text-shadow: -0.3vh -0.3vh #ffffff;
+  background-image: linear-gradient(to left, #ffffffdd, #fcfcfc4d);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: 0.4s;
+}
+
+.logo-small {
+  font-size: 1.67vh;
+  margin-left: -0.2vh;
+  text-shadow: none;
+  background-image: linear-gradient(to left, #ffffff77, #ffffff);
+  margin-top: 0vh;
+}
+.logo-red {
+  position: relative;
+  color: #ffffff67;
+  text-shadow: -0.3vh -0.3vh #ffffff;
+  background-color: #0000005e;
+  background-image: url('../../../assets/background-3.svg');
+  background-position: right;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+/* ------------------------------------------------- menus */
 .menu {
     height: 90vh;
     width: 20vh;
@@ -22,6 +61,22 @@
     font-size: 1.9vh;
     transition: .5s;
   }
+
+  .menu-background {
+    position: absolute;
+    left: -6%;
+    bottom: 0;
+    width: 106%;
+    height: 25vh;
+    background-image: url('../../../assets/background-1.png');
+    background-position: 0 -3vh;
+    background-size: 80vh;
+    background-repeat: no-repeat;
+    transition: 0.4s;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
 
   .menu-layers--open {
     left: 2.5vh;
@@ -125,8 +180,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: 100;
+    opacity: 1;
     transition: .25s;
+    background-color: #f3f3f3d1;
+    box-shadow: 0 0 5px #f3f3f3d1;
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
     backdrop-filter: blur( 0px );
     -webkit-backdrop-filter: blur( 0px );
     z-index: 1;
@@ -147,6 +206,7 @@
 
   .burger-menu--hidden {
     opacity: 0;
+    z-index: -1;
   }
   
   .menu-main-frame {
@@ -160,6 +220,7 @@
     transition: .5s;
     backdrop-filter: blur( 0px );
     -webkit-backdrop-filter: blur( 0px );
+    z-index: 2;
   }
 
   .menu-main-frame--open {

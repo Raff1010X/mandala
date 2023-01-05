@@ -99,23 +99,15 @@
 .heading {
     align-self: flex-start;
     transition: 0.4s !important;
+    margin-top: 10vh;
+    margin-left: 10vh;
 }
 
 .letters {
-    margin-top: 10vh;
-    margin-left: 10vh;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
     position: relative;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     font-family: 'Anton', Arial, sans-serif;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-transform: uppercase;
     font-size: min(16vh, 16vw);
     text-shadow: -0.5vh -0.5vh #000000c5;
     background-image: linear-gradient(to left, #7c7c7c, #fcfcfca9);
@@ -135,12 +127,11 @@
     position: relative;
     color: #00000052;
     text-shadow: -0.5vh -0.5vh #000000c5;
-    background-color: #00000014;
+    background-color: #00000042;
     background-image: url('../../assets/background-3.svg');
     background-position: right;
     background-size:cover;
     background-repeat: no-repeat;
-
 }
 
 /* ---------------------------------------------description */
@@ -547,9 +538,11 @@
 }
 
 @media screen and (max-width: 600px) {
-    .letters {
+    .heading {
         margin-top: 5vh;
-        margin-left: 5vh;
+        margin-left: 5vh; 
+    }
+    .letters {
         font-size: min(20vh, 20vw);
     }
     .small {
