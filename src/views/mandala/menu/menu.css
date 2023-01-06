@@ -9,8 +9,8 @@
     text-transform: uppercase;
     letter-spacing: -0.03em;
     font-family: 'Anton', Arial, sans-serif;
-    font-size: 5vh;
-    text-shadow: -0.3vh -0.3vh #ffffff;
+    font-size: 10vh;
+    text-shadow: -0.4vh -0.4vh #ffffff;
     background-image: linear-gradient(to left, #ffffffdd, #fcfcfc4d);
     color: transparent;
     background-clip: text;
@@ -21,8 +21,8 @@
 }
 
 .logo-small {
-    font-size: 1.67vh;
-    margin-left: -0.2vh;
+    font-size: 3.34vh;
+    margin-left: -0.4vh;
     text-shadow: none;
     background-image: linear-gradient(to left, #ffffff77, #ffffff);
     margin-top: 0vh;
@@ -30,9 +30,9 @@
 .logo-red {
     position: relative;
     color: #ffffff67;
-    text-shadow: -0.3vh -0.3vh #ffffff;
-    background-color: #0000005e;
-    background-image: url('../../../assets/background-3.svg');
+    text-shadow: -0.4vh -0.4vh #ffffff;
+    background-color: #00000010;
+    background-image: url('../../../assets/background-3a.svg');
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
@@ -42,7 +42,12 @@
     position: absolute;
     top: 7.5vh;
     left: center;
-    width: 20vh
+    width: 100%;
+    height: 14vh;
+    background-image: url('../../../assets/logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* ------------------------------------------------- menus */

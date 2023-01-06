@@ -3,7 +3,7 @@
 function Logo() {
 
     return (
-        <img className="logo-img" alt="" src={require("../../../assets/logo.png")}/>
+        <div className="logo-img"/>
     )
 
     // return (
