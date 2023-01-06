@@ -118,6 +118,7 @@ function MenuLayer() {
                         name="diameter"
                         min={0}
                         max={60}
+                        step={0.01}
                         value={diameter}
                         onChange={(e) => handleChange(e)}
                     />
@@ -135,6 +136,7 @@ function MenuLayer() {
                         name="rotate"
                         min={0}
                         max={360}
+                        step={0.05}
                         value={rotate}
                         onChange={(e) => handleChange(e)}
                     />
@@ -162,7 +164,7 @@ function MenuLayer() {
                         name="strokeWidth"
                         min={0}
                         max={5}
-                        step={0.1}
+                        step={0.05}
                         value={strokeWidth}
                         onChange={(e) => handleChange(e)}
                     />
@@ -226,6 +228,7 @@ function MenuLayer() {
                         name="svgRotate"
                         min={0}
                         max={360}
+                        step={0.05}
                         value={svgRotate}
                         onChange={(e) => handleChange(e)}
                     />
@@ -241,9 +244,9 @@ function MenuLayer() {
                         color="secondary"
                         id="scale"
                         name="scale"
-                        min={0.02}
+                        min={0.01}
                         max={0.6}
-                        step={0.02}
+                        step={0.0005}
                         value={scale}
                         onChange={(e) => handleChange(e)}
                     />
