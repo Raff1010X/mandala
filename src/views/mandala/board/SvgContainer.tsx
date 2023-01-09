@@ -17,8 +17,10 @@ function SvgContainer({
     children,
     perspective,
 }: SvgProps) {
+
     return (
         <div
+            data-item={item}
             style={{
                 width: '100vw',
                 position: 'absolute',

@@ -57,6 +57,7 @@ export interface MandalaArrTransform {
 export interface MandalaState {
     mandalaArr: MandalaArrProps[];
     layer: number;
+    hoveredLayer: number;
     transform: MandalaArrTransform;
     status: 'idle' | 'loading' | 'failed';
 }

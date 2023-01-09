@@ -55,8 +55,9 @@ function MenuLayers() {
                 )}
                 <div data-index={index} onClick={(e) => handleClickLayer(e)}>
                     <SvgItem
+                        index={index}
                         item={el.svgItem}
-                        strokeWidth={0.75}
+                        strokeWidth={0.35}
                         strokeOpacity={1}
                         fillOpacity={0.25}
                         stroke={el.stroke}

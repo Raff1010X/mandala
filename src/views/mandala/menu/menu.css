@@ -107,14 +107,49 @@
 }
 .menu--top-bar > * {
     padding: 1.2vh;
+}
+
+.menu--top-bar > i {
     cursor: pointer;
 }
+
 .menu--top-bar > i > * {
     cursor: pointer;
     background-color: #ff396e;
     margin-top: 0.5vh;
     font-size: 3vh;
 }
+
+.menu--top-bar-layer {
+    width: 100%;
+    height: 5vh;
+    background-color: #ff0042;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu--top-bar-layer > div {
+    margin-left: 2vh;
+}
+
+.menu--top-bar-layer {
+    padding-right: 2vh;
+}
+
+.menu--top-bar-layer > i {
+    cursor: pointer;
+}
+
+.menu--top-bar-layer > i > * {
+    cursor: pointer;
+    background-color: #ff396e;
+    margin-top: 0.5vh;
+    font-size: 3vh;
+}
+
 
 .menu--select {
     width: 17vh;
@@ -171,11 +206,12 @@
     border: 1px solid #ffffffbf;
     transition: 0.25s;
     cursor: pointer;
-    z-index: 1;
+    z-index: 10;
 }
 
 .menu--item-select:hover {
-    background-color: #ff00422d;
+    background-color: #ffffff;
+    border: 1px solid #ff0042;
 }
 
 .no-scroll {
@@ -200,7 +236,7 @@
     padding: 0 10px 0 10px;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
-    z-index: 1;
+    z-index: 10;
 }
 .burger-menu > i,
 .burger-menu > i > * {
@@ -233,7 +269,7 @@
     transition: 0.5s;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
-    z-index: 2;
+    z-index: 20;
 }
 
 .menu-main-frame--open {
@@ -303,6 +339,11 @@
     margin-top: 2.5vh;
     font-size: 10vh;
     text-align: center;
+    color: white;
+    transition: .5s;
+}
+.menu-layer-plus:hover {
+    color: #ff0042;
 }
 
 .menu-transform {

@@ -4,9 +4,12 @@ import {
     selectMandalaArr,
     selectLayer,
     changeLayerArr,
+    setLayer,
 } from '../mandalaSlice';
 import { classAdd, classRemove } from './handleMenu';
 import CloseIcon from '@mui/icons-material/Close';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Slider, { SliderValueLabelProps } from '@mui/material/Slider';
 import { Tooltip } from '@mui/material';
 import SvgItem from '../board/SvgItem';
@@ -56,26 +59,38 @@ function MenuLayer() {
         );
     }
 
+    function handlePrevLayer() {
+        dispatch(setLayer(-100));
+    }
+
+    function handleNextLayer() {
+        dispatch(setLayer(100));
+    }
+
     return (
         <div id="menu-layer" className="menu">
-            <div
-                className="menu--top-bar"
-                onClick={() => handleClickCloseMenu()}
-            >
+            <div className="menu--top-bar-layer">
                 <div>Layer {Number(layer) + 1}</div>
-                <i>
+                <i onClick={handlePrevLayer}>
+                    <NavigateBeforeIcon />
+                </i>
+                <i onClick={handleNextLayer}>
+                    <NavigateNextIcon />
+                </i>
+                <i onClick={handleClickCloseMenu}>
                     <CloseIcon />
                 </i>
             </div>
             <div className="menu--item-selector">
                 <div
                     className="menu--item-select"
-                    onClick={() => handleClickOpenImageMenu()}
+                    onClick={handleClickOpenImageMenu}
                 >
                     <p className="menu-image-title">Image {svgItem}</p>
                     <SvgItem
+                        index={layer}
                         item={svgItem}
-                        strokeWidth={0.75}
+                        strokeWidth={0.35}
                         strokeOpacity={1}
                         fillOpacity={0.25}
                         stroke={stroke}

@@ -118,8 +118,12 @@ import { ReactComponent as I117 } from '../../../assets/svg/117.svg';
 import { ReactComponent as I118 } from '../../../assets/svg/118.svg';
 import { ReactComponent as I119 } from '../../../assets/svg/119.svg';
 import { ReactComponent as I120 } from '../../../assets/svg/120.svg';
+import { MouseEvent } from 'react';
+import { selectHoveredLayer, setHoveredLayer, setLayer } from '../mandalaSlice';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
 interface SvgProps {
+    index: number;
     item: number;
     stroke: string;
     strokeWidth: number;
@@ -135,6 +139,7 @@ interface SvgProps {
 }
 
 function SvgItem({
+    index,
     item,
     stroke,
     strokeWidth,
@@ -271,10 +276,58 @@ function SvgItem({
     if (item === 120) Component = I120;
 
     // const Component = require(`../../../assets/svg/${item.toString()}.svg`)
+    // const checkIndex = (index: number | undefined): boolean => {
+    //     if (index === -1 || undefined) return true
+    //     return false
+    // }
+    // function getEventPath(e: any) {
+    //     let path = [];
+    //     let node = e.target;
+    //     while (node) {
+    //         path.push(node);
+    //         node = node.parentNode;
+    //     }
+    //     return path;
+    // }
+    // const svg: SVGSVGElement = e.currentTarget;
+    // svg.setAttribute('stroke', 'red');
+    // svg.setAttribute('fill', 'red');
+    // const svg: SVGSVGElement = e.currentTarget;
+    // svg.setAttribute('stroke', stroke);
+    // svg.setAttribute('fill', fill);
+
+    const dispatch = useAppDispatch();
+    const hoverIndex = useAppSelector(selectHoveredLayer);
+
+    const handleMouseOver = (
+        e: MouseEvent<SVGSVGElement, globalThis.MouseEvent>
+    ) => {
+        const index: number = Number(e.currentTarget.dataset.index);
+        if (index === -1) return;
+        if (index >= 0) dispatch(setHoveredLayer(index));
+    };
+
+    const handleClick = (
+        e: MouseEvent<SVGSVGElement, globalThis.MouseEvent>
+    ) => {
+        const index: number = Number(e.currentTarget.dataset.index);
+        if (index === -1) return;
+        if (index >= 0) dispatch(setLayer(index));
+
+    };
+
     return (
         <Component
-            stroke={stroke}
-            fill={fill}
+            onClick={(e) => {
+                handleClick(e);
+            }}
+            onMouseOver={(e) => {
+                handleMouseOver(e);
+            }}
+            onMouseOut={() => dispatch(setHoveredLayer(-1))}
+            data-index={index}
+            stroke={index === hoverIndex && hoverIndex > -1 ? '#ff0042' : stroke}
+            fill={index === hoverIndex && hoverIndex > -1 ? '#ff0042' : fill}
             fillOpacity={fillOpacity}
             strokeWidth={strokeWidth}
             strokeOpacity={strokeOpacity}

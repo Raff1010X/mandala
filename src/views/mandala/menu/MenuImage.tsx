@@ -29,9 +29,10 @@ function MenuImage() {
                 >
                     <p className="menu-image-title">Image {i}</p>
                     <SvgItem
+                        index={-1}
                         item={i}
-                        stroke="#940083"
-                        strokeWidth={0.75}
+                        stroke="black"
+                        strokeWidth={0.35}
                         strokeOpacity={1}
                         fill="white"
                         fillOpacity={0.5}

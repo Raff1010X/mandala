@@ -12,6 +12,7 @@ import {
 const initialState: MandalaState = {
     mandalaArr,
     layer: 0,
+    hoveredLayer: -1,
     transform: mandalaTransform,
     status: 'idle',
 };
@@ -21,7 +22,31 @@ export const mandalaSlice = createSlice({
     initialState,
     reducers: {
         setLayer: (state, action: PayloadAction<number>) => {
+            const current: number = Number(state.layer)
+            if (action.payload === 100 && current < mandalaArr.length-1) {
+                state.layer = current + 1
+                state.hoveredLayer = current + 1
+                return
+            }
+            if (action.payload === 100 && current === mandalaArr.length-1) {
+                state.layer = 0
+                state.hoveredLayer = 0
+                return
+            }
+            if (action.payload === -100 && current > 0) {
+                state.layer = current - 1
+                state.hoveredLayer = current - 1
+                return
+            }
+            if (action.payload === -100 && current === 0) {
+                state.layer = mandalaArr.length - 1
+                state.hoveredLayer = mandalaArr.length - 1
+                return
+            }
             state.layer = action.payload;
+        },
+        setHoveredLayer: (state, action: PayloadAction<number>) => {
+            state.hoveredLayer = action.payload;
         },
         changeLayerArr: (
             state,
@@ -54,6 +79,7 @@ export const mandalaSlice = createSlice({
 
 export const {
     setLayer,
+    setHoveredLayer,
     changeLayerArr,
     deleteLayer,
     addLayer,
@@ -62,6 +88,7 @@ export const {
 
 export const selectMandalaArr = (state: RootState) => state.mandala.mandalaArr;
 export const selectLayer = (state: RootState) => state.mandala.layer;
+export const selectHoveredLayer = (state: RootState) => state.mandala.hoveredLayer;
 export const selectTransform = (state: RootState) => state.mandala.transform;
 
 export default mandalaSlice.reducer;
