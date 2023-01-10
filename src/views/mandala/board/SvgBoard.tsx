@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { ReactNode, RefObject, useRef, useState } from 'react';
+import { ReactNode, RefObject, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
     changeLayerArr,
@@ -9,11 +9,14 @@ import {
     setHoveredLayer,
 } from '../mandalaSlice';
 
+import { getColor, distance } from '../../../misc/functions';
+
 import { classRemove } from '../menu/handleMenu';
 
 import SvgCircle from './SvgCircle';
 
 import './svgBoard.css';
+
 
 function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     const dispatch = useAppDispatch();
@@ -61,80 +64,51 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         }
     };
 
-    const [dragYellow, setDragYellow] = useState(false);
-    const [dragRed, setDragRed] = useState(false);
-    const [dragOrange, setDragOrange] = useState(false);
-    const [dragBlue, setDragBlue] = useState(false);
-    const [dragWhite, setDragWhite] = useState(false);
-    const [dragLightBlue, setDragLightBlue] = useState(false);
-    const [dragViolet, setDragViolet] = useState(false);
+    type dragTypes =
+        | 'yellow'
+        | 'red'
+        | 'orange'
+        | 'blue'
+        | 'white'
+        | 'lightBlue'
+        | 'violet'
+        | 'limegreen'
+        | 'none';
+    const [draged, setDraged] = useState<dragTypes>();
 
     const handleMouseDownYellow = () => {
-        setDragYellow(true);
+        setDraged('yellow');
         dispatch(setHoveredLayer(Number(layer)));
-    };
-    const handleMouseUpYellow = () => {
-        setDragYellow(false);
-        dispatch(setHoveredLayer(-1));
     };
     const handleMouseDownRed = () => {
-        setDragRed(true);
+        setDraged('red');
         dispatch(setHoveredLayer(Number(layer)));
-    };
-    const handleMouseUpRed = () => {
-        setDragRed(false);
-        dispatch(setHoveredLayer(-1));
     };
     const handleMouseDownOrange = () => {
-        setDragOrange(true);
-    };
-    const handleMouseUpOrange = () => {
-        setDragOrange(false);
-        dispatch(setHoveredLayer(-1));
+        setDraged('orange');
     };
     const handleMouseDownBlue = () => {
-        setDragBlue(true);
+        setDraged('blue');
     };
-    const handleMouseUpBlue = () => {
-        setDragBlue(false);
-        dispatch(setHoveredLayer(-1));
-    };
-
     const handleMouseDownWhite = () => {
-        setDragWhite(true);
+        setDraged('white');
         dispatch(setHoveredLayer(Number(layer)));
     };
-    const handleMouseUpWhite = () => {
-        setDragWhite(false);
-        dispatch(setHoveredLayer(-1));
-    };
-
     const handleMouseDownLightBlue = () => {
-        setDragLightBlue(true);
+        setDraged('lightBlue');
         dispatch(setHoveredLayer(Number(layer)));
     };
-    const handleMouseUpLightBlue = () => {
-        setDragLightBlue(false);
-        dispatch(setHoveredLayer(-1));
-    };
-
     const handleMouseDownViolet = () => {
-        setDragViolet(true);
+        setDraged('violet');
         dispatch(setHoveredLayer(Number(layer)));
     };
-    const handleMouseUpViolet = () => {
-        setDragViolet(false);
-        dispatch(setHoveredLayer(-1));
+    const handleMouseDownLimeGreen = () => {
+        setDraged('limegreen');
+        dispatch(setHoveredLayer(Number(layer)));
     };
 
     const handleMouseUp = () => {
-        setDragRed(false);
-        setDragYellow(false);
-        setDragOrange(false);
-        setDragBlue(false);
-        setDragLightBlue(false);
-        setDragWhite(false);
-        setDragViolet(false);
+        setDraged('none');
         dispatch(setHoveredLayer(-1));
     };
 
@@ -144,7 +118,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         let value = 0;
         let value2 = 0;
 
-        if (dragYellow) {
+        if (draged === 'yellow') {
             let absX = 1;
             let absY = 1;
             if (mandalaArrlayer.rotate > 0) absX = 1;
@@ -163,7 +137,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             dispatch(changeLayerArr({ name: 'diameter', value }));
         }
 
-        if (dragWhite) {
+        if (draged === 'white') {
             let absX = 1;
             let absY = 1;
             if (mandalaArrlayer.rotate > 0) absX = 1;
@@ -181,20 +155,19 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             if (value < 0.01 || value > 0.6) return;
             dispatch(changeLayerArr({ name: 'scale', value }));
         }
-        
 
-        if (dragViolet) {
+        if (draged === 'violet') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate -90> 0)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
                 absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate -90> 90)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 90)
                 absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate -90> 270)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 270)
                 absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate -90> 0)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
                 absY = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate -90> 180)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 180)
                 absY = 1;
             if (Math.abs(e.movementX * absX + e.movementY * absY) > 10) return;
             value = Number(
@@ -207,7 +180,31 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             dispatch(changeLayerArr({ name: 'strokeWidth', value }));
         }
 
-        if (dragRed || dragOrange || dragBlue || dragLightBlue) {
+        if (draged === 'limegreen') {
+            let absX = 1;
+            let absY = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
+                absX = -1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 90)
+                absX = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 270)
+                absX = -1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
+                absY = -1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 180)
+                absY = 1;
+            if (Math.abs(e.movementX * absX + e.movementY * absY) > 10) return;
+            value = Number(
+                (
+                    mandalaArrlayer.items +
+                    (e.movementX * absX + e.movementY * absY) / 15
+                ).toFixed(1)
+            );
+            if (value < 1 || value > 32) return;
+            dispatch(changeLayerArr({ name: 'items', value }));
+        }
+
+        if (draged === 'red' || 'orange' || 'blue' || 'lightBlue') {
             if (Math.abs(e.movementX) > 10) return;
             const x = -(window.innerHeight / 2 - e.clientY);
             const y = window.innerWidth / 2 - e.clientX;
@@ -223,21 +220,21 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             if (value2 > 1) value2 = 1;
         }
 
-        if (dragRed) {
+        if (draged === 'red') {
             dispatch(changeLayerArr({ name: 'rotate', value }));
         }
-        if (dragOrange) {
+        if (draged === 'orange') {
             dispatch(changeLayerArr({ name: 'fill', value: getColor(value) }));
             dispatch(changeLayerArr({ name: 'fillOpacity', value: value2 }));
         }
-        if (dragBlue) {
+        if ( draged === 'blue') {
             // background?.current?.setAttribute('style', `background-color: ${getColor(value)}`)
             dispatch(
                 changeLayerArr({ name: 'stroke', value: getColor(value) })
             );
             dispatch(changeLayerArr({ name: 'strokeOpacity', value: value2 }));
         }
-        if (dragLightBlue) {
+        if ( draged === 'lightBlue') {
             dispatch(
                 changeLayerArr({
                     name: 'svgRotate',
@@ -246,51 +243,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             );
         }
     };
-
-    function distance(x: number, y: number, x1: number, y1: number): number {
-        return Math.sqrt(Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
-    }
-
-    function getColor(hue: number) {
-        const color = hslToRgb(hue / 360, 1, 0.5);
-        return (
-            '#' +
-            componentToHex(color[0]) +
-            componentToHex(color[1]) +
-            componentToHex(color[2])
-        );
-        // return `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-    }
-
-    function componentToHex(c: number) {
-        let hex = c.toString(16);
-        return hex.length === 1 ? '0' + hex : hex;
-    }
-
-    function hslToRgb(h: number, s: number, l: number) {
-        let r, g, b;
-
-        if (s === 0) {
-            r = g = b = l; // achromatic
-        } else {
-            const hue2rgb = function hue2rgb(p: number, q: number, t: number) {
-                if (t < 0) t += 1;
-                if (t > 1) t -= 1;
-                if (t < 1 / 6) return p + (q - p) * 6 * t;
-                if (t < 1 / 2) return q;
-                if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-                return p;
-            };
-
-            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-            const p = 2 * l - q;
-            r = hue2rgb(p, q, h + 1 / 3);
-            g = hue2rgb(p, q, h);
-            b = hue2rgb(p, q, h - 1 / 3);
-        }
-
-        return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-    }
 
     return (
         <div
@@ -314,7 +266,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end"
                         onMouseDown={handleMouseDownRed}
-                        onMouseUp={handleMouseUpRed}
                     />
                     <div
                         className="layer-controller-end yellow"
@@ -322,7 +273,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             left: `${49 + mandalaArrlayer.diameter * 0.81}%`,
                         }}
                         onMouseDown={handleMouseDownYellow}
-                        onMouseUp={handleMouseUpYellow}
                     />
                     <div
                         className="layer-controller-end white"
@@ -330,7 +280,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             left: `${mandalaArrlayer.scale * 80 - 2.5}%`,
                         }}
                         onMouseDown={handleMouseDownWhite}
-                        onMouseUp={handleMouseUpWhite}
                     />
                 </div>
                 <div
@@ -338,31 +287,34 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     style={{
                         transform: `rotate(${
                             mandalaArrlayer.svgRotate + 90
-                        }deg) translateY(-2vh)`,
+                        }deg) translateY(-3vh)`,
                     }}
                 >
                     <div
                         className="layer-controller-end orange"
                         onMouseDown={handleMouseDownOrange}
-                        onMouseUp={handleMouseUpOrange}
                     />
                     <div
                         className="layer-controller-end blue"
                         onMouseDown={handleMouseDownBlue}
-                        onMouseUp={handleMouseUpBlue}
                     />
                     <div
                         className="layer-controller-end lightblue"
                         onMouseDown={handleMouseDownLightBlue}
-                        onMouseUp={handleMouseUpLightBlue}
                     />
                     <div
                         className="layer-controller-end violet"
                         style={{
-                            left: `${mandalaArrlayer.strokeWidth * 10 + 10}%`,
+                            left: `${55 + mandalaArrlayer.strokeWidth * 8}%`,
                         }}
                         onMouseDown={handleMouseDownViolet}
-                        onMouseUp={handleMouseUpViolet}
+                    />
+                    <div
+                        className="layer-controller-end limegreen"
+                        style={{
+                            left: `${(mandalaArrlayer.items -1 ) * 1.35}%`,
+                        }}
+                        onMouseDown={handleMouseDownLimeGreen}
                     />
                 </div>
             </div>

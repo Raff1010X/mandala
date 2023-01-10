@@ -70,12 +70,13 @@
 }
 
 .orange {
-  left: 3vh;
+  left: 46%;
   background-color: orange;
   border-radius: 0;
 }
+
 .blue {
-  left: 0;
+  left: 51%;
   background-color: lightblue;
   border-radius: 0;
   border: 5px solid blue;
@@ -85,19 +86,40 @@
 .white {
   left: 0;
   background-color: white;
+  border-radius: 0;
   border: 1px solid rgb(168, 168, 168);
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(270deg);
 }
 
 .lightblue {
   left: 100%;
   background-color: rgb(75, 210, 255);
+  border-radius: 50%;
+  box-sizing: border-box;
 }
+
 
 .violet {
   left: 50%;
   background-color: violet;
+  border-radius: 0;
+  border-bottom: 5px solid red;
+  box-sizing: border-box;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(270deg);
 }
 
+.limegreen {
+  left: 0%;
+  background-color: limegreen;
+  border-radius: 0;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          transform: rotate(270deg);
+}
 
 
 

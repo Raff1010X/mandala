@@ -69,42 +69,54 @@ function MenuLayer() {
 
     return (
         <div id="menu-layer" className="menu">
-            <div className="menu--top-bar-layer">
+            <div className="menu--top-bar">
                 <div>Layer {Number(layer) + 1}</div>
-                <i onClick={handlePrevLayer}>
-                    <NavigateBeforeIcon />
-                </i>
-                <i onClick={handleNextLayer}>
-                    <NavigateNextIcon />
-                </i>
                 <i onClick={handleClickCloseMenu}>
                     <CloseIcon />
                 </i>
             </div>
             <div className="menu--item-selector">
-                <div
-                    className="menu--item-select"
-                    onClick={handleClickOpenImageMenu}
-                >
-                    <p className="menu-image-title">Image {svgItem}</p>
-                    <SvgItem
-                        index={layer}
-                        item={svgItem}
-                        strokeWidth={0.35}
-                        strokeOpacity={1}
-                        fillOpacity={0.25}
-                        stroke={stroke}
-                        fill={fill}
-                        rotate={0}
-                        scale={1}
-                        position="relative"
-                        rotateX={0}
-                        rotateY={0}
-                        rotateZ={0}
-                    />
+                <div className="menu-layer-item-wrapper">
+                    <div
+                        className="menu--layer-changer"
+                        onClick={handlePrevLayer}
+                    >
+                        <i>
+                            <NavigateBeforeIcon />
+                        </i>
+                    </div>
+                    <div
+                        className="menu--item-select"
+                        onClick={handleClickOpenImageMenu}
+                    >
+                        <p className="menu-image-title">Image {svgItem}</p>
+                        <SvgItem
+                            index={layer}
+                            item={svgItem}
+                            strokeWidth={0.35}
+                            strokeOpacity={1}
+                            fillOpacity={0.25}
+                            stroke={stroke}
+                            fill={fill}
+                            rotate={0}
+                            scale={1}
+                            position="relative"
+                            rotateX={0}
+                            rotateY={0}
+                            rotateZ={0}
+                        />
+                    </div>
+                    <div
+                        className="menu--layer-changer"
+                        onClick={handleNextLayer}
+                    >
+                        <i>
+                            <NavigateNextIcon />
+                        </i>
+                    </div>
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="items">Number of items:</label>
+                    <label htmlFor="items">Number of items: {Math.ceil(items)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -121,7 +133,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="diameter">Diameter of layer:</label>
+                    <label htmlFor="diameter">Diameter of layer: {diameter.toFixed(2)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -139,7 +151,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="rotate">Rotation of layer:</label>
+                    <label htmlFor="rotate">Rotation of layer: {rotate.toFixed(2)} deg</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -167,7 +179,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="strokeWidth">Stroke width:</label>
+                    <label htmlFor="strokeWidth">Stroke width: {strokeWidth.toFixed(2)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -185,7 +197,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="strokeOpacity">Stroke opacity:</label>
+                    <label htmlFor="strokeOpacity">Stroke opacity: {strokeOpacity.toFixed(2)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -213,7 +225,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="fillOpacity">Fill opacity:</label>
+                    <label htmlFor="fillOpacity">Fill opacity: {fillOpacity.toFixed(2)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -231,7 +243,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="svgRotate">Rotation of item:</label>
+                    <label htmlFor="svgRotate">Rotation of item: {svgRotate.toFixed(2)} deg</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -249,7 +261,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="scale">Scale of item:</label>
+                    <label htmlFor="scale">Scale of item: {scale.toFixed(4)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
