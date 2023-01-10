@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { ReactNode, RefObject, useState } from 'react';
+import { ReactNode, RefObject, useRef, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
     changeLayerArr,
@@ -17,7 +17,6 @@ import SvgCircle from './SvgCircle';
 
 import './svgBoard.css';
 
-
 function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     const dispatch = useAppDispatch();
 
@@ -28,6 +27,9 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     const mandalaArrLen = mandalaArr.length - 1;
     const layer = useAppSelector(selectLayer);
     const mandalaArrlayer = useAppSelector(selectMandalaArr)[layer];
+
+    const svgBoardBackground = useRef<HTMLDivElement>(null);
+    const svgBoardColorPalette = useRef<HTMLDivElement>(null);
 
     let mandala: ReactNode[] = [...mandalaArr].reverse().map((el, index) => {
         return (
@@ -86,9 +88,11 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     };
     const handleMouseDownOrange = () => {
         setDraged('orange');
+        svgBoardColorPalette?.current?.setAttribute('style', `opacity: 1;`);
     };
     const handleMouseDownBlue = () => {
         setDraged('blue');
+        svgBoardColorPalette?.current?.setAttribute('style', `opacity: 1;`);
     };
     const handleMouseDownWhite = () => {
         setDraged('white');
@@ -108,6 +112,13 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     };
 
     const handleMouseUp = () => {
+        if (draged === 'orange' || 'blue')
+            svgBoardColorPalette?.current?.setAttribute('style', `opacity: 0;`);
+        svgBoardBackground?.current?.setAttribute(
+            'style',
+            `transform: rotate(${mandalaArrlayer.rotate}deg);
+            background-color: transparent; opacity: 1;`
+        );
         setDraged('none');
         dispatch(setHoveredLayer(-1));
     };
@@ -224,17 +235,36 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             dispatch(changeLayerArr({ name: 'rotate', value }));
         }
         if (draged === 'orange') {
+            const color = getColor(value);
+            svgBoardColorPalette?.current?.setAttribute(
+                'style',
+                `opacity: ${1 - value2};`
+            );
+            svgBoardBackground?.current?.setAttribute(
+                'style',
+                `transform: rotate(${mandalaArrlayer.rotate}deg);
+                background-color: ${color}; opacity: ${value2};`
+            );
             dispatch(changeLayerArr({ name: 'fill', value: getColor(value) }));
             dispatch(changeLayerArr({ name: 'fillOpacity', value: value2 }));
         }
-        if ( draged === 'blue') {
-            // background?.current?.setAttribute('style', `background-color: ${getColor(value)}`)
+        if (draged === 'blue') {
+            const color = getColor(value);
+            svgBoardColorPalette?.current?.setAttribute(
+                'style',
+                `opacity: ${1 - value2};`
+            );
+            svgBoardBackground?.current?.setAttribute(
+                'style',
+                `transform: rotate(${mandalaArrlayer.rotate}deg);
+                 background-color: ${color}; opacity: ${value2};`
+            );
             dispatch(
                 changeLayerArr({ name: 'stroke', value: getColor(value) })
             );
             dispatch(changeLayerArr({ name: 'strokeOpacity', value: value2 }));
         }
-        if ( draged === 'lightBlue') {
+        if (draged === 'lightBlue') {
             dispatch(
                 changeLayerArr({
                     name: 'svgRotate',
@@ -251,8 +281,14 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             className="svgBoard"
             onMouseUp={handleMouseUp}
         >
+            <div 
+            ref={svgBoardColorPalette}
+            id="color-palette">
+
+            </div>
             {mandala}
             <div
+                ref={svgBoardBackground}
                 className="layer-controller-background"
                 onMouseMove={(e) => {
                     handleMouseMove(e);
@@ -312,7 +348,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end limegreen"
                         style={{
-                            left: `${(mandalaArrlayer.items -1 ) * 1.35}%`,
+                            left: `${(mandalaArrlayer.items - 1) * 1.35}%`,
                         }}
                         onMouseDown={handleMouseDownLimeGreen}
                     />

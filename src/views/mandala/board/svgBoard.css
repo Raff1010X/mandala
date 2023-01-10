@@ -9,7 +9,15 @@
     background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
   }
 
-
+#color-palette {
+  position: absolute;
+  width: min(100vw, 100vh);
+  height: min(100vw, 100vh);
+  border-radius: 50%;
+  rotate: 90deg;
+  background-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+  opacity: 0;
+}
 
 .layer-controller-background {
   width: min(100vw, 100vh);
@@ -22,13 +30,11 @@
   align-items: center;
   border: 1px solid white;
   z-index: 0;
-  transition: 0s, opacity .25s;
+  transition: 0s, background-color .1s, opacity .25s;
   background-color: transparent;
   opacity: 0;
-  /* background-image: url('../../../assets/image-asset.png');
-  background-repeat: no-repeat;
-  background-size: contain; */
 }
+
 
 .layer-controller-background:hover {
   opacity: 1;
