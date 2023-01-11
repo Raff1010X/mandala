@@ -274,6 +274,21 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         }
     };
 
+    const handleMouseOut = () => {
+        svgBoardBackground?.current?.setAttribute(
+            'style',
+            `transform: rotate(${mandalaArrlayer.rotate}deg);
+             background-color: transparent; opacity: 0;`
+        );
+    };
+    const handleMouseOver = () => {
+        svgBoardBackground?.current?.setAttribute(
+            'style',
+            `transform: rotate(${mandalaArrlayer.rotate}deg);
+             background-color: transparent; opacity: 1;`
+        );
+    };
+
     return (
         <div
             onClick={handleClick}
@@ -281,11 +296,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             className="svgBoard"
             onMouseUp={handleMouseUp}
         >
-            <div 
-            ref={svgBoardColorPalette}
-            id="color-palette">
-
-            </div>
+            <div ref={svgBoardColorPalette} id="color-palette"></div>
             {mandala}
             <div
                 ref={svgBoardBackground}
@@ -294,6 +305,8 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     handleMouseMove(e);
                 }}
                 onMouseUp={handleMouseUp}
+                onMouseOut={handleMouseOut}
+                onMouseOver={handleMouseOver}
                 style={{
                     transform: `rotate(${mandalaArrlayer.rotate}deg)`,
                 }}
