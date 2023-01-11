@@ -279,7 +279,6 @@
     font-size: smaller;
     text-decoration: none;
     color: #ff0042;
-    z-index: 1;
     background-color: #ffffff01;
     pointer-events: none;
 }
@@ -351,7 +350,6 @@
         height: 70vw;
         width: 70vw;
         transform: skewX(-5deg) skewY(-5deg) rotate(-90deg);
-        z-index: 1;
     }
     .main-bottom-title {
         transform: rotate(0deg);
