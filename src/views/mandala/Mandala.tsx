@@ -1,35 +1,35 @@
-import React, { Suspense, useRef } from 'react';
+import React, { useRef } from 'react';
 
-import { classAdd, classRemove } from '../../components/menu/handleMenu';
-import { toPng, toJpeg, toSvg } from 'html-to-image';
+import { classAdd, classRemove } from './menu/handleMenu';
+import { toPng, toSvg } from 'html-to-image';
 import downloadjs from 'downloadjs';
 
-import SvgBoard from '../../components/board/SvgBoard';
-import MainMenu from '../../components/menu/MainMenu';
-import BurgerMenu from '../../components/menu/BurgerMenu';
-import MenuLayer from '../../components/menu/MenuLayer';
-import MenuLayers from '../../components/menu/MenuLayers';
-import MenuTransform from '../../components/menu/MenuTransform';
-import MenuImage from '../../components/menu/MenuImage';
+import SvgBoard from './board/SvgBoard';
+import MainMenu from './menu/MainMenu';
+import BurgerMenu from './menu/BurgerMenu';
+import MenuLayer from './menu/MenuLayer';
+import MenuLayers from './menu/MenuLayers';
+import MenuTransform from './menu/MenuTransform';
+import MenuImage from './menu/MenuImage';
 
-import './mandala.css'
+import './mandala.css';
 
 interface FullScreenHandle {
     active: boolean;
     enter: () => Promise<void>;
     exit: () => Promise<void>;
     node: React.MutableRefObject<HTMLDivElement | null>;
-  }
+}
 
-function Mandala({handle} : {handle: FullScreenHandle}) {
+function Mandala({ handle }: { handle: FullScreenHandle }) {
     // const MenuImage = React.lazy(
     //     () => import('../../components/menu/MenuImage')
     // );
 
-    const domRef = useRef<HTMLDivElement>(null);
+    const boardRef = useRef<HTMLDivElement>(null);
 
     const hadleSaveImage = async () => {
-        const canvas = await toPng(domRef.current as HTMLElement);
+        const canvas = await toPng(boardRef.current as HTMLElement);
         downloadjs(canvas, 'download.png');
     };
 
@@ -69,9 +69,9 @@ function Mandala({handle} : {handle: FullScreenHandle}) {
                     handleClickMenuItem(e)
                 }
             />
-            <SvgBoard refs={domRef} />
+            <SvgBoard refs={boardRef} />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
-                <MenuImage />
+            <MenuImage />
             {/* </Suspense> */}
             <MenuLayer />
             <MenuLayers />

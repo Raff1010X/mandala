@@ -1,4 +1,4 @@
-/* main */
+/* ---------------------------------------------main */
 .main {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -70,7 +70,7 @@
     height: 100vh;
 }
 
-/* backVideo */
+/* ---------------------------------------------backVideo */
 .bg-video {
     width: 100vw;
     height: 100vh;
@@ -95,34 +95,26 @@
     filter: saturate(5) brightness(2.2) hue-rotate(10deg);
 }
 
-/* heading */
+/* ---------------------------------------------heading */
 .heading {
     align-self: flex-start;
-    transition: 0.5s !important;
+    transition: 0.4s !important;
+    margin-top: 10vh;
+    margin-left: 10vh;
 }
 
 .letters {
-    margin-top: 10vh;
-    margin-left: 10vh;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
     position: relative;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     font-family: 'Anton', Arial, sans-serif;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-transform: uppercase;
     font-size: min(16vh, 16vw);
-    text-shadow: -0.5vh -0.5vh #000000cb;
+    text-shadow: -0.5vh -0.5vh #000000c5;
     background-image: linear-gradient(to left, #7c7c7c, #fcfcfca9);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    transition: 0.25s;
+    transition: 0.4s;
 }
 
 .small {
@@ -132,11 +124,17 @@
     margin-top: 0vh;
 }
 .red {
-    color: #00000017;
+    position: relative;
+    color: #00000052;
+    text-shadow: -0.5vh -0.5vh #000000c5;
     background-color: #00000013;
+    background-image: url('../../assets/background-3.svg');
+    background-position: right;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
-/* description */
+/* ---------------------------------------------description */
 
 .description {
     position: absolute;
@@ -150,19 +148,21 @@
     text-align: center;
 }
 
-/* main bottom */
+/* ---------------------------------------------main bottom */
+
 .main-bottom {
     position: relative;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(210deg, #969696 0%, #ececec 100%);
+    /*- background: left / cover no-repeat url("../../assets/background-1.png"), linear-gradient(210deg, #685eaf 0%, #fbbdcc 100%); */
+    background: linear-gradient(155deg, #675eaf87 0%, #fbbdcc89 100%);
     opacity: 0;
     transition: 1s;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4vw;
+    gap: 5vw;
     overflow: hidden;
 }
 
@@ -177,7 +177,7 @@
     height: 70vh;
     background: linear-gradient(150deg, #ececec 0%, #969696 100%);
     border-radius: 4vw;
-    transition: 0.5s;
+    transition: 0.4s, opacity 0.15s;
     transform: skewX(-5deg) rotate(180deg);
     box-shadow: -0.5vh -0.5vh #b5b5b5;
     overflow: hidden;
@@ -190,13 +190,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 2;
 }
 
 .main-bottom-container:focus {
     width: 70vh;
-    transform: skewX(-5deg) skewY(-5deg) rotate(-90deg);
-    box-shadow: -0.5vh 0.5vh #b5b5b5;
-    cursor: initial;
+    cursor: default;
 }
 
 .main-bottom-title {
@@ -208,7 +207,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    transition: 0.5s;
+    transition: 0.4s, opacity 0.15s;
     font-size: max(min(3vw, 3vh), 18px);
 }
 
@@ -216,18 +215,17 @@
     position: absolute;
     top: max(2vh, 2vw);
     left: center;
-    transition: 0.5s;
+    transition: 0.4s, opacity 0.15s;
     transform: rotate(180deg);
 }
 
 .main-bottom-container > i > * {
     color: #ff0042;
-    font-size: min(max(4vh, 4vw), 50px);
+    font-size: min(max(4vh, 4vw), 40px);
 }
 
 .main-bottom-container:focus .main-bottom-title {
     opacity: 0;
-    transform: rotate(90deg);
 }
 
 .main-bottom-container:focus i {
@@ -236,34 +234,54 @@
 
 .main-bottom-content {
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.4s;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 85%;
     height: 85%;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     padding: 2.5vh;
-    transition: 0.5s, opacity 0.25s;
+    transition: 0.4s;
 }
 
 .main-bottom-content > i {
     position: absolute;
     left: 2%;
     top: 0.5%;
-    transition: 0.5s;
+    transition: 0.4s;
     transform: rotate(0deg);
     opacity: 1 !important;
 }
 
 .main-bottom-content > i > * {
-    font-size: min(max(4vh, 4vw), 50px);
+    font-size: min(max(4vh, 4vw), 40px);
 }
+
+
 
 .main-bottom-container:focus .main-bottom-content {
     opacity: 1;
-    transform: rotate(90deg);
+}
+
+.main-bottom-content-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.main-bottom-content-header > i {
+    position: absolute;
+    opacity: 1 !important;
+    left: max(-2vh, -2vw);
+    top: center;
+}
+
+.main-bottom-content-header > i > * {
+    font-size: min(max(4vh, 4vw), 40px);
 }
 
 .main-bottom-text {
@@ -287,7 +305,7 @@
     pointer-events: inherit;
 }
 
-.main-bottom-link:hover {
+.main-bottom-link:focus {
     pointer-events: initial;
 }
 
@@ -298,16 +316,17 @@
     background-image: url('../../assets/background-1.png');
     background-position: left;
     background-size: cover;
-    transition: 0.5s;
-    opacity: 0.66;
+    transition: 0.4s;
+    opacity: .66;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+    z-index: 0;
 }
 
 .main-bottom-background-1:focus {
-    opacity: 1;
-    -webkit-filter: grayscale(85%);
-    filter: grayscale(85%);
+    opacity: .8;
+    -webkit-filter: grayscale(10%);
+    filter: grayscale(10%);
 }
 
 .main-bottom-background-2 {
@@ -318,7 +337,8 @@
     background-position: center;
     background-size: cover;
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.4s;
+    transform: rotate(90deg);
     -webkit-filter: grayscale(85%);
     filter: grayscale(85%);
 }
@@ -330,14 +350,21 @@
 @media (orientation: portrait) {
     .main-bottom {
         flex-direction: column;
-        background: linear-gradient(120deg, #969696 0%, #ececec 100%);
+        background: linear-gradient(120deg, #675eaf87 0%, #fbbdcc89 100%);
+        gap: 5vh;
     }
     .main-bottom-background-1 {
         position: absolute;
-        left:0;
-        top:0;
+        left: 0;
+        top: 0;
         width: 100vw;
-        height: 125vw;
+        height: 100vh;
+        background-size: 200vw;
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
+    .main-bottom-background-2 {
+        transform: rotate(-90deg);
     }
     .main-bottom-container {
         border-radius: 4vh;
@@ -345,18 +372,20 @@
         height: 8vh;
         transform: skewX(0) skewY(-5deg);
         box-shadow: 0.4vh 0.4vh #b5b5b5;
+
     }
     .main-bottom-container:focus {
         height: 70vw;
         width: 70vw;
-        transform: skewX(-5deg) skewY(-5deg) rotate(-90deg);
+        z-index: 1;
     }
     .main-bottom-title {
         transform: rotate(0deg);
     }
-    .main-bottom-container:focus .main-bottom-content {
-        transform: rotate(90deg);
+    .main-bottom-content {
+        transform: rotate(0deg);
     }
+
     .main-bottom-content > i {
         top: 5%;
         left: 5.5%;
@@ -369,7 +398,7 @@
     }
 }
 
-/* mouseScroll */
+/* ---------------------------------------------mouseScroll */
 .mouse_scroll {
     display: block;
     width: 24px;
@@ -405,7 +434,6 @@
     -webkit-animation-delay: 0.1s;
     -moz-animation-delay: 0.1s;
     -webkit-animation-direction: alternate;
-
     animation-direction: alternate;
     -webkit-animation-delay: alternate;
     animation-delay: alternate;
@@ -415,10 +443,8 @@
     -webkit-animation-delay: 0.2s;
     -moz-animation-delay: 0.2s;
     -webkit-animation-direction: alternate;
-
     animation-delay: 0.2s;
     animation-direction: alternate;
-
     margin-top: -6px;
 }
 
@@ -426,10 +452,8 @@
     -webkit-animation-delay: 0.3s;
     -moz-animation-delay: 0.3s;
     -webkit-animation-direction: alternate;
-
     animation-delay: 0.3s;
     animation-direction: alternate;
-
     margin-top: -6px;
 }
 
@@ -513,9 +537,11 @@
 }
 
 @media screen and (max-width: 600px) {
-    .letters {
+    .heading {
         margin-top: 5vh;
-        margin-left: 5vh;
+        margin-left: 5vh; 
+    }
+    .letters {
         font-size: min(20vh, 20vw);
     }
     .small {

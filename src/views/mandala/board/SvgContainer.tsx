@@ -17,8 +17,10 @@ function SvgContainer({
     children,
     perspective,
 }: SvgProps) {
+
     return (
         <div
+            data-item={item}
             style={{
                 width: '100vw',
                 position: 'absolute',
@@ -27,7 +29,7 @@ function SvgContainer({
                 alignItems: 'center',
                 justifyContent: 'center',
                 transform: `rotate(${
-                    (item * 360) / items + rotate
+                    (item * 360) / Math.floor(items) + rotate
                 }deg) translateX(${diameter}vw)`,
                 perspective: `${perspective}vw`,
             }}

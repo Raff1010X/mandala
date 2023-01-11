@@ -3,6 +3,7 @@ import SvGItem from './SvgItem';
 import SvGContainer from './SvgContainer';
 
 interface SvgProps {
+    index: number;
     items: number;
     rotate: number;
     diameter: number;
@@ -22,6 +23,7 @@ interface SvgProps {
 }
 
 function SvgCircle({
+    index,
     items,
     rotate,
     diameter,
@@ -51,6 +53,7 @@ function SvgCircle({
                 perspective={perspective}
             >
                 <SvGItem
+                    index={index}
                     item={svgItem}
                     stroke={stroke}
                     strokeWidth={strokeWidth}
