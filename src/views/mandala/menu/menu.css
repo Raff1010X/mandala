@@ -394,3 +394,81 @@
     border-radius: 5px;
     background-color: #ff396e;
 }
+
+
+/* post form */
+
+.post {
+    position: absolute;
+    z-index: 10;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: max(350px, 50vw);
+    height: max(200px, 50vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ff0042;
+    border-radius: 1vh;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 0 20vh #ffffff;
+    background-color: #feffbc;
+}
+
+
+.post-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(204, 204, 204);
+    padding: 5vh;
+}
+
+.post-buttons {
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.post-button {
+    height: 5vh;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.post-form > fieldset {
+    width: 90%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5vh;
+    color: black;
+}
+
+#post-name {
+    width: 50%;
+    font-size: 2vh;
+}
+
+#post-origin {
+    width: 50%;
+    font-size: 2vh;
+}
+
+#post-message {
+    width: 100%;
+    font-size: 2vh;
+}

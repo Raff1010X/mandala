@@ -403,35 +403,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     />
                 </div>
             </div>
-            {/* <div
-                ref={background2}
-                className="layer-controller-background"
-                onMouseMove={(e) => {
-                    handleMouseMove(e);
-                }}
-                onMouseUp={handleMouseUp}
-                style={{
-                    rotate: `${mandalaArrlayer.svgRotate}deg`,
-                }}
-            >
-                <div className="layer-controller">
-                    <div
-                        className="layer-controller-end"
-                        onMouseDown={handleMouseDownRed}
-                        onMouseUp={handleMouseUpRed}
-                    />
-                    <div
-                        className="layer-controller-end orange"
-                        onMouseDown={handleMouseDownOrange}
-                        onMouseUp={handleMouseUpOrange}
-                    />
-                    <div
-                        className="layer-controller-end blue"
-                        onMouseDown={handleMouseDownBlue}
-                        onMouseUp={handleMouseUpBlue}
-                    />
-                </div>
-            </div> */}
         </div>
     );
 }

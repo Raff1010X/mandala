@@ -11,6 +11,7 @@ import MenuLayer from './menu/MenuLayer';
 import MenuLayers from './menu/MenuLayers';
 import MenuTransform from './menu/MenuTransform';
 import MenuImage from './menu/MenuImage';
+import Post from './menu/Post';
 
 import './mandala.css';
 
@@ -81,7 +82,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
                     handleClickMenuItem(e)
                 }
             />
-            
+            <Post />
         </div>
     );
 }
