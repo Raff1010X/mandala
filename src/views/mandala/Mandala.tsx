@@ -69,11 +69,11 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
                     handleClickMenuItem(e)
                 }
             />
+            <MenuLayer />
             <SvgBoard refs={boardRef} />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
             <MenuImage />
             {/* </Suspense> */}
-            <MenuLayer />
             <MenuLayers />
             <MenuTransform />
             <MainMenu
@@ -81,6 +81,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
                     handleClickMenuItem(e)
                 }
             />
+            
         </div>
     );
 }

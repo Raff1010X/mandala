@@ -74,7 +74,8 @@
 
     color: white;
     font-size: 1.9vh;
-    transition: 0.5s, width 0s, height 0s;
+    transition: 0.5s, width 0s, height 0s, opacity 1s;
+    opacity: 0;
 }
 
 .menu-background {
@@ -94,6 +95,7 @@
 
 .menu-layers--open {
     left: 2.5vh;
+    opacity: 1;
 }
 
 .menu--top-bar {

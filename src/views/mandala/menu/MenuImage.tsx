@@ -14,7 +14,7 @@ function MenuImage() {
         if (item)
             dispatch(changeLayerArr({ name: 'svgItem', value: Number(item) }));
         classRemove('menu-image', 'menu-layers--open');
-        classAdd('menu-layers', 'menu-layers--open');
+        classAdd('menu-layer', 'menu-layers--open');
     }
 
     let images = useMemo(() => {

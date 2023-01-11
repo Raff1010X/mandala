@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { ReactNode, RefObject, useRef, useState } from 'react';
+import { ReactNode, RefObject, Touch, useRef, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
     changeLayerArr,
@@ -123,9 +123,27 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         dispatch(setHoveredLayer(-1));
     };
 
-    const handleMouseMove = (
-        e: React.MouseEvent<HTMLDivElement, MouseEvent>
-    ) => {
+    let previousTouch: Touch;
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (e.nativeEvent instanceof TouchEvent) {
+            const touch = e.touches[0];
+            if (previousTouch) {
+                let movementX = touch.pageX - previousTouch.pageX;
+                let movementY = touch.pageY - previousTouch.pageY;
+                handleMove(movementX, movementY, touch.pageX, touch.pageY);
+            }
+            previousTouch = touch;
+        }
+    };
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+        handleMove(e.movementX, e.movementY, e.clientX, e.clientY);
+
+    function handleMove(
+        movementX: number,
+        movementY: number,
+        clientX: number,
+        clientY: number
+    ): void {
         let value = 0;
         let value2 = 0;
 
@@ -137,11 +155,11 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             if (mandalaArrlayer.rotate > 270) absX = 1;
             if (mandalaArrlayer.rotate > 0) absY = 1;
             if (mandalaArrlayer.rotate > 180) absY = -1;
-            if (Math.abs(e.movementX * absX + e.movementY * absY) > 10) return;
+            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
             value = Number(
                 (
                     mandalaArrlayer.diameter +
-                    (e.movementX * absX + e.movementY * absY) / 20
+                    (movementX * absX + movementY * absY) / 20
                 ).toFixed(2)
             );
             if (value < 0 || value > 60) return;
@@ -156,11 +174,11 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             if (mandalaArrlayer.rotate > 270) absX = 1;
             if (mandalaArrlayer.rotate > 0) absY = 1;
             if (mandalaArrlayer.rotate > 180) absY = -1;
-            if (Math.abs(e.movementX * absX + e.movementY * absY) > 10) return;
+            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
             value = Number(
                 (
                     mandalaArrlayer.scale +
-                    (e.movementX * absX + e.movementY * absY) / 1000
+                    (movementX * absX + movementY * absY) / 1000
                 ).toFixed(3)
             );
             if (value < 0.01 || value > 0.6) return;
@@ -180,11 +198,11 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                 absY = -1;
             if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 180)
                 absY = 1;
-            if (Math.abs(e.movementX * absX + e.movementY * absY) > 10) return;
+            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
             value = Number(
                 (
                     mandalaArrlayer.strokeWidth +
-                    (e.movementX * absX + e.movementY * absY) / 100
+                    (movementX * absX + movementY * absY) / 100
                 ).toFixed(2)
             );
             if (value < 0 || value > 5) return;
@@ -204,11 +222,11 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                 absY = -1;
             if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 180)
                 absY = 1;
-            if (Math.abs(e.movementX * absX + e.movementY * absY) > 10) return;
+            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
             value = Number(
                 (
                     mandalaArrlayer.items +
-                    (e.movementX * absX + e.movementY * absY) / 15
+                    (movementX * absX + movementY * absY) / 15
                 ).toFixed(1)
             );
             if (value < 1 || value > 32) return;
@@ -216,9 +234,9 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         }
 
         if (draged === 'red' || 'orange' || 'blue' || 'lightBlue') {
-            if (Math.abs(e.movementX) > 10) return;
-            const x = -(window.innerHeight / 2 - e.clientY);
-            const y = window.innerWidth / 2 - e.clientX;
+            if (Math.abs(movementX) > 10) return;
+            const x = -(window.innerHeight / 2 - clientY);
+            const y = window.innerWidth / 2 - clientX;
             value = Number(
                 (360 - (Math.atan2(x, y) * (180 / Math.PI) + 180)).toFixed(2)
             );
@@ -234,6 +252,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'red') {
             dispatch(changeLayerArr({ name: 'rotate', value }));
         }
+
         if (draged === 'orange') {
             const color = getColor(value);
             svgBoardColorPalette?.current?.setAttribute(
@@ -248,6 +267,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             dispatch(changeLayerArr({ name: 'fill', value: getColor(value) }));
             dispatch(changeLayerArr({ name: 'fillOpacity', value: value2 }));
         }
+
         if (draged === 'blue') {
             const color = getColor(value);
             svgBoardColorPalette?.current?.setAttribute(
@@ -264,6 +284,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             );
             dispatch(changeLayerArr({ name: 'strokeOpacity', value: value2 }));
         }
+
         if (draged === 'lightBlue') {
             dispatch(
                 changeLayerArr({
@@ -272,14 +293,16 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                 })
             );
         }
-    };
+    }
 
-    const handleMouseOut = () => {
+    const handleMouseOut = (up:boolean = false) => {
+        if (up) handleMouseUp();
         svgBoardBackground?.current?.setAttribute(
             'style',
             `transform: rotate(${mandalaArrlayer.rotate}deg);
              background-color: transparent; opacity: 0;`
         );
+        
     };
     const handleMouseOver = () => {
         svgBoardBackground?.current?.setAttribute(
@@ -295,6 +318,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             ref={refs}
             className="svgBoard"
             onMouseUp={handleMouseUp}
+            onTouchEnd={()=>handleMouseOut(true)}
         >
             <div ref={svgBoardColorPalette} id="color-palette"></div>
             {mandala}
@@ -304,9 +328,13 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                 onMouseMove={(e) => {
                     handleMouseMove(e);
                 }}
+                onTouchMove={(e) => {
+                    handleTouchMove(e);
+                }}
                 onMouseUp={handleMouseUp}
-                onMouseOut={handleMouseOut}
+                onMouseOut={()=>handleMouseOut()}
                 onMouseOver={handleMouseOver}
+                onTouchStart={handleMouseOver}
                 style={{
                     transform: `rotate(${mandalaArrlayer.rotate}deg)`,
                 }}
@@ -315,6 +343,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end"
                         onMouseDown={handleMouseDownRed}
+                        onTouchStart={handleMouseDownRed}
                     />
                     <div
                         className="layer-controller-end yellow"
@@ -322,6 +351,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             left: `${49 + mandalaArrlayer.diameter * 0.81}%`,
                         }}
                         onMouseDown={handleMouseDownYellow}
+                        onTouchStart={handleMouseDownYellow}
                     />
                     <div
                         className="layer-controller-end white"
@@ -329,6 +359,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             left: `${mandalaArrlayer.scale * 80 - 2.5}%`,
                         }}
                         onMouseDown={handleMouseDownWhite}
+                        onTouchStart={handleMouseDownWhite}
                     />
                 </div>
                 <div
@@ -342,14 +373,17 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end orange"
                         onMouseDown={handleMouseDownOrange}
+                        onTouchStart={handleMouseDownOrange}
                     />
                     <div
                         className="layer-controller-end blue"
                         onMouseDown={handleMouseDownBlue}
+                        onTouchStart={handleMouseDownBlue}
                     />
                     <div
                         className="layer-controller-end lightblue"
                         onMouseDown={handleMouseDownLightBlue}
+                        onTouchStart={handleMouseDownLightBlue}
                     />
                     <div
                         className="layer-controller-end violet"
@@ -357,6 +391,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             left: `${55 + mandalaArrlayer.strokeWidth * 8}%`,
                         }}
                         onMouseDown={handleMouseDownViolet}
+                        onTouchStart={handleMouseDownViolet}
                     />
                     <div
                         className="layer-controller-end limegreen"
@@ -364,6 +399,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             left: `${(mandalaArrlayer.items - 1) * 1.35}%`,
                         }}
                         onMouseDown={handleMouseDownLimeGreen}
+                        onTouchStart={handleMouseDownLimeGreen}
                     />
                 </div>
             </div>
