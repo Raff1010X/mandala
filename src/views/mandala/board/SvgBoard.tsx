@@ -158,24 +158,19 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'yellow') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate > 0) absX = 1;
-            if (mandalaArrlayer.rotate > 90) absX = -1;
-            if (mandalaArrlayer.rotate > 270) absX = 1;
-            if (mandalaArrlayer.rotate > 0) absY = 1;
-            if (mandalaArrlayer.rotate > 180) absY = -1;
 
-            const quarter =  mandalaArrlayer.rotate /4;
+            const quarter =  mandalaArrlayer.rotate /90;
             if (quarter <= 4) {
-                absX = -1;
-                absY = 1;
+                absX = 1;
+                absY = -1;
             }
             if (quarter <= 3) {
                 absX = -1;
                 absY = -1;
             }
             if (quarter <= 2) {
-                absX = 1;
-                absY = -1;
+                absX = -1;
+                absY = 1;
             }
             if (quarter <= 1) {
                 absX = 1;
@@ -196,25 +191,19 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'white') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate > 0) absX = 1;
-            if (mandalaArrlayer.rotate > 90) absX = -1;
-            if (mandalaArrlayer.rotate > 270) absX = 1;
-            if (mandalaArrlayer.rotate > 0) absY = 1;
-            if (mandalaArrlayer.rotate > 180) absY = -1;
 
-
-            const quarter =  mandalaArrlayer.rotate /4;
+            const quarter =  mandalaArrlayer.rotate /90;
             if (quarter <= 4) {
-                absX = -1;
-                absY = 1;
+                absX = 1;
+                absY = -1;
             }
             if (quarter <= 3) {
                 absX = -1;
                 absY = -1;
             }
             if (quarter <= 2) {
-                absX = 1;
-                absY = -1;
+                absX = -1;
+                absY = 1;
             }
             if (quarter <= 1) {
                 absX = 1;
@@ -235,24 +224,19 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'violet') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 90) absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 270) absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 180) absY = -1;
 
-            const quarter =  mandalaArrlayer.svgRotate /4;
+            const quarter =  mandalaArrlayer.svgRotate /90;
             if (quarter <= 4) {
-                absX = -1;
-                absY = 1;
+                absX = 1;
+                absY = -1;
             }
             if (quarter <= 3) {
                 absX = -1;
                 absY = -1;
             }
             if (quarter <= 2) {
-                absX = 1;
-                absY = -1;
+                absX = -1;
+                absY = 1;
             }
             if (quarter <= 1) {
                 absX = 1;
@@ -274,28 +258,23 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'limegreen') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 90) absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 270) absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 180) absY = -1;
 
-            const quarter =  mandalaArrlayer.svgRotate /4;
+            const quarter =  mandalaArrlayer.svgRotate /90;
             if (quarter <= 4) {
-                absX = -1;
-                absY = 1;
+                absX = 1;
+                absY = -1;
             }
             if (quarter <= 3) {
                 absX = -1;
                 absY = -1;
             }
             if (quarter <= 2) {
-                absX = 1;
-                absY = -1;
+                absX = -1;
+                absY = 1;
             }
             if (quarter <= 1) {
                 absX = 1;
-                absY = -1;
+                absY = 1;
             }
 
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;

@@ -117,7 +117,7 @@
     left: 50%;
     background-color: violet;
     border-radius: 0;
-    border-bottom: 5px solid red;
+    border-bottom: 3px solid blue;
     box-sizing: border-box;
     -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
