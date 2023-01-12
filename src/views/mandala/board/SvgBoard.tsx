@@ -128,21 +128,29 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (e.nativeEvent instanceof TouchEvent) {
             const touch = e.touches[0];
             if (previousTouch) {
-                let movementX = touch.pageX - previousTouch.pageX;
-                let movementY = touch.pageY - previousTouch.pageY;
-                handleMove(movementX, movementY, touch.pageX, touch.pageY);
+                let movementX =
+                    (touch.pageX - previousTouch.pageX) * 5;
+                let movementY =
+                    (touch.pageY - previousTouch.pageY)  * 5;
+                handleMove(movementX, movementY, touch.pageX, touch.pageY, 250);
             }
             previousTouch = touch;
         }
     };
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-        handleMove(e.movementX, e.movementY, e.clientX, e.clientY);
+        handleMove(
+            e.movementX * devicePixelRatio,
+            e.movementY * devicePixelRatio,
+            e.clientX,
+            e.clientY
+        );
 
     function handleMove(
         movementX: number,
         movementY: number,
         clientX: number,
-        clientY: number
+        clientY: number,
+        hold: number = 10
     ): void {
         let value = 0;
         let value2 = 0;
@@ -155,7 +163,26 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             if (mandalaArrlayer.rotate > 270) absX = 1;
             if (mandalaArrlayer.rotate > 0) absY = 1;
             if (mandalaArrlayer.rotate > 180) absY = -1;
-            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
+
+            const quarter =  mandalaArrlayer.rotate /4;
+            if (quarter <= 4) {
+                absX = -1;
+                absY = 1;
+            }
+            if (quarter <= 3) {
+                absX = -1;
+                absY = -1;
+            }
+            if (quarter <= 2) {
+                absX = 1;
+                absY = -1;
+            }
+            if (quarter <= 1) {
+                absX = 1;
+                absY = 1;
+            }
+
+            if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
                     mandalaArrlayer.diameter +
@@ -174,7 +201,27 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             if (mandalaArrlayer.rotate > 270) absX = 1;
             if (mandalaArrlayer.rotate > 0) absY = 1;
             if (mandalaArrlayer.rotate > 180) absY = -1;
-            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
+
+
+            const quarter =  mandalaArrlayer.rotate /4;
+            if (quarter <= 4) {
+                absX = -1;
+                absY = 1;
+            }
+            if (quarter <= 3) {
+                absX = -1;
+                absY = -1;
+            }
+            if (quarter <= 2) {
+                absX = 1;
+                absY = -1;
+            }
+            if (quarter <= 1) {
+                absX = 1;
+                absY = 1;
+            }
+
+            if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
                     mandalaArrlayer.scale +
@@ -188,17 +235,32 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'violet') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absX = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 90) absX = -1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 270) absX = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absY = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 180) absY = -1;
+
+            const quarter =  mandalaArrlayer.svgRotate /4;
+            if (quarter <= 4) {
                 absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 90)
-                absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 270)
-                absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
-                absY = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 180)
                 absY = 1;
-            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
+            }
+            if (quarter <= 3) {
+                absX = -1;
+                absY = -1;
+            }
+            if (quarter <= 2) {
+                absX = 1;
+                absY = -1;
+            }
+            if (quarter <= 1) {
+                absX = 1;
+                absY = 1;
+            }
+
+
+            if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
                     mandalaArrlayer.strokeWidth +
@@ -212,17 +274,31 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (draged === 'limegreen') {
             let absX = 1;
             let absY = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absX = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 90) absX = -1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 270) absX = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 0) absY = 1;
+            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate> 180) absY = -1;
+
+            const quarter =  mandalaArrlayer.svgRotate /4;
+            if (quarter <= 4) {
                 absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 90)
-                absX = 1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 270)
-                absX = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 0)
-                absY = -1;
-            if (mandalaArrlayer.rotate + mandalaArrlayer.svgRotate - 90 > 180)
                 absY = 1;
-            if (Math.abs(movementX * absX + movementY * absY) > 10) return;
+            }
+            if (quarter <= 3) {
+                absX = -1;
+                absY = -1;
+            }
+            if (quarter <= 2) {
+                absX = 1;
+                absY = -1;
+            }
+            if (quarter <= 1) {
+                absX = 1;
+                absY = -1;
+            }
+
+            if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
                     mandalaArrlayer.items +
@@ -234,7 +310,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         }
 
         if (draged === 'red' || 'orange' || 'blue' || 'lightBlue') {
-            if (Math.abs(movementX) > 10) return;
+            if (Math.abs(movementX) > hold) return;
             const x = -(window.innerHeight / 2 - clientY);
             const y = window.innerWidth / 2 - clientX;
             value = Number(
@@ -289,26 +365,33 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             dispatch(
                 changeLayerArr({
                     name: 'svgRotate',
-                    value: value - 90 - mandalaArrlayer.rotate,
+                    value: value,
                 })
             );
         }
     }
 
-    const handleMouseOut = (up:boolean = false) => {
+    const handleMouseOut = (up: boolean = false) => {
         if (up) handleMouseUp();
         svgBoardBackground?.current?.setAttribute(
             'style',
             `transform: rotate(${mandalaArrlayer.rotate}deg);
              background-color: transparent; opacity: 0;`
         );
-        
+        document?.getElementById("menu-layer")?.setAttribute(
+            'style',
+            `z-index: 10;`
+        );
     };
     const handleMouseOver = () => {
         svgBoardBackground?.current?.setAttribute(
             'style',
             `transform: rotate(${mandalaArrlayer.rotate}deg);
              background-color: transparent; opacity: 1;`
+        );
+        document?.getElementById("menu-layer")?.setAttribute(
+            'style',
+            `z-index: 0;`
         );
     };
 
@@ -318,7 +401,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             ref={refs}
             className="svgBoard"
             onMouseUp={handleMouseUp}
-            onTouchEnd={()=>handleMouseOut(true)}
+            onTouchEnd={() => handleMouseOut(true)}
         >
             <div ref={svgBoardColorPalette} id="color-palette"></div>
             {mandala}
@@ -332,7 +415,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     handleTouchMove(e);
                 }}
                 onMouseUp={handleMouseUp}
-                onMouseOut={()=>handleMouseOut()}
+                onMouseOut={() => handleMouseOut()}
                 onMouseOver={handleMouseOver}
                 onTouchStart={handleMouseOver}
                 style={{
@@ -366,7 +449,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     className="layer-controller item-controller"
                     style={{
                         transform: `rotate(${
-                            mandalaArrlayer.svgRotate + 90
+                            mandalaArrlayer.svgRotate - mandalaArrlayer.rotate
                         }deg) translateY(-3vh)`,
                     }}
                 >
@@ -388,7 +471,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end violet"
                         style={{
-                            left: `${55 + mandalaArrlayer.strokeWidth * 8}%`,
+                            left: `${58 + mandalaArrlayer.strokeWidth * 7}%`,
                         }}
                         onMouseDown={handleMouseDownViolet}
                         onTouchStart={handleMouseDownViolet}
@@ -396,7 +479,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end limegreen"
                         style={{
-                            left: `${(mandalaArrlayer.items - 1) * 1.35}%`,
+                            left: `${(mandalaArrlayer.items - 1) * 1.2}%`,
                         }}
                         onMouseDown={handleMouseDownLimeGreen}
                         onTouchStart={handleMouseDownLimeGreen}

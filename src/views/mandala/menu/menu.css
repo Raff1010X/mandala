@@ -57,7 +57,7 @@
     position: absolute;
     top: 2.5vh;
     left: -30vh;
-    left: min( -30vh, calc(-25vw + 5vh));
+    left: min(-30vh, calc(-25vw + 5vh));
 
     background: #9b9b9b99;
     box-shadow: 0 8px 32px 0 #9797979d;
@@ -89,8 +89,8 @@
     background-size: 33vh;
     background-repeat: no-repeat;
     transition: 0.4s;
-    -webkit-filter: grayscale(100%) drop-shadow( 0 0 50px rgba(0, 0, 0, 0.5));
-    filter: grayscale(100%) drop-shadow( 0 0 50px rgba(0, 0, 0, 0.5));
+    -webkit-filter: grayscale(100%) drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
+    filter: grayscale(100%) drop-shadow(0 0 50px rgba(0, 0, 0, 0.5));
 }
 
 .menu-layers--open {
@@ -128,7 +128,6 @@
     cursor: pointer;
 }
 
-
 .menu--select {
     width: 17vh;
     height: -webkit-fit-content;
@@ -139,8 +138,14 @@
     align-items: center;
     justify-content: center;
 }
-.menu--select > * {
-    max-height: 1vh;
+
+@media only screen and (max-height: 910px) {
+    .menu--select > * {
+        max-height: 0;
+    }
+    .menu--select-color {
+        margin-bottom: 2vh;
+    }
 }
 
 .menu--select-color {
@@ -165,9 +170,8 @@
     padding: 1vh 0 1vh 0;
 }
 
-
 #menu-layer {
-    width: max( 29vh, calc(25vw - 7.5vh));
+    width: max(29vh, calc(25vw - 7.5vh));
 }
 
 #menu-layer > .menu--item-selector {
@@ -194,8 +198,8 @@
 
 .menu--item-select {
     margin-left: 0.5vh;
-    width: 15vh;
-    height: 15vh;
+    width: 17vh;
+    height: 17vh;
     background-color: #ffffff80;
     border-radius: 0.5vh;
     border: 1px solid #ffffffbf;
@@ -331,14 +335,19 @@
 }
 
 .menu-layer-plus {
-    margin-top: 2.5vh;
+    margin-top: 4vh;
     font-size: 10vh;
     text-align: center;
     color: white;
-    transition: .5s;
+    transition: 0.5s;
 }
 .menu-layer-plus:hover {
     color: #ff0042;
+}
+
+
+#menu-transform {
+    width: max(29vh, calc(25vw - 7.5vh));
 }
 
 .menu-transform {
@@ -347,7 +356,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 1vh;
     overflow: hidden;
     padding: 1vh 0 1vh 0;
@@ -395,7 +404,6 @@
     background-color: #ff396e;
 }
 
-
 /* post form */
 
 .post {
@@ -417,7 +425,6 @@
     box-shadow: 0 0 20vh #ffffff;
     background-color: #feffbc;
 }
-
 
 .post-form {
     height: 100%;
@@ -454,7 +461,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: .5vh;
+    gap: 0.5vh;
     color: black;
 }
 
