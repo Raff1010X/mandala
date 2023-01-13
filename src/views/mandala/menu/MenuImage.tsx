@@ -19,7 +19,7 @@ function MenuImage() {
 
     let images = useMemo(() => {
         let images: ReactNode[] = [];
-        for (let i = 1; i <= 120; i++) {
+        for (let i = 1; i <= 100; i++) {
             images.push(
                 <div
                     key={i}
@@ -27,7 +27,7 @@ function MenuImage() {
                     className="menu--item-select"
                     onClick={(e) => handleClickCloseMenu(e)}
                 >
-                    <p className="menu-image-title">Image {i}</p>
+                    <p className="menu-image-title">Select image {i}</p>
                     <SvgItem
                         index={-1}
                         item={i}

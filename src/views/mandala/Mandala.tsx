@@ -30,8 +30,10 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
     const boardRef = useRef<HTMLDivElement>(null);
 
     const hadleSaveImage = async () => {
+        boardRef.current?.setAttribute('style', 'background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);')
         const canvas = await toPng(boardRef.current as HTMLElement);
         downloadjs(canvas, 'download.png');
+        boardRef.current?.setAttribute('style', 'background: transparent;')
     };
 
     function handleClickMenuItem(

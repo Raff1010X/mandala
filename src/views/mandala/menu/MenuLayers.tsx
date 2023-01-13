@@ -44,7 +44,7 @@ function MenuLayers() {
     let layers: ReactNode[] = mandalaArr.map((el, index) => {
         return (
             <div className="menu--item-select" key={index}>
-                <p className="menu-image-title">Layer {index + 1}</p>
+                <p className="menu-image-title">Edit Layer {index + 1}</p>
                 {mandalaArr.length > 1 && (
                     <p
                         className="menu-image-delete"

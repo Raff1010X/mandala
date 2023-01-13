@@ -154,29 +154,27 @@ console.log(mandalaArr)
     ): void {
         let value = 0;
         let value2 = 0;
+        let absX = 1;
+        let absY = 1;
+        let quarter =  mandalaArrlayer.rotate /90;
+        if (quarter <= 4) {
+            absX = 1;
+            absY = -1;
+        }
+        if (quarter <= 3) {
+            absX = -1;
+            absY = -1;
+        }
+        if (quarter <= 2) {
+            absX = -1;
+            absY = 1;
+        }
+        if (quarter <= 1) {
+            absX = 1;
+            absY = 1;
+        }
 
         if (draged === 'yellow') {
-            let absX = 1;
-            let absY = 1;
-
-            const quarter =  mandalaArrlayer.rotate /90;
-            if (quarter <= 4) {
-                absX = 1;
-                absY = -1;
-            }
-            if (quarter <= 3) {
-                absX = -1;
-                absY = -1;
-            }
-            if (quarter <= 2) {
-                absX = -1;
-                absY = 1;
-            }
-            if (quarter <= 1) {
-                absX = 1;
-                absY = 1;
-            }
-
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
@@ -189,26 +187,6 @@ console.log(mandalaArr)
         }
 
         if (draged === 'white') {
-            let absX = 1;
-            let absY = 1;
-
-            const quarter =  mandalaArrlayer.rotate /90;
-            if (quarter <= 4) {
-                absX = 1;
-                absY = -1;
-            }
-            if (quarter <= 3) {
-                absX = -1;
-                absY = -1;
-            }
-            if (quarter <= 2) {
-                absX = -1;
-                absY = 1;
-            }
-            if (quarter <= 1) {
-                absX = 1;
-                absY = 1;
-            }
 
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
@@ -221,28 +199,24 @@ console.log(mandalaArr)
             dispatch(changeLayerArr({ name: 'scale', value }));
         }
 
+        quarter =  mandalaArrlayer.svgRotate /90;
+        if (quarter <= 4) {
+            absX = 1;
+            absY = -1;
+        }
+        if (quarter <= 3) {
+            absX = -1;
+            absY = -1;
+        }
+        if (quarter <= 2) {
+            absX = -1;
+            absY = 1;
+        }
+        if (quarter <= 1) {
+            absX = 1;
+            absY = 1;
+        }
         if (draged === 'violet') {
-            let absX = 1;
-            let absY = 1;
-
-            const quarter =  mandalaArrlayer.svgRotate /90;
-            if (quarter <= 4) {
-                absX = 1;
-                absY = -1;
-            }
-            if (quarter <= 3) {
-                absX = -1;
-                absY = -1;
-            }
-            if (quarter <= 2) {
-                absX = -1;
-                absY = 1;
-            }
-            if (quarter <= 1) {
-                absX = 1;
-                absY = 1;
-            }
-
 
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
@@ -254,29 +228,7 @@ console.log(mandalaArr)
             if (value < 0 || value > 5) return;
             dispatch(changeLayerArr({ name: 'strokeWidth', value }));
         }
-
         if (draged === 'limegreen') {
-            let absX = 1;
-            let absY = 1;
-
-            const quarter =  mandalaArrlayer.svgRotate /90;
-            if (quarter <= 4) {
-                absX = 1;
-                absY = -1;
-            }
-            if (quarter <= 3) {
-                absX = -1;
-                absY = -1;
-            }
-            if (quarter <= 2) {
-                absX = -1;
-                absY = 1;
-            }
-            if (quarter <= 1) {
-                absX = 1;
-                absY = 1;
-            }
-
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
@@ -384,6 +336,7 @@ console.log(mandalaArr)
         >
             <div ref={svgBoardColorPalette} id="color-palette"></div>
             {mandala}
+            <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh' }}></div>
             <div
                 ref={svgBoardBackground}
                 className="layer-controller-background"

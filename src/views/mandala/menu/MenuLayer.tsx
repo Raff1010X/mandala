@@ -89,7 +89,7 @@ function MenuLayer() {
                         className="menu--item-select"
                         onClick={handleClickOpenImageMenu}
                     >
-                        <p className="menu-image-title">Image {svgItem}</p>
+                        <p className="menu-image-title">Change image {svgItem} </p>
                         <SvgItem
                             index={layer}
                             item={svgItem}
