@@ -32,7 +32,7 @@ function MenuImage() {
                         index={-1}
                         item={i}
                         stroke="black"
-                        strokeWidth={0.35}
+                        strokeWidth={0.75}
                         strokeOpacity={1}
                         fill="white"
                         fillOpacity={0.5}

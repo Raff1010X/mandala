@@ -93,7 +93,7 @@ function MenuLayer() {
                         <SvgItem
                             index={layer}
                             item={svgItem}
-                            strokeWidth={0.35}
+                            strokeWidth={0.75}
                             strokeOpacity={1}
                             fillOpacity={0.25}
                             stroke={stroke}

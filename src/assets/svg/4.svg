@@ -1,9 +1,9 @@
-<svg viewBox="0 0 50 50">
-   <ellipse cx="25" cy="25" rx="14" ry="14" />
-   <ellipse cx="25" cy="25" rx="12.5" ry="12.5" />
-   <ellipse cx="25" cy="25" rx="9.5" ry="9.5" />
-   <ellipse cx="25" cy="25" rx="8" ry="8" />
-   <ellipse cx="25" cy="25" rx="6.5" ry="6.5" />
-   <ellipse cx="25" cy="25" rx="3" ry="3" />
-   <ellipse cx="25" cy="25" rx="1.5" ry="1.5" />
+<svg viewBox="0 0 150 150">
+   <circle cx="75" cy="75" r="60" />
+   <circle cx="75" cy="75" r="53.57" />
+   <circle cx="75" cy="75" r="40.72" />
+   <circle cx="75" cy="75" r="34.29" />
+   <circle cx="75" cy="75" r="27.85" />
+   <circle cx="75" cy="75" r="12.85" />
+   <circle cx="75" cy="75" r="6.43" />
 </svg>

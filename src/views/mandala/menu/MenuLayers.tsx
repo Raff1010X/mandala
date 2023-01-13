@@ -37,7 +37,8 @@ function MenuLayers() {
     function handleNewLayer() {
         dispatch(addLayer());
         dispatch(setLayer(mandalaArr.length));
-        classAdd('menu-layers', 'menu-layers--open')
+        classRemove('menu-layers', 'menu-layers--open')
+        classAdd('menu-layer', 'menu-layers--open')
     }
 
     let layers: ReactNode[] = mandalaArr.map((el, index) => {
@@ -57,7 +58,7 @@ function MenuLayers() {
                     <SvgItem
                         index={index}
                         item={el.svgItem}
-                        strokeWidth={0.35}
+                        strokeWidth={0.75}
                         strokeOpacity={1}
                         fillOpacity={0.25}
                         stroke={el.stroke}

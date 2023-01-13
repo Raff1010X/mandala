@@ -23,12 +23,12 @@ export const mandalaSlice = createSlice({
     reducers: {
         setLayer: (state, action: PayloadAction<number>) => {
             const current: number = Number(state.layer)
-            if (action.payload === 100 && current < mandalaArr.length-1) {
+            if (action.payload === 100 && current < state.mandalaArr.length-1) {
                 state.layer = current + 1
                 state.hoveredLayer = current + 1
                 return
             }
-            if (action.payload === 100 && current === mandalaArr.length-1) {
+            if (action.payload === 100 && current === state.mandalaArr.length-1) {
                 state.layer = 0
                 state.hoveredLayer = 0
                 return
@@ -39,8 +39,8 @@ export const mandalaSlice = createSlice({
                 return
             }
             if (action.payload === -100 && current === 0) {
-                state.layer = mandalaArr.length - 1
-                state.hoveredLayer = mandalaArr.length - 1
+                state.layer = state.mandalaArr.length - 1
+                state.hoveredLayer = state.mandalaArr.length - 1
                 return
             }
             state.layer = action.payload;
@@ -57,6 +57,7 @@ export const mandalaSlice = createSlice({
             ] = action.payload['value'];
         },
         deleteLayer: (state, action: PayloadAction<number>) => {
+
             if (action.payload > -1 && state.mandalaArr.length > 1) {
                 state.layer = 0;
                 state.mandalaArr = state.mandalaArr.filter(
