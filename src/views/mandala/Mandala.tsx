@@ -84,7 +84,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
                     handleClickMenuItem(e)
                 }
             />
-            {/* <Post /> */}
+            <Post />
         </div>
     );
 }
