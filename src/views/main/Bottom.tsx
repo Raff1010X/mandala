@@ -32,7 +32,7 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                         Transform it to new visual level. <br />
                         Save it and share with others.
                     </div>
-                    <Link to="/mandala" className="main-bottom-link">
+                    <Link to="/mandala" className="main-bottom-link" onClick={()=>{console.log("sss")}}>
                         Open Mandala Creator
                     </Link>
                 </div>

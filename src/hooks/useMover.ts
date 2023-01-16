@@ -9,10 +9,10 @@ const useMover = (main: refType, heading: refType, headingSmall: refType) => {
         function onCardMouseMove(e: globalThis.MouseEvent) {
             const target = e.target as HTMLDivElement
             const posRotX =
-                (e.offsetY - target?.offsetHeight / 2) /
+                (e.offsetY - target?.offsetHeight) /
                 (target?.offsetHeight / 30);
             const posRotY =
-                (e.offsetX - target?.offsetWidth / 2) /
+                (e.offsetX - target?.offsetWidth) /
                 (target?.offsetWidth / 30);
             heading?.current?.setAttribute(
                 'style',
