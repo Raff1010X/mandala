@@ -1,11 +1,22 @@
 import { RefObject } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import ImageIcon from '@mui/icons-material/Image';
 
 function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
+    const navigate = useNavigate();
+    function handleClickLinkToMandala() {
+        navigate('/mandala');
+    }
+    function handleClickLinkToGallery() {
+        navigate('/gallery');
+    }
+    function handleClickLinkToFavebook() {
+        window.location.replace('https://www.facebook.com/hominis.affectus');
+    }
+
     return (
         <div id="main-bottom" className="main-bottom" ref={refs[0]}>
             <div
@@ -13,7 +24,7 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                 tabIndex={0}
                 ref={refs[1]}
             />
-            <div className="main-bottom-container" tabIndex={2}>
+            <div className="main-bottom-container" tabIndex={1}>
                 <div className="main-bottom-background-2" />
                 <i>
                     <FilterVintageIcon />
@@ -32,12 +43,15 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                         Transform it to new visual level. <br />
                         Save it and share with others.
                     </div>
-                    <Link to="/mandala" className="main-bottom-link" onClick={()=>{console.log("sss")}}>
+                    <div
+                        className="main-bottom-link"
+                        onClick={()=>handleClickLinkToMandala()}
+                    >
                         Open Mandala Creator
-                    </Link>
+                    </div>
                 </div>
             </div>
-            <div className="main-bottom-container" tabIndex={3}>
+            <div className="main-bottom-container" tabIndex={2}>
                 <div className="main-bottom-background-2" />
                 <i>
                     <ImageIcon />
@@ -57,12 +71,15 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                         <br />
                         What is Homo Affectus?.
                     </div>
-                    <Link to="/mandala" className="main-bottom-link">
-                        Open Art Gallery
-                    </Link>
+                    <div
+                        className="main-bottom-link"
+                        onClick={()=>handleClickLinkToGallery()}
+                    >
+                        <p>Open Art Gallery</p>
+                    </div>
                 </div>
             </div>
-            <div className="main-bottom-container" tabIndex={1}>
+            <div className="main-bottom-container" tabIndex={3}>
                 <div className="main-bottom-background-2" />
                 <i>
                     <FacebookIcon />
@@ -82,12 +99,13 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                         <br />
                         See more at Facebook page.
                     </div>
-                    <a
-                        href="https://www.facebook.com/hominis.affectus"
+                    <div
+                        // href="https://www.facebook.com/hominis.affectus"
                         className="main-bottom-link"
+                        onClick={()=>handleClickLinkToFavebook()}
                     >
                         Go to Facebook Page
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

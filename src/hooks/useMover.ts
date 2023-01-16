@@ -9,11 +9,11 @@ const useMover = (main: refType, heading: refType, headingSmall: refType) => {
         function onCardMouseMove(e: globalThis.MouseEvent) {
             const target = e.target as HTMLDivElement
             const posRotX =
-                (e.offsetY - target?.offsetHeight) /
-                (target?.offsetHeight / 30);
+                (e.offsetY - target?.offsetHeight / 2) /
+                (target?.offsetHeight / 10);
             const posRotY =
-                (e.offsetX - target?.offsetWidth) /
-                (target?.offsetWidth / 30);
+                (e.offsetX - target?.offsetWidth / 2) /
+                (target?.offsetWidth / 10);
             heading?.current?.setAttribute(
                 'style',
                 `transform: rotateX(${-posRotX}deg) rotateY(${-posRotY}deg);`

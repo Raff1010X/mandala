@@ -75,6 +75,9 @@ export const mandalaSlice = createSlice({
             state.transform[action.payload['name'] as transformType] =
                 action.payload['value'];
         },
+        setUserInfo: (state, action: PayloadAction<{ name: string | undefined; origin: string | undefined, message: string | undefined}>) => {
+            console.log(action.payload)
+        }
     },
 });
 
@@ -85,6 +88,7 @@ export const {
     deleteLayer,
     addLayer,
     changeTransform,
+    setUserInfo
 } = mandalaSlice.actions;
 
 export const selectMandalaArr = (state: RootState) => state.mandala.mandalaArr;
