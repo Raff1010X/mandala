@@ -57,7 +57,7 @@ function MenuTransform() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="rotateX"
                         name="rotateX"
                         orientation="vertical"
@@ -76,7 +76,7 @@ function MenuTransform() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="rotateY"
                         name="rotateY"
                         orientation="vertical"
@@ -95,7 +95,7 @@ function MenuTransform() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="rotateZ"
                         name="rotateZ"
                         orientation="vertical"
@@ -114,7 +114,7 @@ function MenuTransform() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="perspective"
                         name="perspective"
                         orientation="vertical"

@@ -123,7 +123,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="items"
                         name="items"
                         min={1}
@@ -140,7 +140,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="diameter"
                         name="diameter"
                         min={0}
@@ -158,7 +158,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="rotate"
                         name="rotate"
                         min={0}
@@ -186,7 +186,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="strokeWidth"
                         name="strokeWidth"
                         min={0}
@@ -204,7 +204,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="strokeOpacity"
                         name="strokeOpacity"
                         min={0}
@@ -232,7 +232,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="fillOpacity"
                         name="fillOpacity"
                         min={0}
@@ -250,7 +250,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="svgRotate"
                         name="svgRotate"
                         min={0}
@@ -268,7 +268,7 @@ function MenuLayer() {
                             ValueLabel: ValueLabelComponent,
                         }}
                         size="small"
-                        color="secondary"
+                        color="primary"
                         id="scale"
                         name="scale"
                         min={0.01}

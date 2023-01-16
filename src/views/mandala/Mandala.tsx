@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 import { classAdd, classRemove } from './menu/handleMenu';
-import { toPng, toSvg } from 'html-to-image';
+import { toPng } from 'html-to-image';
 import downloadjs from 'downloadjs';
 
 import SvgBoard from './board/SvgBoard';
@@ -49,6 +49,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
         }
         if (e.currentTarget.dataset.item === 'share') {
             classRemove('burger-menu', 'burger-menu--hidden');
+            classAdd('post-wrapper', 'post-wrapper--visible');
         }
         if (e.currentTarget.dataset.item === 'download') {
             classRemove('burger-menu', 'burger-menu--hidden');

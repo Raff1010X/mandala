@@ -27,7 +27,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     const mandalaArrLen = mandalaArr.length - 1;
     const layer = useAppSelector(selectLayer);
     const mandalaArrlayer = useAppSelector(selectMandalaArr)[layer];
-console.log(mandalaArr)
+// console.log(mandalaArr)
     const svgBoardBackground = useRef<HTMLDivElement>(null);
     const svgBoardColorPalette = useRef<HTMLDivElement>(null);
 
