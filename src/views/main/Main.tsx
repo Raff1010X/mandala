@@ -22,7 +22,6 @@ function Main() {
     useAutoScroll(main, mainTopDiv, mainBottomDiv, background);
     useMover(mainMoverDiv, heading, headingSmall);
 
-
     return (
         <div className="main" ref={main}>
             <div className="main-top" ref={mainTopDiv}>
@@ -30,6 +29,12 @@ function Main() {
                 <Heading refs={[heading, headingSmall]} />
                 <MouseScroll />
                 <div className="main-mover" ref={mainMoverDiv}></div>
+                <div className="obout">
+                    Create your mandala and make your own meditation towards
+                    human development.<br/> This Web App was created on the basis of an
+                    international land art action carried out within the
+                    framework of the Homo Affectus project.
+                </div>
                 <div className="description">
                     Land Art Mandala Creation by Lena Witkowska
                 </div>

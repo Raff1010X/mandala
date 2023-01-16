@@ -14,7 +14,7 @@ function Post() {
     return (
         <div className="post">
             <div className="menu--top-bar">
-                <div> <i><ShareIcon/></i> Save Your Mandala to Art Gallery</div>
+                <div> <i><ShareIcon/></i>Save Your Mandala to Art Gallery</div>
                 <i
                     onClick={() => {
                         handleClickCloseMenu();
@@ -41,7 +41,7 @@ function Post() {
                     ></input>
                     <textarea
                         id="post-message"
-                        placeholder="What Homo Affectus means to You?"
+                        placeholder="What Homo Affectus - Feel Full Human - means to You?"
                         minLength={3}
                         maxLength={512}
                         onInput={(e) => {
@@ -60,7 +60,7 @@ function Post() {
                     </button>
                     <button className="post-button" onClick={handleClickPost}>
                         <i><IosShareIcon /></i>
-                        Post Your Mandala
+                        Save
                     </button>
                 </div>
             </form>

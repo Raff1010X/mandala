@@ -406,7 +406,7 @@
 /* post form */
 
 .post {
-    width: 60vw;
+    width: min(60vw, 1000px);
     height: 60vh;
     background-color: #ff0042;
     color: white;
@@ -418,7 +418,8 @@
     transform: translate(-50%, -50%);
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    box-shadow: 0 0 5vh #ff0042;
+    box-shadow: 0 0 15vh 50vw #00000071;
+
 }
 
 .menu--top-bar {
@@ -436,6 +437,7 @@
     align-items: center;
     justify-content: center;
     gap: 1vh;
+    font-weight: bold;
 }
 
 .post-form {
