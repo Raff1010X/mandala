@@ -9,6 +9,7 @@ function BackVideo() {
                 autoPlay
                 loop
                 muted
+                preload='auto'
             >
                 <source src="./film.webm" type="video/webm" />
                 Your browser does not support the video tag.

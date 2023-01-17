@@ -1,8 +1,8 @@
 /* ----------------------------------------------------logo */
 .logo {
     position: absolute;
-    top: 7.5vh;
-    left: center;
+    top: 5vh;
+    left: 5vh;
 }
 .logo-letters {
     position: relative;
@@ -10,8 +10,8 @@
     letter-spacing: -0.03em;
     font-family: 'Anton', Arial, sans-serif;
     font-size: 10vh;
-    text-shadow: -0.4vh -0.4vh #ffffff;
-    background-image: linear-gradient(to left, #ffffffdd, #fcfcfc4d);
+    text-shadow: -0.4vh -0.4vh #1e72b9;
+    background-image: linear-gradient(to left, #ffffffdd, #b91ea429);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -24,20 +24,20 @@
     font-size: 3.34vh;
     margin-left: -0.4vh;
     text-shadow: none;
-    background-image: linear-gradient(to left, #ffffff77, #ffffff);
+    background-image: linear-gradient(to left, #00000077, #000000);
+    -webkit-filter: drop-shadow(0 0 1px rgb(255, 255, 255));
+            filter: drop-shadow(0 0 1px rgb(255, 255, 255));
     margin-top: 0vh;
 }
 .logo-red {
     position: relative;
-    color: #ffffff67;
-    text-shadow: -0.4vh -0.4vh #ffffff;
-    background-color: #00000010;
-    background-image: url('../../../assets/background-3a.svg');
+    color: #b91ea429;
+    text-shadow: -0.4vh -0.4vh #1e73b9;
+    /* background-color: #00000010; */
+    /* background-image: url('../../../assets/background-3a.svg'); */
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
-    -webkit-filter: grayscale(1);
-            filter: grayscale(1)
 }
 
 .logo-img {

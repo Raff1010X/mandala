@@ -1,9 +1,10 @@
 import CloseIcon from '@mui/icons-material/Close';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import ShareIcon from '@mui/icons-material/Share';
+import { postNewMandala } from '../mandalaAPI';
+import { selectMandalaArr, selectTransform } from '../mandalaSlice';
 import { MouseEvent, useRef } from 'react';
-import { useAppDispatch } from '../../../app/hooks';
-import { setUserInfo } from '../mandalaSlice';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { classRemove } from './handleMenu';
 
 function Post() {
@@ -23,11 +24,14 @@ function Post() {
         classRemove('post-wrapper', 'post-wrapper--visible');
     }
 
+    const mandalaArr = useAppSelector(selectMandalaArr);
+    const transform = useAppSelector(selectTransform);
+
     function handleClickPost(
         e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
     ): void {
         e.preventDefault();
-        
+
         name?.current?.reportValidity();
         origin?.current?.reportValidity();
         message?.current?.reportValidity();
@@ -44,7 +48,8 @@ function Post() {
             origin: origin?.current?.value,
             message: message?.current?.value,
         };
-        dispatch(setUserInfo(userInfo));
+        const data = {mandalaArr, transform, userInfo}
+        dispatch(postNewMandala(data));
     }
 
     return (
@@ -94,7 +99,7 @@ function Post() {
                             placeholder="What Homo Affectus - Feel Full Human - means to You?"
                             required
                             minLength={15}
-                            maxLength={512}
+                            maxLength={256}
                             onInput={(e) => {
                                 (e.target as HTMLTextAreaElement).value = (
                                     e.target as HTMLTextAreaElement

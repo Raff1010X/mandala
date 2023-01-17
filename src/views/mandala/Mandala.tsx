@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 
 import { classAdd, classRemove } from './menu/handleMenu';
 import { toPng } from 'html-to-image';
+import { FullScreenHandle } from '../mandala/mandalaType'
+
 import downloadjs from 'downloadjs';
 
 import SvgBoard from './board/SvgBoard';
@@ -14,13 +16,6 @@ import MenuImage from './menu/MenuImage';
 import Post from './menu/Post';
 
 import './mandala.css';
-
-interface FullScreenHandle {
-    active: boolean;
-    enter: () => Promise<void>;
-    exit: () => Promise<void>;
-    node: React.MutableRefObject<HTMLDivElement | null>;
-}
 
 function Mandala({ handle }: { handle: FullScreenHandle }) {
     // const MenuImage = React.lazy(

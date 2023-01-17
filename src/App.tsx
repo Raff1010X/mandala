@@ -5,6 +5,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import Main from './views/main/Main';
 import Mandala from './views/mandala/Mandala';
+import Gallery from './views/gallery/Gallery';
 
 function App() {
     const handle = useFullScreenHandle();
@@ -22,6 +23,10 @@ function App() {
                     <Route
                         path="/mandala"
                         element={<Mandala handle={handle} />}
+                    />
+                    <Route
+                        path="/gallery"
+                        element={<Gallery handle={handle} />}
                     />
                     <Route path="*" element={<Main />} />
                 </Routes>

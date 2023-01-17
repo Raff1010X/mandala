@@ -1,5 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { getMandala, getMandalas, postNewMandala } from './mandalaAPI'
+
+
 import {
     newLayer,
     mandalaTransform,
@@ -75,9 +78,67 @@ export const mandalaSlice = createSlice({
             state.transform[action.payload['name'] as transformType] =
                 action.payload['value'];
         },
-        setUserInfo: (state, action: PayloadAction<{ name: string | undefined; origin: string | undefined, message: string | undefined}>) => {
-            console.log(action.payload)
+        postMandala: (state, action: PayloadAction<{ name: string | undefined; origin: string | undefined, message: string | undefined}>) => {
+            const {mandalaArr, transform} = current(state)
+            const userInfo = action.payload
+            const data = {mandalaArr, transform, userInfo}
+            console.log(data)
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(postNewMandala.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(postNewMandala.fulfilled, (state, action) => {
+                state.status = 'idle'
+                // if (action.payload.status === 'error') {
+                //     // action.asyncDispatch(sendMessage(action.payload.message))
+                // }
+                // if (action.payload.data[0].data !== 'NULL') {
+                //     // state.consequences = action.payload.data
+                // }
+            })
+            .addCase(postNewMandala.rejected, (state, action) => {
+                state.status = 'failed'
+                // action.asyncDispatch(sendMessage('Błąd serwera...'))
+            })
+
+            .addCase(getMandala.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(getMandala.fulfilled, (state, action) => {
+                state.status = 'idle'
+                // if (action.payload.status === 'error') {
+                //     // action.asyncDispatch(sendMessage(action.payload.message))
+                // }
+                // if (action.payload.data[0].data !== 'NULL') {
+                //     // state.consequences = action.payload.data
+                // }
+            })
+            .addCase(getMandala.rejected, (state, action) => {
+                state.status = 'failed'
+                // action.asyncDispatch(sendMessage('Błąd serwera...'))
+            })
+
+
+            .addCase(getMandalas.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(getMandalas.fulfilled, (state, action) => {
+                state.status = 'idle'
+                // if (action.payload.status === 'error') {
+                //     // action.asyncDispatch(sendMessage(action.payload.message))
+                // }
+                // if (action.payload.data[0].data !== 'NULL') {
+                //     // state.consequences = action.payload.data
+                // }
+            })
+            .addCase(getMandalas.rejected, (state, action) => {
+                state.status = 'failed'
+                // action.asyncDispatch(sendMessage('Błąd serwera...'))
+            })
+
     },
 });
 
@@ -88,12 +149,14 @@ export const {
     deleteLayer,
     addLayer,
     changeTransform,
-    setUserInfo
+    postMandala
 } = mandalaSlice.actions;
 
 export const selectMandalaArr = (state: RootState) => state.mandala.mandalaArr;
 export const selectLayer = (state: RootState) => state.mandala.layer;
 export const selectHoveredLayer = (state: RootState) => state.mandala.hoveredLayer;
 export const selectTransform = (state: RootState) => state.mandala.transform;
+
+
 
 export default mandalaSlice.reducer;
