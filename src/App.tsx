@@ -11,7 +11,9 @@ function App() {
     const handle = useFullScreenHandle();
 
     useEffect(() => {
-        const el = ReactDOM.findDOMNode(document.querySelector('#loader'));
+        let el = ReactDOM.findDOMNode(document.querySelector('#loader'));
+        if (el) el.remove();
+        el = ReactDOM.findDOMNode(document.querySelector('#preload'));
         if (el) el.remove();
     }, []);
 

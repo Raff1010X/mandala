@@ -98,7 +98,7 @@ function Post() {
                         <textarea
                             ref={message}
                             id="post-message"
-                            placeholder="What Homo Affectus - Feel Full Human - means to You?"
+                            placeholder="Leave Your comment about the best version of human evolution in future. What Homo Affectus - Feelfull Human means to You? Wrire short sentence directed to this topic."
                             required
                             minLength={15}
                             maxLength={256}

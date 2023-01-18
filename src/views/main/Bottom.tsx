@@ -2,7 +2,7 @@ import { RefObject } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import HelpIcon from '@mui/icons-material/Help';
 import ImageIcon from '@mui/icons-material/Image';
 
 function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
@@ -13,8 +13,8 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
     function handleClickLinkToGallery() {
         navigate('/gallery');
     }
-    function handleClickLinkToFavebook() {
-        window.location.replace('https://www.facebook.com/hominis.affectus');
+    function handleClickLinkToPage() {
+        window.location.replace('https://www.homoaffectus.org');
     }
 
     return (
@@ -82,13 +82,13 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
             <div className="main-bottom-container" tabIndex={3}>
                 <div className="main-bottom-background-2" />
                 <i>
-                    <FacebookIcon />
+                    <HelpIcon />
                 </i>
                 <div className="main-bottom-title">Homo Affectus</div>
                 <div className="main-bottom-content">
                     <div className="main-bottom-content-header">
                         <i>
-                            <FacebookIcon />
+                            <HelpIcon />
                         </i>
                         <div>Homo Affectus</div>
                     </div>
@@ -97,14 +97,14 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                         <br />
                         Interdisciplinary art initiative.
                         <br />
-                        See more at Facebook page.
+                        See more at Project page.
                     </div>
                     <div
                         // href="https://www.facebook.com/hominis.affectus"
                         className="main-bottom-link"
-                        onClick={()=>handleClickLinkToFavebook()}
+                        onClick={()=>handleClickLinkToPage()}
                     >
-                        Go to Facebook Page
+                        Go to Project Page
                     </div>
                 </div>
             </div>

@@ -72,19 +72,6 @@
 }
 
 /* ---------------------------------------------backVideo */
-.bg-video {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
 
 .video {
     width: 100%;
@@ -92,11 +79,6 @@
     -o-object-fit: cover;
     object-fit: cover;
     z-index: -1;
-    /* -webkit-filter: saturate(5) brightness(2.2) hue-rotate(10deg); */
-    /* -webkit-filter: saturate(5) brightness(2.2) hue-rotate(10deg) invert(1);
-            filter: saturate(5) brightness(2.2) hue-rotate(10deg) invert(1); */
-    -webkit-filter: brightness(1.2) invert(1) grayscale(100%);
-    filter: brightness(1.2) invert(1) grayscale(100%);
 }
 
 /* ---------------------------------------------heading */
@@ -200,7 +182,7 @@
 
 .main-bottom-container {
     position: relative;
-    width: min(70vw, 1000px);
+    width: min(70vw, 800px);
     height: max(7vh, 7vw);
     background: linear-gradient(150deg, #c4c4c4 0%, #7a7a7a 100%);
     border-radius: max(3.5vh, 3.5vw);
@@ -221,14 +203,14 @@
 }
 
 .main-bottom-container:focus {
-    width: min(70vw, 1000px);
+    width: min(70vw, 800px);
     height: min(35vh, 500px);
     cursor: default;
 }
 @media screen and (orientation: portrait) {
     .main-bottom-container:focus {
-        width: min(70vw, 1000px);
-        height: min(70vw, 1000px);
+        width: min(70vw, 800px);
+        height: min(70vw, 800px);
         cursor: default;
     }
 }
@@ -335,7 +317,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('../../assets/11.jpg');
+    background-image: url('../../assets/11.webp');
     background-position: center;
     background-size: cover;
     transition: 0.4s;

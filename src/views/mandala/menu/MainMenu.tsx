@@ -45,7 +45,7 @@ function MainMenu({ onClick }: mainMenuProps) {
                     <i>
                         <ShareIcon />
                     </i>
-                    <p>Share</p>
+                    <p>Save it</p>
                 </div>
                 <div
                     data-item="download"
