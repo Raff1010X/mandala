@@ -29,7 +29,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
 
     let { name, origin, message } = select(selectUserInfo);
     const status = select(selectStatus);
-    let fileName = select(selectFileName)
+    let fileName = select(selectFileName);
 
     const { rotateX, rotateY, rotateZ, perspective } = select(selectTransform);
 
@@ -69,7 +69,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
     useEffect(() => {
         dispatch(getMandala(-1));
     }, [dispatch]);
-    
+
     function handleClickPrev() {
         dispatch(getMandala(fileName - 1));
     }
@@ -79,14 +79,18 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
     }
 
     useEffect(() => {
-        if (status === "loading") {
+        let timer: string | number | NodeJS.Timeout | undefined
+        if (status === 'loading') {
             classAdd('gallery-mandala', 'gallery-mandala--loading');
             classAdd('loader2', 'loader--loading');
         }
         if (status === 'idle') {
-            classRemove('gallery-mandala', 'gallery-mandala--loading');
-            classRemove('loader2', 'loader--loading');
+            timer = setTimeout(() => {
+                classRemove('gallery-mandala', 'gallery-mandala--loading');
+                classRemove('loader2', 'loader--loading');
+            }, 350);
         }
+        return () => clearTimeout(timer);
     }, [status]);
 
     return (
@@ -109,9 +113,13 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                 <i>
                     <FormatQuoteIcon />
                 </i>
-                <div className="gallery-message">{(status === "loading") ? "Loadind mandala..." : message}</div>
+                <div className="gallery-message">
+                    {status === 'loading' ? 'Loadind mandala...' : message}
+                </div>
                 <div className="gallery-author">
-                {(status === "loading") ? "Mandala Creators" : (`${name}, ${origin}`)}
+                    {status === 'loading'
+                        ? 'Mandala Creators'
+                        : `${name}, ${origin}`}
                 </div>
             </div>
             <div

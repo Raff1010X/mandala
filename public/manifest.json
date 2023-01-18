@@ -3,7 +3,6 @@
     "background_color": "#ffffff",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "https://mandalacreators.webdev.priv.pl/",
     "name": "Homo Affectus Mandala Creators",
     "short_name": "Mandala Creators",
     "description": "Create your mandala and make your own meditation towards human development.",

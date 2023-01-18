@@ -11,7 +11,7 @@
     font-family: 'Anton', Arial, sans-serif;
     font-size: 10vh;
     text-shadow: -0.4vh -0.4vh #1e72b9;
-    background-image: linear-gradient(to left, #ffffffdd, #b91ea429);
+    background-image: linear-gradient(to right, #b91ea425, #b91ea43d);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -31,10 +31,10 @@
 }
 .logo-red {
     position: relative;
-    color: #b91ea429;
+    color: #b91ea43d;
     text-shadow: -0.4vh -0.4vh #1e73b9;
-    /* background-color: #00000010; */
-    /* background-image: url('../../../assets/background-3a.svg'); */
+    background-color: #00000003;
+    background-image: url('../../../assets/background-3a.svg');
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
