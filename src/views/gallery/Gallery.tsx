@@ -87,10 +87,6 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
             classRemove('gallery-mandala', 'gallery-mandala--loading');
             classRemove('loader2', 'loader--loading');
         }
-        return () =>{
-            classRemove('gallery-mandala', 'gallery-mandala--loading');
-            classRemove('loader2', 'loader--loading');
-        }
     }, [status]);
 
     return (
