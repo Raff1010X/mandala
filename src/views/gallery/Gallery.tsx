@@ -157,18 +157,17 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                     <FullscreenIcon />
                 </i>
             </div>
-            <div
-                className="gallery-top-icon gallery-top-icon--edit"
-            >
-                <i>
-                    <Popup
-                        trigger={<BrushIcon />}
-                        position="left center"
-                    >
-                        <div onClick={handleClickEdit}>Click this popup to open this mandala in editor.</div>
-                    </Popup>
-                </i>
-            </div>
+            { (!handle.active) ?
+                <div className="gallery-top-icon gallery-top-icon--edit">
+                    <i>
+                        <Popup trigger={<BrushIcon />} position="left center">
+                            <div onClick={handleClickEdit}>
+                                Click this popup to open this mandala in editor.
+                            </div>
+                        </Popup>
+                    </i>
+                </div> : null
+            }
         </div>
     );
 }
