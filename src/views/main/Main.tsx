@@ -10,6 +10,7 @@ import Bottom from './Bottom';
 
 import './main.css';
 
+
 function Main() {
     const main = useRef<HTMLDivElement>(null);
     const mainTopDiv = useRef<HTMLDivElement>(null);
@@ -21,6 +22,7 @@ function Main() {
 
     useAutoScroll(main, mainTopDiv, mainBottomDiv, background);
     useMover(mainMoverDiv, heading, headingSmall);
+    
 
     return (
         <div className="main" ref={main}>

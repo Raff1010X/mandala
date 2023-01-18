@@ -4,15 +4,32 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
-import SvgCircle from '../mandala/board/SvgCircle';
-import { useAppSelector } from '../../app/hooks';
-import { selectMandalaArr, selectTransform } from '../mandala/mandalaSlice';
-import { ReactNode } from 'react';
 import LogoEditable from '../mandala/menu/LogoEditable';
+import BrushIcon from '@mui/icons-material/Brush';
+import SvgCircle from '../mandala/board/SvgCircle';
+
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import {
+    selectMandalaArr,
+    selectStatus,
+    selectTransform,
+    selectUserInfo,
+} from '../mandala/mandalaSlice';
+import { ReactNode, useEffect, useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+import { getMandala } from '../mandala/mandalaAPI';
+import { classAdd, classRemove } from '../mandala/menu/handleMenu';
 
 function Gallery({ handle }: { handle: FullScreenHandle }) {
-    const { rotateX, rotateY, rotateZ, perspective } =
-        useAppSelector(selectTransform);
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const select = useAppSelector;
+
+    const { name, origin, message } = select(selectUserInfo);
+    const status = select(selectStatus);
+
+    const { rotateX, rotateY, rotateZ, perspective } = select(selectTransform);
 
     const mandalaArr = useAppSelector(selectMandalaArr);
     const mandalaArrLen = mandalaArr.length - 1;
@@ -47,9 +64,34 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         else handle.enter();
     }
 
+    useEffect(() => {
+        dispatch(getMandala(-1));
+    }, [dispatch]);
+    
+    function handleClickPrev() {
+        classAdd('gallery-mandala', 'gallery-mandala--loading');
+        dispatch(getMandala(1));
+    }
+
+    function handleClickNext() {
+        classAdd('gallery-mandala', 'gallery-mandala--loading');
+        dispatch(getMandala(15));
+    }
+
+    useEffect(() => {
+        if (status === "loading") {
+            classAdd('gallery-mandala', 'gallery-mandala--loading');
+        }
+        if (status === 'idle') {
+            classRemove('gallery-mandala', 'gallery-mandala--loading');
+        }
+    }, [status]);
+
     return (
         <div className="gallery">
-            <div className="gallery-mandala">{mandala}</div>
+            <div id="gallery-mandala" className="gallery-mandala">
+                {mandala}
+            </div>
             <div
                 style={{
                     backgroundColor: '#ffffff00',
@@ -64,26 +106,38 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                 <i>
                     <FormatQuoteIcon />
                 </i>
-                <div className="gallery-message">
-                    Long message from author of this mandala to show on the
-                    screen Long message from author of this mandala to show on
-                    the screen
+                <div className="gallery-message">{message}</div>
+                <div className="gallery-author">
+                    {name}, {origin}
                 </div>
-                <div className="gallery-author">Name, origin</div>
             </div>
-            <div className="gallery-button gallery-button--prev">
+            <div
+                className="gallery-button gallery-button--prev"
+                onClick={handleClickPrev}
+            >
                 <i>
-                    <ArrowBackIosNewIcon />
+                    <ArrowBackIosNewIcon /> Prev
                 </i>
             </div>
-            <div className="gallery-button gallery-button--next">
+            <div
+                className="gallery-button gallery-button--next"
+                onClick={handleClickNext}
+            >
                 <i>
-                    <ArrowForwardIosIcon />
+                    Next <ArrowForwardIosIcon />
                 </i>
             </div>
-            <div className="gallery-fullscreen" onClick={handleClickFullscreen}>
+            <div className="gallery-top-icon" onClick={handleClickFullscreen}>
                 <i>
                     <FullscreenIcon />
+                </i>
+            </div>
+            <div
+                className="gallery-top-icon gallery-top-icon--edit"
+                onClick={() => navigate('/mandala')}
+            >
+                <i>
+                    <BrushIcon />
                 </i>
             </div>
         </div>

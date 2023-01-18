@@ -50,6 +50,8 @@ function Post() {
         };
         const data = {mandalaArr, transform, userInfo}
         dispatch(postNewMandala(data));
+        
+        handleClickCloseMenu();
     }
 
     return (

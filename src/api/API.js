@@ -17,14 +17,12 @@ const processResponse = (res) => {
 }
 
 const handleResponse = (res) => {
-    const { status, lenght, data, message } = res
-    const response = {
-        status,
-        lenght,
-        data,
-        message,
-    }
-    return response
+    // const { status, file } = res
+    // const response = {
+    //     status,
+    //     file
+    // }
+    return res
 }
 
 const handleError = (err) => {

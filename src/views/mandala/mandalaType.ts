@@ -54,11 +54,19 @@ export interface MandalaArrTransform {
     perspective: number;
 }
 
+interface userInfo {
+    name: string;
+    origin: string;
+    message: string;
+}
+
 export interface MandalaState {
     mandalaArr: MandalaArrProps[];
     layer: number;
     hoveredLayer: number;
     transform: MandalaArrTransform;
+    fileName: number;
+    userInfo: userInfo;
     status: 'idle' | 'loading' | 'failed';
 }
 
