@@ -17,7 +17,9 @@ const initialState: MandalaState = {
     hoveredLayer: -1,
     transform: mandalaTransform,
     fileName: 0,
-    userInfo: {name: '', origin:'', message: ''},
+    fileMandala: mandalaArr,
+    fileTransform: mandalaTransform,
+    userInfo: { name: '', origin: '', message: '' },
     status: 'idle',
 };
 
@@ -84,6 +86,10 @@ export const mandalaSlice = createSlice({
             state.transform[action.payload['name'] as transformType] =
                 action.payload['value'];
         },
+        editMandalaFromGallery: (state) => {
+            state.transform = state.fileTransform
+            state.mandalaArr = state.fileMandala
+        },
         // postMandala: (state, action: PayloadAction<{ name: string | undefined; origin: string | undefined, message: string | undefined}>) => {
         //     const {mandalaArr, transform} = current(state) //current from '@reduxjs/toolkit';
         //     const userInfo = action.payload
@@ -102,7 +108,9 @@ export const mandalaSlice = createSlice({
                     // action.asyncDispatch(sendMessage('Server error...'))
                 }
                 if (action.payload.status === 'ok') {
-
+                    window.alert(
+                        'Your Mandala has been saved. You will find it in Art Gallery.'
+                    );
                     // action.asyncDispatch(sendMessage('Success'))
                 }
             })
@@ -121,11 +129,11 @@ export const mandalaSlice = createSlice({
                 }
                 if (action.payload.status === 'ok') {
                     const file = JSON.parse(action.payload.file);
-                    const {fileName, body} = file;
-                    const {mandalaArr, transform, userInfo} = body;
+                    const { fileName, body } = file;
+                    const { mandalaArr, transform, userInfo } = body;
                     state.fileName = fileName;
-                    state.mandalaArr = mandalaArr;
-                    state.transform = transform;
+                    state.fileMandala = mandalaArr;
+                    state.fileTransform = transform;
                     state.userInfo = userInfo;
                 }
             })
@@ -143,6 +151,7 @@ export const {
     deleteLayer,
     addLayer,
     changeTransform,
+    editMandalaFromGallery,
 } = mandalaSlice.actions;
 
 export const selectStatus = (state: RootState) => state.mandala.status;
@@ -151,7 +160,12 @@ export const selectLayer = (state: RootState) => state.mandala.layer;
 export const selectHoveredLayer = (state: RootState) =>
     state.mandala.hoveredLayer;
 export const selectTransform = (state: RootState) => state.mandala.transform;
+
 export const selectFileName = (state: RootState) => state.mandala.fileName;
+export const selectFileMandala = (state: RootState) =>
+    state.mandala.fileMandala;
+export const selectFileTransform = (state: RootState) =>
+    state.mandala.fileTransform;
 export const selectUserInfo = (state: RootState) => state.mandala.userInfo;
 
 export default mandalaSlice.reducer;

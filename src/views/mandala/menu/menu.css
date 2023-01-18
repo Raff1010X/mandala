@@ -11,7 +11,7 @@
     font-family: 'Anton', Arial, sans-serif;
     font-size: 10vh;
     text-shadow: -0.4vh -0.4vh #1e72b9;
-    background-image: linear-gradient(to right, #b91ea425, #b91ea43d);
+    background-image: linear-gradient(to left, #75757527, #6e6e6e15);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -31,13 +31,13 @@
 }
 .logo-red {
     position: relative;
-    color: #b91ea43d;
+    color: #6e6e6e20;
     text-shadow: -0.4vh -0.4vh #1e73b9;
-    background-color: #00000003;
-    background-image: url('../../../assets/background-3a.svg');
+    background-color: #00000005;
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 50%;
 }
 
 .logo-img {
@@ -147,6 +147,14 @@
     }
     .menu--select-color {
         margin-bottom: 2vh;
+    }
+}
+@media only screen and (max-height: 1200px) {
+    .menu--select > * {
+        max-height: 10px;
+    }
+    .menu--select-color {
+        margin-bottom: 1vh;
     }
 }
 
@@ -413,15 +421,15 @@
     top: 0;
     left: 0;
     background-color:#95959591;
-    z-index: 1000;
-    transform: translateY(100vh);
+    z-index: -1;
+    /* transform: translateY(100vh); */
     opacity: 0;
     -webkit-backdrop-filter: blur(1px);
             backdrop-filter: blur(1px);
     transition: .5s;
 }
 .post-wrapper--visible {
-    transform: translateY(0);
+    z-index: 1000;
     opacity: 1;
 }
 

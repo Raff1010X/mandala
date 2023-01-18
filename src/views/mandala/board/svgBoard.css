@@ -144,9 +144,9 @@
 }
 
 @media screen and (orientation: portrait) {
-    .svgBoard {
+    /* .svgBoard {
         transform: scale(1.8);
-    }
+    } */
     .layer-controller-background {
         display: none;
     }

@@ -119,10 +119,10 @@
     color: #00000052;
     text-shadow: -0.5vh -0.5vh #000000c5;
     background-color: #00000013;
-    background-image: url('../../assets/background-3.svg');
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 50%;
 }
 
 /* ---------------------------------------------description */

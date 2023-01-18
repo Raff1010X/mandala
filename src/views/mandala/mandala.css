@@ -6,28 +6,23 @@
     -webkit-animation: showIt 1s ease 0s 1 forwards;
             animation: showIt 1s ease 0s 1 forwards;
     opacity: 0;
-    transform: translateY(-50vh);
     background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
 }
 
 @-webkit-keyframes showIt {
     0% {
         opacity: 0;
-        transform: translateY(50vh);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
 @keyframes showIt {
     0% {
         opacity: 0;
-        transform: translateY(50vh);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }

@@ -8,12 +8,16 @@ import LogoEditable from '../mandala/menu/LogoEditable';
 import BrushIcon from '@mui/icons-material/Brush';
 import SvgCircle from '../mandala/board/SvgCircle';
 
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
+    editMandalaFromGallery,
+    selectFileMandala,
     selectFileName,
-    selectMandalaArr,
+    selectFileTransform,
     selectStatus,
-    selectTransform,
     selectUserInfo,
 } from '../mandala/mandalaSlice';
 import { ReactNode, useEffect } from 'react';
@@ -31,9 +35,10 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
     const status = select(selectStatus);
     let fileName = select(selectFileName);
 
-    const { rotateX, rotateY, rotateZ, perspective } = select(selectTransform);
+    const { rotateX, rotateY, rotateZ, perspective } =
+        select(selectFileTransform);
 
-    const mandalaArr = useAppSelector(selectMandalaArr);
+    const mandalaArr = useAppSelector(selectFileMandala);
     const mandalaArrLen = mandalaArr.length - 1;
 
     let mandala: ReactNode[] = [...mandalaArr].reverse().map((el, index) => {
@@ -78,8 +83,17 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         dispatch(getMandala(fileName + 1));
     }
 
+    function handleClickEdit() {
+        dispatch(editMandalaFromGallery());
+        navigate('/mandala');
+        setTimeout(() => {
+            classAdd('burger-menu', 'burger-menu--hidden');
+            classAdd('menu-layers', 'menu-layers--open');
+        }, 750);
+    }
+
     useEffect(() => {
-        let timer: string | number | NodeJS.Timeout | undefined
+        let timer: string | number | NodeJS.Timeout | undefined;
         if (status === 'loading') {
             classAdd('gallery-mandala', 'gallery-mandala--loading');
             classAdd('loader2', 'loader--loading');
@@ -88,7 +102,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
             timer = setTimeout(() => {
                 classRemove('gallery-mandala', 'gallery-mandala--loading');
                 classRemove('loader2', 'loader--loading');
-            }, 350);
+            }, 500);
         }
         return () => clearTimeout(timer);
     }, [status]);
@@ -145,10 +159,14 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
             </div>
             <div
                 className="gallery-top-icon gallery-top-icon--edit"
-                onClick={() => navigate('/mandala')}
             >
                 <i>
-                    <BrushIcon />
+                    <Popup
+                        trigger={<BrushIcon />}
+                        position="left center"
+                    >
+                        <div onClick={handleClickEdit}>Click this popup to open this mandala in editor.</div>
+                    </Popup>
                 </i>
             </div>
         </div>

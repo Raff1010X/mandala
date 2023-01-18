@@ -6,10 +6,9 @@
     height: 100vh;
     background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
     overflow: hidden;
+    opacity: 0;
     -webkit-animation: showIt 1s ease 0s 1 forwards;
     animation: showIt 1s ease 0s 1 forwards;
-    opacity: 0;
-    transform: translateY(-50vh);
     background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
 }
 
@@ -29,12 +28,6 @@
 }
 .gallery-mandala--loading {
     opacity: 0;
-    -webkit-animation-name: spin;
-            animation-name: spin;
-    -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
 }
 
 .loader2 {
@@ -182,7 +175,7 @@
     .gallery-button {
         width: 10vh;
         height: 10vh;
-        top: calc(50vh - 5vh);
+        top: calc(70vh);
     }
 
     .gallery-info > i {
