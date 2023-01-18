@@ -151,6 +151,7 @@ export const selectLayer = (state: RootState) => state.mandala.layer;
 export const selectHoveredLayer = (state: RootState) =>
     state.mandala.hoveredLayer;
 export const selectTransform = (state: RootState) => state.mandala.transform;
+export const selectFileName = (state: RootState) => state.mandala.fileName;
 export const selectUserInfo = (state: RootState) => state.mandala.userInfo;
 
 export default mandalaSlice.reducer;

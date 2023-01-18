@@ -10,12 +10,13 @@ import SvgCircle from '../mandala/board/SvgCircle';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
+    selectFileName,
     selectMandalaArr,
     selectStatus,
     selectTransform,
     selectUserInfo,
 } from '../mandala/mandalaSlice';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { getMandala } from '../mandala/mandalaAPI';
@@ -26,8 +27,9 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
     const dispatch = useAppDispatch();
     const select = useAppSelector;
 
-    const { name, origin, message } = select(selectUserInfo);
+    let { name, origin, message } = select(selectUserInfo);
     const status = select(selectStatus);
+    let fileName = select(selectFileName)
 
     const { rotateX, rotateY, rotateZ, perspective } = select(selectTransform);
 
@@ -69,21 +71,25 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
     }, [dispatch]);
     
     function handleClickPrev() {
-        classAdd('gallery-mandala', 'gallery-mandala--loading');
-        dispatch(getMandala(1));
+        dispatch(getMandala(fileName - 1));
     }
 
     function handleClickNext() {
-        classAdd('gallery-mandala', 'gallery-mandala--loading');
-        dispatch(getMandala(15));
+        dispatch(getMandala(fileName + 1));
     }
 
     useEffect(() => {
         if (status === "loading") {
             classAdd('gallery-mandala', 'gallery-mandala--loading');
+            classAdd('loader2', 'loader--loading');
         }
         if (status === 'idle') {
             classRemove('gallery-mandala', 'gallery-mandala--loading');
+            classRemove('loader2', 'loader--loading');
+        }
+        return () =>{
+            classRemove('gallery-mandala', 'gallery-mandala--loading');
+            classRemove('loader2', 'loader--loading');
         }
     }, [status]);
 
@@ -92,6 +98,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
             <div id="gallery-mandala" className="gallery-mandala">
                 {mandala}
             </div>
+            <div id="loader2" className="loader2"></div>
             <div
                 style={{
                     backgroundColor: '#ffffff00',
@@ -106,9 +113,9 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                 <i>
                     <FormatQuoteIcon />
                 </i>
-                <div className="gallery-message">{message}</div>
+                <div className="gallery-message">{(status === "loading") ? "Loadind mandala..." : message}</div>
                 <div className="gallery-author">
-                    {name}, {origin}
+                {(status === "loading") ? "Mandala Creators" : (`${name}, ${origin}`)}
                 </div>
             </div>
             <div
