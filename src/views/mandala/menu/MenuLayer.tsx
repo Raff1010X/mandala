@@ -163,7 +163,7 @@ function MenuLayer() {
                         name="rotate"
                         min={0}
                         max={360}
-                        step={0.05}
+                        step={1}
                         value={rotate}
                         onChange={(e) => handleChange(e)}
                     />
@@ -255,7 +255,7 @@ function MenuLayer() {
                         name="svgRotate"
                         min={0}
                         max={360}
-                        step={0.05}
+                        step={1}
                         value={svgRotate}
                         onChange={(e) => handleChange(e)}
                     />

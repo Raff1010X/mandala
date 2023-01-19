@@ -101,6 +101,7 @@ export const mandalaSlice = createSlice({
         builder
             .addCase(postNewMandala.pending, (state) => {
                 state.status = 'loading';
+                
             })
             .addCase(postNewMandala.fulfilled, (state, action) => {
                 state.status = 'idle';
@@ -111,6 +112,7 @@ export const mandalaSlice = createSlice({
                     window.alert(
                         'Your Mandala has been saved. You will find it in Art Gallery.'
                     );
+
                     // action.asyncDispatch(sendMessage('Success'))
                 }
             })
@@ -123,7 +125,6 @@ export const mandalaSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(getMandala.fulfilled, (state, action) => {
-                state.status = 'idle';
                 if (action.payload.status === 'error') {
                     // action.asyncDispatch(sendMessage('Server error...'))
                 }
@@ -136,6 +137,7 @@ export const mandalaSlice = createSlice({
                     state.fileTransform = transform;
                     state.userInfo = userInfo;
                 }
+                state.status = 'idle';
             })
             .addCase(getMandala.rejected, (state, action) => {
                 state.status = 'failed';

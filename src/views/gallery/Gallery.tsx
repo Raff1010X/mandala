@@ -76,11 +76,21 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
     }, [dispatch]);
 
     function handleClickPrev() {
-        dispatch(getMandala(fileName - 1));
+        if (status !== 'idle') return
+        classAdd('gallery-mandala', 'gallery-mandala--loading');
+        classAdd('loader2', 'loader--loading');
+        setTimeout(() => {
+            dispatch(getMandala(fileName - 1));
+        }, 355);
     }
 
     function handleClickNext() {
-        dispatch(getMandala(fileName + 1));
+        if (status !== 'idle') return
+        classAdd('gallery-mandala', 'gallery-mandala--loading');
+        classAdd('loader2', 'loader--loading');
+        setTimeout(() => {
+            dispatch(getMandala(fileName + 1));
+        }, 355);
     }
 
     function handleClickEdit() {
@@ -94,25 +104,22 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
 
     useEffect(() => {
         let timer: string | number | NodeJS.Timeout | undefined;
-        if (status === 'loading') {
-            classAdd('gallery-mandala', 'gallery-mandala--loading');
-            classAdd('loader2', 'loader--loading');
-        }
         if (status === 'idle') {
             timer = setTimeout(() => {
                 classRemove('gallery-mandala', 'gallery-mandala--loading');
                 classRemove('loader2', 'loader--loading');
-            }, 500);
-        }
+            }, 355);
+        } 
         return () => clearTimeout(timer);
     }, [status]);
+ 
 
     return (
         <div className="gallery">
-            <div id="gallery-mandala" className="gallery-mandala">
+            <div id="gallery-mandala" className="gallery-mandala gallery-mandala--loading">
                 {mandala}
             </div>
-            <div id="loader2" className="loader2"></div>
+            <div id="loader2" className="loader2 loader--loading"></div>
             <div
                 style={{
                     backgroundColor: '#ffffff00',

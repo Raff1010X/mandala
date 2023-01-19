@@ -9,7 +9,6 @@
     opacity: 0;
     -webkit-animation: showIt 1s ease 0s 1 forwards;
     animation: showIt 1s ease 0s 1 forwards;
-    background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
 }
 
 .gallery-mandala {
@@ -22,7 +21,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    transition: .5s;
+    transition: 0.35s;
     z-index: 0;
     rotate: 0deg;
 }
@@ -49,12 +48,12 @@
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
     opacity: 0;
-    transition: .5s;
+    transition: 0.35s;
+    
   }
   .loader--loading {
     opacity: 1;
   }
-
 
 .gallery-button {
     position: absolute;
