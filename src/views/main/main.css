@@ -207,6 +207,7 @@
     height: min(35vh, 500px);
     cursor: default;
 }
+
 @media screen and (orientation: portrait) {
     .main-bottom-container:focus {
         width: min(70vw, 800px);
@@ -324,6 +325,7 @@
     opacity: 0.75;
     -webkit-filter: brightness(1) grayscale(0%);
     filter: brightness(1) grayscale(0%);
+    scale: 1.1;
     z-index: 0;
 }
 
@@ -331,6 +333,8 @@
     opacity: 0.75;
     -webkit-filter: brightness(0.5) grayscale(100%);
     filter: brightness(0.5) grayscale(100%);
+    scale: 1;
+    
 }
 
 .main-bottom-background-2 {
