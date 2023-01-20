@@ -119,7 +119,7 @@ import { ReactComponent as I60 } from '../../../assets/svg/60.svg';
 // import { ReactComponent as I119 } from '../../../assets/svg/119.svg';
 // import { ReactComponent as I120 } from '../../../assets/svg/120.svg';
 import { MouseEvent } from 'react';
-import { selectHoveredLayer, setHoveredLayer, setLayer } from '../mandalaSlice';
+import { selectHoveredLayer, selectNumberOfItems, setHoveredLayer, setLayer } from '../mandalaSlice';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
 interface SvgProps {
@@ -315,6 +315,11 @@ function SvgItem({
         if (index >= 0) dispatch(setLayer(index));
 
     };
+    let transformation = `rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`
+    const numberOfItems = useAppSelector(selectNumberOfItems);
+    if (numberOfItems > 24) {
+        transformation = `rotate(${rotate}deg) scale(${scale})`
+    }
 
     return (
         <Component
@@ -333,7 +338,7 @@ function SvgItem({
             strokeOpacity={strokeOpacity}
             style={{
                 position: position,
-                transform: `rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`,
+                transform: `${transformation}`,
             }}
         />
     );

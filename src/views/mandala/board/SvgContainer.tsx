@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { useAppSelector } from '../../../app/hooks';
+import { selectNumberOfItems } from '../mandalaSlice';
 
 interface SvgProps {
     item: number;
@@ -17,6 +19,10 @@ function SvgContainer({
     children,
     perspective,
 }: SvgProps) {
+
+
+    const numberOfItems = useAppSelector(selectNumberOfItems);
+    if (numberOfItems > 24) perspective = 1000
 
     return (
         <div
