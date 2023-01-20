@@ -125,7 +125,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                     backgroundColor: '#ffffff00',
                     position: 'absolute',
                     width: '100vw',
-                    height: '100vh',
+                    height: '100vh'
                 }}
             ></div>
             {/* <div className="logo-img"/> */}

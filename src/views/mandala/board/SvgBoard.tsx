@@ -336,7 +336,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         >
             <div ref={svgBoardColorPalette} id="color-palette"></div>
             {mandala}
-            <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh' }}></div>
+            <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh'}}></div>
             <div
                 ref={svgBoardBackground}
                 className="layer-controller-background"
