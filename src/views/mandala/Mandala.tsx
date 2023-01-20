@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import { classAdd, classRemove } from './menu/handleMenu';
 import { toPng } from 'html-to-image';
-import { FullScreenHandle } from '../mandala/mandalaType'
+import { FullScreenHandle } from '../mandala/mandalaType';
 
 import downloadjs from 'downloadjs';
 
@@ -16,19 +16,25 @@ import MenuImage from './menu/MenuImage';
 import Post from './menu/Post';
 
 import './mandala.css';
+import { useAppSelector } from '../../app/hooks';
+import { selectNumberOfItems } from './mandalaSlice';
 
 function Mandala({ handle }: { handle: FullScreenHandle }) {
     // const MenuImage = React.lazy(
     //     () => import('../../components/menu/MenuImage')
     // );
+    const numberOfItems = useAppSelector(selectNumberOfItems);
 
     const boardRef = useRef<HTMLDivElement>(null);
 
     const hadleSaveImage = async () => {
-        boardRef.current?.setAttribute('style', 'background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);')
+        boardRef.current?.setAttribute(
+            'style',
+            'background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);'
+        );
         const canvas = await toPng(boardRef.current as HTMLElement);
         downloadjs(canvas, 'download.png');
-        boardRef.current?.setAttribute('style', 'background: transparent;')
+        boardRef.current?.setAttribute('style', 'background: transparent;');
     };
 
     function handleClickMenuItem(
@@ -40,7 +46,12 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             classAdd('menu-layers', 'menu-layers--open');
         }
         if (e.currentTarget.dataset.item === 'transform') {
-            classAdd('menu-transform', 'menu-layers--open');
+            if (numberOfItems <= 24) {
+                classAdd('menu-transform', 'menu-layers--open');
+            } else {
+                window.alert(`You can transform mandalas with no more than 24 elements. Your mandala has ${numberOfItems} elements.`)
+                classRemove('burger-menu', 'burger-menu--hidden');
+            }
         }
         if (e.currentTarget.dataset.item === 'share') {
             classRemove('burger-menu', 'burger-menu--hidden');

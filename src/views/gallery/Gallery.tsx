@@ -81,7 +81,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         classAdd('loader2', 'loader--loading');
         setTimeout(() => {
             dispatch(getMandala(fileName - 1));
-        }, 355);
+        }, 350);
     }
 
     function handleClickNext() {
@@ -90,7 +90,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         classAdd('loader2', 'loader--loading');
         setTimeout(() => {
             dispatch(getMandala(fileName + 1));
-        }, 355);
+        }, 350);
     }
 
     function handleClickEdit() {
@@ -108,7 +108,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
             timer = setTimeout(() => {
                 classRemove('gallery-mandala', 'gallery-mandala--loading');
                 classRemove('loader2', 'loader--loading');
-            }, 355);
+            }, 350);
         } 
         return () => clearTimeout(timer);
     }, [status]);

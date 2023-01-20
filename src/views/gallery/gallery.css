@@ -93,9 +93,10 @@
     font-size: 2vh;
 }
 .gallery-button > i > * {
-    font-size: min(max(7vh, 7vw), 70px);;
-    -webkit-filter: drop-shadow(0 0 1px #1e72b9);
-    filter: drop-shadow(0 0 1px #1e72b9);
+    font-size: min(max(7vh, 7vw), 70px);
+    -webkit-filter: drop-shadow(0 0 10px white);
+            filter: drop-shadow(0 0 10px white);
+    text-shadow: 0 0 10px white;
 }
 .gallery-button:active > i {
     color: black;
@@ -113,8 +114,8 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 1vh;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.486);
     padding: 2vh;
@@ -135,6 +136,8 @@
 .gallery-info > i > * {
     color: #1e72b9;
     font-size: 10vh;
+    -webkit-filter: drop-shadow(0 0 10px white);
+            filter: drop-shadow(0 0 10px white);
 }
 .gallery-message {
     color: #1e72b9;
@@ -161,6 +164,8 @@
 .gallery-top-icon > i > * {
     color: #1e72b9;
     font-size: min(max(3vh, 3vw), 45px);
+    -webkit-filter: drop-shadow(0 0 10px white);
+            filter: drop-shadow(0 0 10px white);
 }
 
 .gallery-top-icon--edit {

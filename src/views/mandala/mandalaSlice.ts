@@ -170,4 +170,12 @@ export const selectFileTransform = (state: RootState) =>
     state.mandala.fileTransform;
 export const selectUserInfo = (state: RootState) => state.mandala.userInfo;
 
+
+export const selectNumberOfItems = (state: RootState) => {
+    const mandala = state.mandala.mandalaArr
+    const sum = mandala.reduce((a, b) => a + (b['items'] || 0), 0)
+    return sum
+}
+
+
 export default mandalaSlice.reducer;
