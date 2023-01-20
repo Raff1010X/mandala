@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import ReactDOM, { createPortal } from 'react-dom';
 import { ReactNode, RefObject, Touch, useRef, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import {
@@ -335,7 +335,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             onTouchEnd={() => handleMouseOut(true)}
         >
             <div ref={svgBoardColorPalette} id="color-palette"></div>
-            {mandala}
+            <IFrame><div className="svgBoard" >{mandala}</div></IFrame>
             <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh'}}></div>
             <div
                 ref={svgBoardBackground}
@@ -423,3 +423,15 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
 }
 
 export default SvgBoard;
+
+
+function IFrame({ children } : any) {
+    const [ref, setRef] = useState<any>();
+    const container = ref?.contentWindow?.document?.body;
+  
+    return (
+      <iframe ref={setRef} title="mandala" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', position: 'absolute',width: '100vw', height: '100vh', zIndex: '-1'}}>
+        {container && createPortal(children, container)}
+      </iframe>
+    );
+  }
