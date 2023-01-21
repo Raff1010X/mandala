@@ -261,7 +261,7 @@ function MenuLayer() {
                     />
                 </div>
                 <div className="menu--select">
-                    <label htmlFor="scale">Scale of item: {scale.toFixed(4)}</label>
+                    <label htmlFor="scale">Scale of item: {scale.toFixed(1)}</label>
                     <Slider
                         valueLabelDisplay="auto"
                         components={{
@@ -271,9 +271,9 @@ function MenuLayer() {
                         color="primary"
                         id="scale"
                         name="scale"
-                        min={0.01}
-                        max={0.6}
-                        step={0.0005}
+                        min={0.2}
+                        max={25}
+                        step={0.1}
                         value={scale}
                         onChange={(e) => handleChange(e)}
                     />

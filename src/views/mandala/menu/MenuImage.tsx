@@ -19,7 +19,7 @@ function MenuImage() {
 
     let images = useMemo(() => {
         let images: ReactNode[] = [];
-        for (let i = 1; i <= 102; i++) {
+        for (let i = 1; i <= 120; i++) {
             images.push(
                 <div
                     key={i}

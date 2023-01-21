@@ -22,13 +22,13 @@ function SvgContainer({
 
 
     const numberOfItems = useAppSelector(selectNumberOfItems);
-    if (numberOfItems > 24) perspective = 1000
+    if (numberOfItems > 64) perspective = 1000
 
     return (
         <div
             data-item={item}
             style={{
-                width: '100vw',
+                width: '1vw',
                 position: 'absolute',
                 display: 'flex',
                 flexDirection: 'column',

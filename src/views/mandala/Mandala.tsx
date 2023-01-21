@@ -46,7 +46,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             classAdd('menu-layers', 'menu-layers--open');
         }
         if (e.currentTarget.dataset.item === 'transform') {
-            if (numberOfItems <= 24) {
+            if (numberOfItems <= 64) {
                 classAdd('menu-transform', 'menu-layers--open');
             } else {
                 window.alert(`You can transform mandalas with no more than 24 elements. Your mandala has ${numberOfItems} elements.`)

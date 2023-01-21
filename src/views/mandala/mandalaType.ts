@@ -3,13 +3,13 @@ export const newLayer = {
     rotate: 0,
     diameter: 12,
     svgItem: 1,
-    stroke: '#1e72b9',
+    stroke: '#000000',
     strokeWidth: 0.75,
     strokeOpacity: 1,
     fill: '#ffffff',
     fillOpacity: 0.5,
     svgRotate: 90,
-    scale: 0.1,
+    scale: 10,
 };
 
 export const mandalaTransform = {
@@ -97,12 +97,12 @@ export let mandalaArr = [
         rotate: 0,
         diameter: 10,
         svgItem: 1,
-        stroke: '#1e72b9',
+        stroke: '#000000',
         strokeWidth: 0.75,
         strokeOpacity: 1,
         fill: '#ffffff',
         fillOpacity: 0.5,
         svgRotate: 89,
-        scale: 0.1,
+        scale: 10,
     },
 ]

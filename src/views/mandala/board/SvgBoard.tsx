@@ -192,10 +192,10 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             value = Number(
                 (
                     mandalaArrlayer.scale +
-                    (movementX * absX + movementY * absY) / 1000
+                    (movementX * absX + movementY * absY) / 10
                 ).toFixed(3)
             );
-            if (value < 0.01 || value > 0.6) return;
+            if (value < 0.2 || value > 25) return;
             dispatch(changeLayerArr({ name: 'scale', value }));
         }
 
@@ -334,9 +334,9 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             onMouseUp={handleMouseUp}
             onTouchEnd={() => handleMouseOut(true)}
         >
-            <div ref={svgBoardColorPalette} id="color-palette"></div>
+            <div ref={svgBoardColorPalette} id="color-palette"/>
             {mandala}
-            <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh'}}></div>
+            <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh'}}/>
             <div
                 ref={svgBoardBackground}
                 className="layer-controller-background"
@@ -371,7 +371,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                     <div
                         className="layer-controller-end white"
                         style={{
-                            left: `${mandalaArrlayer.scale * 80 - 2.5}%`,
+                            left: `${mandalaArrlayer.scale * 1.8 - 2.5}%`,
                         }}
                         onMouseDown={handleMouseDownWhite}
                         onTouchStart={handleMouseDownWhite}
