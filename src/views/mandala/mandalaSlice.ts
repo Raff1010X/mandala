@@ -34,7 +34,7 @@ export const mandalaSlice = createSlice({
                 current < state.mandalaArr.length - 1
             ) {
                 state.layer = current + 1;
-                state.hoveredLayer = current + 1;
+                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = current + 1;
                 return;
             }
             if (
@@ -42,23 +42,23 @@ export const mandalaSlice = createSlice({
                 current === state.mandalaArr.length - 1
             ) {
                 state.layer = 0;
-                state.hoveredLayer = 0;
+                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = 0;
                 return;
             }
             if (action.payload === -100 && current > 0) {
                 state.layer = current - 1;
-                state.hoveredLayer = current - 1;
+                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = current - 1;
                 return;
             }
             if (action.payload === -100 && current === 0) {
                 state.layer = state.mandalaArr.length - 1;
-                state.hoveredLayer = state.mandalaArr.length - 1;
+                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = state.mandalaArr.length - 1;
                 return;
             }
             state.layer = action.payload;
         },
         setHoveredLayer: (state, action: PayloadAction<number>) => {
-            state.hoveredLayer = action.payload;
+            if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = action.payload;
         },
         changeLayerArr: (
             state,

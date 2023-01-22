@@ -145,7 +145,7 @@ function MenuLayer() {
                         name="diameter"
                         min={0}
                         max={60}
-                        step={0.01}
+                        step={1}
                         value={diameter}
                         onChange={(e) => handleChange(e)}
                     />
@@ -271,8 +271,8 @@ function MenuLayer() {
                         color="primary"
                         id="scale"
                         name="scale"
-                        min={0.2}
-                        max={25}
+                        min={0.5}
+                        max={10}
                         step={0.1}
                         value={scale}
                         onChange={(e) => handleChange(e)}

@@ -6,6 +6,8 @@ import {
     setLayer,
     deleteLayer,
     addLayer,
+    setHoveredLayer,
+    selectNumberOfItems,
 } from '../mandalaSlice';
 import { classAdd, classRemove } from './handleMenu';
 import SvgItem from '../board/SvgItem';
@@ -13,18 +15,20 @@ import CloseIcon from '@mui/icons-material/Close';
 
 function MenuLayers() {
     const mandalaArr = useAppSelector(selectMandalaArr);
+    const numberOfItems = useAppSelector(selectNumberOfItems);
     const dispatch = useAppDispatch();
 
     function handleClickLayer(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         const selectedLayer = (e.currentTarget.dataset.index || 0) as number;
         dispatch(setLayer(selectedLayer));
-        classRemove('menu-layers', 'menu-layers--open')
-        classAdd('menu-layer', 'menu-layers--open')
+        classRemove('menu-layers', 'menu-layers--open');
+        classAdd('menu-layer', 'menu-layers--open');
     }
 
     function handleClickCloseMenu() {
-        classRemove('burger-menu', 'burger-menu--hidden')
-        classRemove('menu-layers', 'menu-layers--open')
+        dispatch(setHoveredLayer(-1));
+        classRemove('burger-menu', 'burger-menu--hidden');
+        classRemove('menu-layers', 'menu-layers--open');
     }
 
     function handleClickDeleteLayer(
@@ -35,10 +39,14 @@ function MenuLayers() {
     }
 
     function handleNewLayer() {
-        dispatch(addLayer());
-        dispatch(setLayer(mandalaArr.length));
-        classRemove('menu-layers', 'menu-layers--open')
-        classAdd('menu-layer', 'menu-layers--open')
+        if (numberOfItems < 320) {
+            dispatch(addLayer());
+            dispatch(setLayer(mandalaArr.length));
+            classRemove('menu-layers', 'menu-layers--open');
+            classAdd('menu-layer', 'menu-layers--open');
+        } else {
+            window.alert(`You can add up to 320 items to mandala. Your mandala has ${numberOfItems} items.`)
+        }
     }
 
     let layers: ReactNode[] = mandalaArr.map((el, index) => {

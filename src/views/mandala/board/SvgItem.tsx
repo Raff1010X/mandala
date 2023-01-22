@@ -321,6 +321,8 @@ function SvgItem({
         transformation = `rotate(${rotate}deg) scale(${scale})`
     }
 
+
+
     return (
         <Component
             onClick={(e) => {

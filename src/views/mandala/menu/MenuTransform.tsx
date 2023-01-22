@@ -118,8 +118,8 @@ function MenuTransform() {
                         id="perspective"
                         name="perspective"
                         orientation="vertical"
-                        min={2.5}
-                        max={4}
+                        min={.2}
+                        max={5}
                         step={0.025}
                         value={perspective}
                         onChange={(e) => handleChange(e)}

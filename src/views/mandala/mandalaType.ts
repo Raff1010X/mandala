@@ -1,7 +1,7 @@
 export const newLayer = {
     items: 6,
     rotate: 0,
-    diameter: 12,
+    diameter: 10,
     svgItem: 1,
     stroke: '#000000',
     strokeWidth: 0.75,
@@ -9,7 +9,7 @@ export const newLayer = {
     fill: '#ffffff',
     fillOpacity: 0.5,
     svgRotate: 90,
-    scale: 10,
+    scale: 2,
 };
 
 export const mandalaTransform = {
@@ -103,6 +103,6 @@ export let mandalaArr = [
         fill: '#ffffff',
         fillOpacity: 0.5,
         svgRotate: 89,
-        scale: 10,
+        scale: 2,
     },
 ]

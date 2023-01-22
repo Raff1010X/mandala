@@ -49,7 +49,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             if (numberOfItems <= 64) {
                 classAdd('menu-transform', 'menu-layers--open');
             } else {
-                window.alert(`You can transform mandalas with no more than 24 elements. Your mandala has ${numberOfItems} elements.`)
+                window.alert(`You can transform mandalas with no more than 64 elements. Your mandala has ${numberOfItems} elements.`)
                 classRemove('burger-menu', 'burger-menu--hidden');
             }
         }

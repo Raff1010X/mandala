@@ -28,10 +28,10 @@ function SvgContainer({
         <div
             data-item={item}
             style={{
-                width: '1vw',
+                width: '5vw',
                 position: 'absolute',
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 transform: `rotate(${
