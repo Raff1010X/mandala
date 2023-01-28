@@ -119,7 +119,7 @@ import { ReactComponent as I118 } from '../../../assets/svg/118.svg';
 import { ReactComponent as I119 } from '../../../assets/svg/119.svg';
 import { ReactComponent as I120 } from '../../../assets/svg/120.svg';
 import { MouseEvent } from 'react';
-import { selectHoveredLayer, selectNumberOfItems, setHoveredLayer, setLayer } from '../mandalaSlice';
+import { selectFileName, selectHoveredLayer, selectNumberOfItems, setHoveredLayer, setLayer } from '../mandalaSlice';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
 interface SvgProps {
@@ -317,7 +317,8 @@ function SvgItem({
     };
     let transformation = `rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`
     const numberOfItems = useAppSelector(selectNumberOfItems);
-    if (numberOfItems > 64) {
+    const filename = useAppSelector(selectFileName)
+    if (numberOfItems > 64 && filename === 0) {
         transformation = `rotate(${rotate}deg) scale(${scale})`
     }
 

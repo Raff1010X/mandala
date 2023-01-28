@@ -34,7 +34,8 @@ export const mandalaSlice = createSlice({
                 current < state.mandalaArr.length - 1
             ) {
                 state.layer = current + 1;
-                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = current + 1;
+                if (state.transform.rotateX + state.transform.rotateY === 0)
+                    state.hoveredLayer = current + 1;
                 return;
             }
             if (
@@ -42,23 +43,27 @@ export const mandalaSlice = createSlice({
                 current === state.mandalaArr.length - 1
             ) {
                 state.layer = 0;
-                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = 0;
+                if (state.transform.rotateX + state.transform.rotateY === 0)
+                    state.hoveredLayer = 0;
                 return;
             }
             if (action.payload === -100 && current > 0) {
                 state.layer = current - 1;
-                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = current - 1;
+                if (state.transform.rotateX + state.transform.rotateY === 0)
+                    state.hoveredLayer = current - 1;
                 return;
             }
             if (action.payload === -100 && current === 0) {
                 state.layer = state.mandalaArr.length - 1;
-                if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = state.mandalaArr.length - 1;
+                if (state.transform.rotateX + state.transform.rotateY === 0)
+                    state.hoveredLayer = state.mandalaArr.length - 1;
                 return;
             }
             state.layer = action.payload;
         },
         setHoveredLayer: (state, action: PayloadAction<number>) => {
-            if (state.transform.rotateX + state.transform.rotateY === 0) state.hoveredLayer = action.payload;
+            if (state.transform.rotateX + state.transform.rotateY === 0)
+                state.hoveredLayer = action.payload;
         },
         changeLayerArr: (
             state,
@@ -87,8 +92,11 @@ export const mandalaSlice = createSlice({
                 action.payload['value'];
         },
         editMandalaFromGallery: (state) => {
-            state.transform = state.fileTransform
-            state.mandalaArr = state.fileMandala
+            state.transform = state.fileTransform;
+            state.mandalaArr = state.fileMandala;
+        },
+        setFileName: (state) => {
+            state.fileName = 0;
         },
         // postMandala: (state, action: PayloadAction<{ name: string | undefined; origin: string | undefined, message: string | undefined}>) => {
         //     const {mandalaArr, transform} = current(state) //current from '@reduxjs/toolkit';
@@ -101,7 +109,6 @@ export const mandalaSlice = createSlice({
         builder
             .addCase(postNewMandala.pending, (state) => {
                 state.status = 'loading';
-                
             })
             .addCase(postNewMandala.fulfilled, (state, action) => {
                 state.status = 'idle';
@@ -154,6 +161,7 @@ export const {
     addLayer,
     changeTransform,
     editMandalaFromGallery,
+    setFileName,
 } = mandalaSlice.actions;
 
 export const selectStatus = (state: RootState) => state.mandala.status;
@@ -170,12 +178,10 @@ export const selectFileTransform = (state: RootState) =>
     state.mandala.fileTransform;
 export const selectUserInfo = (state: RootState) => state.mandala.userInfo;
 
-
 export const selectNumberOfItems = (state: RootState) => {
-    const mandala = state.mandala.mandalaArr
-    const sum = mandala.reduce((a, b) => a + (b['items'] || 0), 0)
-    return sum
-}
-
+    const mandala = state.mandala.mandalaArr;
+    const sum = mandala.reduce((a, b) => a + (b['items'] || 0), 0);
+    return sum;
+};
 
 export default mandalaSlice.reducer;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { classAdd, classRemove } from './menu/handleMenu';
 import { toPng } from 'html-to-image';
@@ -16,10 +16,16 @@ import MenuImage from './menu/MenuImage';
 import Post from './menu/Post';
 
 import './mandala.css';
-import { useAppSelector } from '../../app/hooks';
-import { selectNumberOfItems } from './mandalaSlice';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { selectNumberOfItems, setFileName } from './mandalaSlice';
 
 function Mandala({ handle }: { handle: FullScreenHandle }) {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(setFileName);
+    }, [dispatch]);
+
     // const MenuImage = React.lazy(
     //     () => import('../../components/menu/MenuImage')
     // );
@@ -49,7 +55,9 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             if (numberOfItems <= 64) {
                 classAdd('menu-transform', 'menu-layers--open');
             } else {
-                window.alert(`You can transform mandalas with no more than 64 elements. Your mandala has ${numberOfItems} elements.`)
+                window.alert(
+                    `You can transform mandalas with no more than 64 elements. Your mandala has ${numberOfItems} elements.`
+                );
                 classRemove('burger-menu', 'burger-menu--hidden');
             }
         }

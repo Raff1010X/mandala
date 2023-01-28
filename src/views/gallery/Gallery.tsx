@@ -5,15 +5,15 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import LogoEditable from '../mandala/menu/LogoEditable';
-// import BrushIcon from '@mui/icons-material/Brush';
+import BrushIcon from '@mui/icons-material/Brush';
 import SvgCircle from '../mandala/board/SvgCircle';
 
-// import Popup from 'reactjs-popup';
+import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
-    // editMandalaFromGallery,
+    editMandalaFromGallery,
     selectFileMandala,
     selectFileName,
     selectFileTransform,
@@ -22,12 +22,12 @@ import {
 } from '../mandala/mandalaSlice';
 import { ReactNode, useEffect } from 'react';
 
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getMandala } from '../mandala/mandalaAPI';
 import { classAdd, classRemove } from '../mandala/menu/handleMenu';
 
 function Gallery({ handle }: { handle: FullScreenHandle }) {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const select = useAppSelector;
 
@@ -93,14 +93,14 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         }, 350);
     }
 
-    // function handleClickEdit() {
-    //     dispatch(editMandalaFromGallery());
-    //     navigate('/mandala');
-    //     setTimeout(() => {
-    //         classAdd('burger-menu', 'burger-menu--hidden');
-    //         classAdd('menu-layers', 'menu-layers--open');
-    //     }, 750);
-    // }
+    function handleClickEdit() {
+        dispatch(editMandalaFromGallery());
+        navigate('/mandala');
+        setTimeout(() => {
+            classAdd('burger-menu', 'burger-menu--hidden');
+            classAdd('menu-layers', 'menu-layers--open');
+        }, 750);
+    }
 
     useEffect(() => {
         let timer: string | number | NodeJS.Timeout | undefined;
@@ -128,7 +128,6 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                     height: '100vh'
                 }}
             ></div>
-            {/* <div className="logo-img"/> */}
             <LogoEditable />
             <div className="gallery-info">
                 <i>
@@ -164,7 +163,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                     <FullscreenIcon />
                 </i>
             </div>
-            {/* { (!handle.active) ?
+            { (!handle.active) ?
                 <div className="gallery-top-icon gallery-top-icon--edit">
                     <i>
                         <Popup trigger={<BrushIcon />} position="left center">
@@ -174,7 +173,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                         </Popup>
                     </i>
                 </div> : null
-            } */}
+            }
         </div>
     );
 }
