@@ -15,6 +15,8 @@ import { classRemove } from '../menu/handleMenu';
 
 import SvgCircle from './SvgCircle';
 
+import YouTubeIcon from '@mui/icons-material/YouTube';
+
 import './svgBoard.css';
 
 function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
@@ -27,7 +29,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
     const mandalaArrLen = mandalaArr.length - 1;
     const layer = useAppSelector(selectLayer);
     const mandalaArrlayer = useAppSelector(selectMandalaArr)[layer];
-// console.log(mandalaArr)
+    // console.log(mandalaArr)
     const svgBoardBackground = useRef<HTMLDivElement>(null);
     const svgBoardColorPalette = useRef<HTMLDivElement>(null);
 
@@ -128,10 +130,8 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (e.nativeEvent instanceof TouchEvent) {
             const touch = e.touches[0];
             if (previousTouch) {
-                let movementX =
-                    (touch.pageX - previousTouch.pageX) * 5;
-                let movementY =
-                    (touch.pageY - previousTouch.pageY)  * 5;
+                let movementX = (touch.pageX - previousTouch.pageX) * 5;
+                let movementY = (touch.pageY - previousTouch.pageY) * 5;
                 handleMove(movementX, movementY, touch.pageX, touch.pageY, 250);
             }
             previousTouch = touch;
@@ -156,7 +156,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         let value2 = 0;
         let absX = 1;
         let absY = 1;
-        let quarter =  mandalaArrlayer.rotate /90;
+        let quarter = mandalaArrlayer.rotate / 90;
         if (quarter <= 4) {
             absX = 1;
             absY = -1;
@@ -187,7 +187,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         }
 
         if (draged === 'white') {
-
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
@@ -199,7 +198,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             dispatch(changeLayerArr({ name: 'scale', value }));
         }
 
-        quarter =  mandalaArrlayer.svgRotate /90;
+        quarter = mandalaArrlayer.svgRotate / 90;
         if (quarter <= 4) {
             absX = 1;
             absY = -1;
@@ -217,7 +216,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             absY = 1;
         }
         if (draged === 'violet') {
-
             if (Math.abs(movementX * absX + movementY * absY) > hold) return;
             value = Number(
                 (
@@ -309,10 +307,9 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             `transform: rotate(${mandalaArrlayer.rotate}deg);
              background-color: transparent; opacity: 0;`
         );
-        document?.getElementById("menu-layer")?.setAttribute(
-            'style',
-            `z-index: 10;`
-        );
+        document
+            ?.getElementById('menu-layer')
+            ?.setAttribute('style', `z-index: 10;`);
     };
     const handleMouseOver = () => {
         svgBoardBackground?.current?.setAttribute(
@@ -320,11 +317,14 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             `transform: rotate(${mandalaArrlayer.rotate}deg);
              background-color: transparent; opacity: 1;`
         );
-        document?.getElementById("menu-layer")?.setAttribute(
-            'style',
-            `z-index: 0;`
-        );
+        document
+            ?.getElementById('menu-layer')
+            ?.setAttribute('style', `z-index: 0;`);
     };
+
+    function handleWatchYoutube() {
+        window.open('https://www.youtube.com/watch?v=SL31KCcAQhA', "YouTube");
+    }
 
     return (
         <div
@@ -334,9 +334,16 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             onMouseUp={handleMouseUp}
             onTouchEnd={() => handleMouseOut(true)}
         >
-            <div ref={svgBoardColorPalette} id="color-palette"/>
+            <div ref={svgBoardColorPalette} id="color-palette" />
             {mandala}
-            <div style={{backgroundColor: '#ffffff00', position: 'absolute', width: '100vw', height: '100vh'}}/>
+            <div
+                style={{
+                    backgroundColor: '#ffffff00',
+                    position: 'absolute',
+                    width: '100vw',
+                    height: '100vh',
+                }}
+            />
             <div
                 ref={svgBoardBackground}
                 className="layer-controller-background"
@@ -359,6 +366,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         className="layer-controller-end"
                         onMouseDown={handleMouseDownRed}
                         onTouchStart={handleMouseDownRed}
+                        title={`Rotate ${mandalaArrlayer.rotate}deg`}
                     />
                     <div
                         className="layer-controller-end yellow"
@@ -367,6 +375,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         }}
                         onMouseDown={handleMouseDownYellow}
                         onTouchStart={handleMouseDownYellow}
+                        title={`Diameter ${mandalaArrlayer.diameter}`}
                     />
                     <div
                         className="layer-controller-end white"
@@ -375,6 +384,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         }}
                         onMouseDown={handleMouseDownWhite}
                         onTouchStart={handleMouseDownWhite}
+                        title={`Scale ${mandalaArrlayer.scale}`}
                     />
                 </div>
                 <div
@@ -389,16 +399,19 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         className="layer-controller-end orange"
                         onMouseDown={handleMouseDownOrange}
                         onTouchStart={handleMouseDownOrange}
+                        title={`Fill color and opacity - click, hold, move...`}
                     />
                     <div
                         className="layer-controller-end blue"
                         onMouseDown={handleMouseDownBlue}
                         onTouchStart={handleMouseDownBlue}
+                        title={`Stroke color and opacity - click, hold, move...`}
                     />
                     <div
                         className="layer-controller-end lightblue"
                         onMouseDown={handleMouseDownLightBlue}
                         onTouchStart={handleMouseDownLightBlue}
+                        title={`Item rotate ${mandalaArrlayer.svgRotate}`}
                     />
                     <div
                         className="layer-controller-end violet"
@@ -407,6 +420,7 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         }}
                         onMouseDown={handleMouseDownViolet}
                         onTouchStart={handleMouseDownViolet}
+                        title={`Stroke width ${mandalaArrlayer.strokeWidth}`}
                     />
                     <div
                         className="layer-controller-end limegreen"
@@ -415,15 +429,21 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         }}
                         onMouseDown={handleMouseDownLimeGreen}
                         onTouchStart={handleMouseDownLimeGreen}
+                        title={`Number of items ${Math.ceil(
+                            mandalaArrlayer.items
+                        )}`}
                     />
                 </div>
+            </div>
+            <div className="youtube" onClick={handleWatchYoutube}>
+                <i><YouTubeIcon /></i>
+                Tutorial
             </div>
         </div>
     );
 }
 
 export default SvgBoard;
-
 
 // function IFrame({ children } : any) {
 //     const [ref, setRef] = useState<any>();

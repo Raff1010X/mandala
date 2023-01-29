@@ -34,7 +34,7 @@ function SvgContainer({
                 alignItems: 'center',
                 justifyContent: 'center',
                 transform: `rotate(${
-                    (item * 360) / Math.floor(items) + rotate
+                    (item * 360) / Math.ceil(items) + rotate
                 }deg) translateX(${diameter}vw)`,
                 perspective: `${perspective}vw`,
             }}
