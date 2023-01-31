@@ -134,7 +134,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                     <FormatQuoteIcon />
                 </i>
                 <div className="gallery-message">
-                    {status === 'loading' ? 'Loadind mandala...' : message}
+                    {status === 'loading' ? 'Loading mandala...' : message}
                 </div>
                 <div className="gallery-author">
                     {status === 'loading'

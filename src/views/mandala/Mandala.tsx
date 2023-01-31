@@ -14,6 +14,7 @@ import MenuLayers from './menu/MenuLayers';
 import MenuTransform from './menu/MenuTransform';
 import MenuImage from './menu/MenuImage';
 import Post from './menu/Post';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 import './mandala.css';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
@@ -80,6 +81,10 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
         }
     }
 
+    function handleWatchYoutube() {
+        window.open('https://www.youtube.com/watch?v=SL31KCcAQhA', 'YouTube');
+    }
+
     return (
         <div className="mandala">
             <BurgerMenu
@@ -100,6 +105,12 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
                 }
             />
             <Post />
+            <div className="youtube" onClick={handleWatchYoutube}>
+                <i>
+                    <YouTubeIcon />
+                </i>
+                Tutorial
+            </div>
         </div>
     );
 }

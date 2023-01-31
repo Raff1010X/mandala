@@ -1,4 +1,3 @@
-
 .svgBoard {
     display: flex;
     flex-direction: column;
@@ -143,23 +142,6 @@
 .layer-controller-end:hover {
     background-color: #9c27b0;
 }
-
-.youtube {
-    position: absolute;
-    right: 5vh;
-    top: 2.5vh;
-    cursor: pointer;
-    font-size: 2.5vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.youtube > i > * {
-    font-size: 5vh;
-}
-
-
 
 @media screen and (orientation: portrait) {
     /* .svgBoard {

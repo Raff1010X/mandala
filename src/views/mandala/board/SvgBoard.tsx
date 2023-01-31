@@ -15,8 +15,6 @@ import { classRemove } from '../menu/handleMenu';
 
 import SvgCircle from './SvgCircle';
 
-import YouTubeIcon from '@mui/icons-material/YouTube';
-
 import './svgBoard.css';
 
 function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
@@ -322,10 +320,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
             ?.setAttribute('style', `z-index: 0;`);
     };
 
-    function handleWatchYoutube() {
-        window.open('https://www.youtube.com/watch?v=SL31KCcAQhA', "YouTube");
-    }
-
     return (
         <div
             onClick={handleClick}
@@ -434,10 +428,6 @@ function SvgBoard({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                         )}`}
                     />
                 </div>
-            </div>
-            <div className="youtube" onClick={handleWatchYoutube}>
-                <i><YouTubeIcon /></i>
-                Tutorial
             </div>
         </div>
     );

@@ -9,6 +9,52 @@
     background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);
 }
 
+/* .youtube {
+    position: absolute;
+    right: min( 5vh, 5vw);
+    top: min(2.5vh, 2.5vw);
+    cursor: pointer;
+    font-size: min(2vh, 2vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.youtube > i > * {
+    font-size: min( 5vh, 5vw);
+} */
+.youtube {
+    right: 0;
+    top: 0;
+    margin-top: 2.5vh;
+    margin-right: 2.5vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.25s;
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    z-index: 10;
+}
+.youtube > i,
+.youtube > i > * {
+    font-size: 3vh;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.youtube > i > * {
+    font-size: max(min(5vh, 5vw),3vh);
+}
+
 @-webkit-keyframes showIt {
     0% {
         opacity: 0;
