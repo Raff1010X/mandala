@@ -19,11 +19,11 @@ function Download({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
         if (mode === 'svg') canvas = await toSvg(refs?.current as HTMLElement);
         if (canvas) downloadjs(canvas, `download.${mode}`);
         refs?.current?.setAttribute('style', 'background: transparent;');
-        classRemove('menu-download', 'menu-download--visible');
+        classRemove('menu-download', 'post-wrapper--visible');
     };
 
     function handleClickCloseMenu() {
-        classRemove('menu-download', 'menu-download--visible');
+        classRemove('menu-download', 'post-wrapper--visible');
     }
 
     return (
