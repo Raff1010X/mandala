@@ -65,7 +65,7 @@ function Download({ refs }: { refs: RefObject<HTMLDivElement> | undefined }) {
                             As SVG
                         </button>
                     </div>
-                    You can view downoaded images in web browser
+                    You can view downloaded images in web browser
                 </div>
             </div>
         </div>

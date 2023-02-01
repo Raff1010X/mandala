@@ -592,7 +592,7 @@
 }
 
 .download {
-    height: max(20vh, 20vw);
+    max-height: max(25vh, 25vw);
     align-items: center;
     justify-content: center;
 }
