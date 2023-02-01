@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { selectNumberOfItems, setFileName } from './mandalaSlice';
 
 import { classAdd, classRemove } from './menu/handleMenu';
-import { toPng } from 'html-to-image';
 import { FullScreenHandle } from '../mandala/mandalaType';
-
-import downloadjs from 'downloadjs';
 
 import SvgBoard from './board/SvgBoard';
 import MainMenu from './menu/MainMenu';
@@ -14,11 +13,11 @@ import MenuLayers from './menu/MenuLayers';
 import MenuTransform from './menu/MenuTransform';
 import MenuImage from './menu/MenuImage';
 import Post from './menu/Post';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import Tutorial from './menu/Tutorial';
+import Download from './menu/Download';
 
 import './mandala.css';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectNumberOfItems, setFileName } from './mandalaSlice';
+
 
 function Mandala({ handle }: { handle: FullScreenHandle }) {
     const dispatch = useAppDispatch();
@@ -34,15 +33,6 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
 
     const boardRef = useRef<HTMLDivElement>(null);
 
-    const hadleSaveImage = async () => {
-        boardRef.current?.setAttribute(
-            'style',
-            'background: linear-gradient(120deg, #f3f3f3 0%, #d5d5d5 100%);'
-        );
-        const canvas = await toPng(boardRef.current as HTMLElement);
-        downloadjs(canvas, 'download.png');
-        boardRef.current?.setAttribute('style', 'background: transparent;');
-    };
 
     function handleClickMenuItem(
         e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -68,7 +58,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
         }
         if (e.currentTarget.dataset.item === 'download') {
             classRemove('burger-menu', 'burger-menu--hidden');
-            hadleSaveImage();
+            classAdd('menu-download', 'post-wrapper--visible');
         }
         if (e.currentTarget.dataset.item === 'fullscreen') {
             classRemove('burger-menu', 'burger-menu--hidden');
@@ -79,10 +69,6 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             classAdd('menu-main-frame', 'menu-main-frame--open');
             classAdd('burger-menu', 'burger-menu--hidden');
         }
-    }
-
-    function handleWatchYoutube() {
-        window.open('https://www.youtube.com/watch?v=SL31KCcAQhA', 'YouTube');
     }
 
     return (
@@ -104,13 +90,9 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
                     handleClickMenuItem(e)
                 }
             />
+            <Tutorial />
             <Post />
-            <div className="youtube" onClick={handleWatchYoutube}>
-                <i>
-                    <YouTubeIcon />
-                </i>
-                Tutorial
-            </div>
+            <Download refs={boardRef}/>
         </div>
     );
 }
