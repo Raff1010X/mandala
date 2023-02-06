@@ -1,1 +1,90 @@
-<svg viewBox=svg viewBox="0 0 140 140"><title>Artboard 7</title><g id="_7_fill" data-name="7 fill"><path class="cls-1" d="M70.86,93.81c10,1.81,10.44,13.44,9.94,16.44l8.75,5.25L122,50.06c-3.2-7.54-6.5-12.62-9.89-15.93-17.36-17.89-26.87.18-41.23.18S47,16.25,29.63,34.14c-3.39,3.31-6.69,8.38-9.89,15.93L52.18,115.5l8.75-5.25C60.42,107.25,60.87,95.62,70.86,93.81Z"/></g><g id="_7_stroke" data-name="7 stroke"><path class="cls-2" d="M61.24,88.19c-1.7-8.64-8.48-47.41-20.05-41.87S55.58,81.45,61.24,88.19Z"/><path class="cls-2" d="M70.86,93.81c10,1.81,10.44,13.44,9.94,16.44l8.75,5.25L122,50.06c-3.2-7.54-6.5-12.62-9.89-15.93-17.36-17.89-26.87.18-41.23.18S47,16.25,29.63,34.14c-3.39,3.31-6.69,8.38-9.89,15.93L52.18,115.5l8.75-5.25C60.42,107.25,60.87,95.62,70.86,93.81Z"/><path class="cls-2" d="M70.86,85.31c2.66-7.66,15.5-41.69,0-41.69S68.21,77.65,70.86,85.31Z"/><path class="cls-2" d="M80.49,88.19c1.7-8.64,8.48-47.41,20.05-41.87S86.15,81.45,80.49,88.19Z"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="150mm"
+   height="150mm"
+   viewBox="0 0 150 150"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="110.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="2.2501035"
+     inkscape:cx="277.765"
+     inkscape:cy="302.43053"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="1341"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9"
+       originx="74.999999"
+       originy="74.999999"
+       units="mm"
+       spacingx="5"
+       spacingy="5"
+       empspacing="15" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid11"
+       dotted="false"
+       color="#db00e5"
+       opacity="0.14901961"
+       empcolor="#cb00e5"
+       empopacity="0.30196078"
+       spacingx="15"
+       spacingy="15"
+       empspacing="15"
+       visible="true"
+       units="mm" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       class="cls-1"
+       d="M 95.095348,122.40833 130,58.918259 c -3.44206,-7.31533 -6.99168,-12.24396 -10.63812,-15.455332 -18.67318,-17.356929 -28.902558,0.174637 -44.348809,0.174637 -15.446251,0 -25.686383,-17.521864 -44.370323,-0.164935 -3.646434,3.211372 -7.19606,8.1303 -10.638121,15.455332 L 54.898525,122.40833 C 74.999999,105 74.999999,105 95.095348,122.40833 Z"
+       id="path23989"
+       style="fill:none;stroke:#000000;stroke-width:1.02156;stroke-opacity:1"
+       sodipodi:nodetypes="cccscccc" />
+    <path
+       class="cls-2"
+       d="m 64.999999,99.999999 c -1.828595,-8.382552 -12.554797,-50.374924 -25,-45 -12.445203,5.374924 18.911854,38.460833 25,45 z"
+       id="path23992"
+       style="fill:none;stroke:#000000;stroke-width:1.02156;stroke-opacity:1"
+       sodipodi:nodetypes="csc" />
+    <path
+       class="cls-2"
+       d="m 74.999999,94.999999 c 2.861214,-7.431754 16.672485,-45 0,-45 -16.672485,0 -2.850457,37.568246 0,45 z"
+       id="path23996"
+       style="fill:none;stroke:#000000;stroke-width:1.02156;stroke-opacity:1"
+       sodipodi:nodetypes="csc" />
+    <path
+       class="cls-2"
+       d="m 84.999999,99.999999 c 1.828595,-8.382552 12.554795,-50.374924 25.000001,-45 12.4452,5.374924 -18.911855,38.460833 -25.000001,45 z"
+       id="path23998"
+       style="fill:none;stroke:#000000;stroke-width:1.02156;stroke-opacity:1"
+       sodipodi:nodetypes="csc" />
+  </g>
+</svg>
