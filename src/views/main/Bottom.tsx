@@ -24,7 +24,7 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                 tabIndex={0}
                 ref={refs[1]}
             />
-            <div className="main-bottom-container" tabIndex={1}>
+            <div className="main-bottom-container" tabIndex={0}> 
                 <div className="main-bottom-background-2" />
                 <i>
                     <FilterVintageIcon />
@@ -51,7 +51,7 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                     </div>
                 </div>
             </div>
-            <div className="main-bottom-container" tabIndex={2}>
+            <div className="main-bottom-container" tabIndex={0}>
                 <div className="main-bottom-background-2" />
                 <i>
                     <ImageIcon />
@@ -79,7 +79,7 @@ function Bottom({ refs }: { refs: RefObject<HTMLDivElement>[] | undefined[] }) {
                     </div>
                 </div>
             </div>
-            <div className="main-bottom-container" tabIndex={3}>
+            <div className="main-bottom-container" tabIndex={0}>
                 <div className="main-bottom-background-2" />
                 <i>
                     <HelpIcon />
