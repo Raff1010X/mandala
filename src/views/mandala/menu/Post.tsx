@@ -32,23 +32,6 @@ function Post() {
     ): void {
         e.preventDefault();
 
-        const cookieTime = document.cookie
-            .split('; ')
-            .find((row) => row.startsWith('time='))
-            ?.split('=')[1];
-
-        const allowPost = Date.now() - Number(cookieTime) > 1000 * 60 * 5;
-
-        console.log(cookieTime)
-        if (!cookieTime || allowPost) {
-            document.cookie = `time=${Date.now()}`;
-        } else if (!allowPost) {
-            window.alert(
-                'Please wait at least 5 minutes before posting new mandala.'
-            );
-            return;
-        }  
-
         name?.current?.reportValidity();
         origin?.current?.reportValidity();
         message?.current?.reportValidity();
@@ -59,6 +42,22 @@ function Post() {
             !message?.current?.checkValidity()
         )
             return;
+
+        const cookieTime = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('time='))
+            ?.split('=')[1];
+
+        const allowPost = Date.now() - Number(cookieTime) > 1000 * 60 * 5;
+
+        if (!cookieTime || allowPost) {
+            document.cookie = `time=${Date.now()}`;
+        } else if (!allowPost) {
+            window.alert(
+                'Please wait at least 5 minutes before posting new mandala.'
+            );
+            return;
+        }
 
         const userInfo = {
             name: name?.current?.value,

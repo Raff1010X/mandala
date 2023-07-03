@@ -133,6 +133,7 @@ export const mandalaSlice = createSlice({
             })
             .addCase(getMandala.fulfilled, (state, action) => {
                 if (action.payload.status === 'error') {
+                    state.userInfo = { name: 'Mandala Creators', origin: 'Offline', message: 'There was a problem connecting to the server!' }
                     // action.asyncDispatch(sendMessage('Server error...'))
                 }
                 if (action.payload.status === 'ok') {
