@@ -4,8 +4,6 @@
 import { clientsClaim } from 'workbox-core';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { ExpirationPlugin } from 'workbox-expiration';
-import { CacheFirst } from 'workbox-strategies';
 import { openDB, saveObject, getAll, deleteObject } from './misc/indexedDB';
 import { API } from './api/API';
 
@@ -22,20 +20,6 @@ registerRoute(
     return true;
   },
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
-);
-
-// cache first then network for '/api/mandala'
-registerRoute(
-  ({ url }) => url.pathname.startsWith('/api/mandala'),
-  new CacheFirst({
-    cacheName: 'mandala-cache',
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 66,
-        maxAgeSeconds: 60 * 60 * 24 * 66, // 66 Days
-      }),
-    ],
-  })
 );
 
 // save to indexedDB for '/api/mandala'
@@ -64,9 +48,9 @@ self.addEventListener('fetch', (event: any) => {
       event.respondWith(
         fetch(event.request.clone())
           .then((response: any) => {
-            // if (response.status !== 201) {
+            if (response.status !== 201) {
               saveMandalaToIndexedDB(event.request)
-            // }
+            }
             return response
           })
           .catch((err: any) => {
@@ -86,9 +70,10 @@ async function syncMandala() {
   mandala.forEach(async (item: any) => {
     const response = await API.makePost('/api/mandala', item.value);
     if (response.status === 'ok') {
+      console.log('Mandala sync success: ', item.key)
       await deleteObject(db, 'mandala-store', item.key)
     } else {
-      console.log('mandala sync failed: ', item.key)
+      console.log('Mandala sync failed: ', item.key)
     }
 
   });
