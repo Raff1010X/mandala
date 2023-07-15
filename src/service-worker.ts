@@ -6,6 +6,8 @@ import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheFirst } from 'workbox-strategies';
+import { openDB, saveObject, getAll, deleteObject } from './misc/indexedDB';
+import { API } from './api/API';
 
 declare const self: ServiceWorkerGlobalScope;
 
@@ -36,3 +38,60 @@ registerRoute(
   })
 );
 
+// save to indexedDB for '/api/mandala'
+async function saveMandalaToIndexedDB(data: any) {
+  if ('SyncManager' in self) {
+    const object = await data.json()
+    const db = await openDB('mandala', 1, 'mandala-store')
+    const write = await saveObject(db, object)
+    if (write !== undefined && write !== null) {
+      self.registration.showNotification('Mandala Saved', {
+        body: 'Your mandala has been saved to your device and will be uploaded when you are online again.',
+        vibrate: [100, 50, 100],
+        data: {
+          dateOfArrival: Date.now(),
+          primaryKey: 1
+        }
+      })
+    }
+  }
+}
+
+// network first then save to indexedDB for '/api/mandala'
+self.addEventListener('fetch', (event: any) => {
+  if (event.request.method === 'POST') {
+    if (event.request.url.includes('/api/mandala')) {
+      event.respondWith(
+        fetch(event.request.clone())
+          .then((response: any) => {
+            // if (response.status !== 201) {
+              saveMandalaToIndexedDB(event.request)
+            // }
+            return response
+          })
+          .catch((err: any) => {
+            saveMandalaToIndexedDB(event.request)
+          })
+
+      );
+    }
+  }
+
+});
+
+// background sync for '/api/mandala'
+async function syncMandala() {
+  const db: IDBDatabase | any = await openDB('mandala', 1, 'mandala-store');
+  const mandala = await getAll(db, 'mandala-store');
+  mandala.forEach(async (item: any) => {
+    const response = await API.makePost('/api/mandala', item.value);
+    if (response.status === 'ok') {
+      await deleteObject(db, 'mandala-store', item.key)
+    } else {
+      console.log('mandala sync failed: ', item.key)
+    }
+
+  });
+}
+
+self.addEventListener('sync', async (event: any) => (event.tag === 'mandala-sync') && await syncMandala());

@@ -6,8 +6,10 @@ import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import Main from './views/main/Main';
 import Mandala from './views/mandala/Mandala';
 import Gallery from './views/gallery/Gallery';
+import useBackgroundSync from './hooks/useBackgroundSync';
 
 function App() {
+    useBackgroundSync();
     const handle = useFullScreenHandle();
 
     useEffect(() => {
