@@ -17,6 +17,8 @@ import Tutorial from './menu/Tutorial';
 import Download from './menu/Download';
 
 import './mandala.css';
+import { sendMessage } from '../../features/message/messageSlice';
+import Message from '../../features/message/Message';
 
 
 function Mandala({ handle }: { handle: FullScreenHandle }) {
@@ -46,9 +48,7 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             if (numberOfItems <= 64) {
                 classAdd('menu-transform', 'menu-layers--open');
             } else {
-                window.alert(
-                    `You can transform mandalas with no more than 64 elements. Your mandala has ${numberOfItems} elements.`
-                );
+                dispatch(sendMessage(`You can transform mandalas with no more than 64 elements. Your mandala has ${numberOfItems} elements.`));
                 classRemove('burger-menu', 'burger-menu--hidden');
             }
         }
@@ -93,6 +93,8 @@ function Mandala({ handle }: { handle: FullScreenHandle }) {
             <Tutorial />
             <Post />
             <Download refs={boardRef}/>
+            <Message />
+            <div id="message"></div>
         </div>
     );
 }

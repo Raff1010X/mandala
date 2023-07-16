@@ -17,12 +17,11 @@ export function openDB(dbName: string, dbVersion: number, dbStoreName: string): 
     });
 }
 
-export function saveObject(db: IDBDatabase, object: any): Promise<void> {
+export function saveObject(db: IDBDatabase, object: any, storeName: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-        const transaction = db.transaction('mandala-store', 'readwrite');
-        const store = transaction.objectStore('mandala-store');
+        const transaction = db.transaction(storeName, 'readwrite');
+        const store = transaction.objectStore(storeName);
         transaction.oncomplete = () => {
-            console.log('Mandala saved to indexedDB')
             resolve();
         };
         transaction.onerror = (event: any) => {
@@ -30,7 +29,6 @@ export function saveObject(db: IDBDatabase, object: any): Promise<void> {
         };
         const request = store.add(object);
         request.onerror = (event: any) => {
-            console.log('error', event.target?.error);
             reject(event.target?.error);
         };
 

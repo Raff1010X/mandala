@@ -27,17 +27,13 @@ async function saveMandalaToIndexedDB(data: any) {
   if ('SyncManager' in self) {
     const object = await data.json()
     const db = await openDB('mandala', 1, 'mandala-store')
-    const write = await saveObject(db, object)
-    if (write !== undefined && write !== null) {
-      self.registration.showNotification('Mandala Saved', {
-        body: 'Your mandala has been saved to your device and will be uploaded when you are online again.',
-        vibrate: [100, 50, 100],
-        data: {
-          dateOfArrival: Date.now(),
-          primaryKey: 1
-        }
-      })
-    }
+    saveObject(db, object, 'mandala-store')
+    .then(() => {
+      console.log('Mandala saved to indexedDB')
+    })
+    .catch((err: any) => {
+      console.log('Mandala save to indexedDB failed: ',err )
+    })
   }
 }
 
@@ -49,18 +45,19 @@ self.addEventListener('fetch', (event: any) => {
         fetch(event.request.clone())
           .then((response: any) => {
             if (response.status !== 201) {
-              saveMandalaToIndexedDB(event.request)
+              saveMandalaToIndexedDB(event.request);
+              return new Response(JSON.stringify({ status: 'saved' }));
+            } else {
+              return response;
             }
-            return response
           })
           .catch((err: any) => {
-            saveMandalaToIndexedDB(event.request)
+            saveMandalaToIndexedDB(event.request);
+            return new Response(JSON.stringify({ status: 'saved' }));
           })
-
       );
     }
   }
-
 });
 
 // background sync for '/api/mandala'

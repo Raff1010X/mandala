@@ -10,6 +10,7 @@ import {
     MandalaState,
     mandalaArr,
 } from './mandalaType';
+import { sendMessage } from '../../features/message/messageSlice';
 
 const initialState: MandalaState = {
     mandalaArr,
@@ -110,31 +111,30 @@ export const mandalaSlice = createSlice({
             .addCase(postNewMandala.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(postNewMandala.fulfilled, (state, action) => {
+            .addCase(postNewMandala.fulfilled, (state, action: any) => {
                 state.status = 'idle';
                 if (action.payload.status === 'error') {
-                    // action.asyncDispatch(sendMessage('Server error...'))
+                    action.asyncDispatch(sendMessage('Server error...'))
                 }
                 if (action.payload.status === 'ok') {
-                    window.alert(
-                        'Your Mandala has been saved. You will find it in Art Gallery.'
-                    );
-
-                    // action.asyncDispatch(sendMessage('Success'))
+                    action.asyncDispatch(sendMessage('Your Mandala has been saved. You will find it in Art Gallery.'))
+                }
+                if (action.payload.status === 'saved') {
+                    action.asyncDispatch(sendMessage('Your Mandala has been saved to local storage. After connecting to the server, you will find it in Art Gallery.'))
                 }
             })
-            .addCase(postNewMandala.rejected, (state, action) => {
+            .addCase(postNewMandala.rejected, (state, action: any) => {
                 state.status = 'failed';
-                // action.asyncDispatch(sendMessage('Server error...'))
+                action.asyncDispatch(sendMessage('Server error...'))
             })
 
             .addCase(getMandala.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(getMandala.fulfilled, (state, action) => {
+            .addCase(getMandala.fulfilled, (state, action: any) => {
                 if (action.payload.status === 'error') {
                     state.userInfo = { name: 'Mandala Creators', origin: 'Offline', message: 'There was a problem connecting to the server!' }
-                    // action.asyncDispatch(sendMessage('Server error...'))
+                    action.asyncDispatch(sendMessage('Server error...'))
                 }
                 if (action.payload.status === 'ok') {
                     const file = JSON.parse(action.payload.file);
@@ -147,9 +147,9 @@ export const mandalaSlice = createSlice({
                 }
                 state.status = 'idle';
             })
-            .addCase(getMandala.rejected, (state, action) => {
+            .addCase(getMandala.rejected, (state, action: any) => {
                 state.status = 'failed';
-                // action.asyncDispatch(sendMessage('Server error...'))
+                action.asyncDispatch(sendMessage('Server error...'))
             });
     },
 });

@@ -12,6 +12,7 @@ import {
 import { classAdd, classRemove } from './handleMenu';
 import SvgItem from '../board/SvgItem';
 import CloseIcon from '@mui/icons-material/Close';
+import { sendMessage } from '../../../features/message/messageSlice';
 
 function MenuLayers() {
     const mandalaArr = useAppSelector(selectMandalaArr);
@@ -45,7 +46,7 @@ function MenuLayers() {
             classRemove('menu-layers', 'menu-layers--open');
             classAdd('menu-layer', 'menu-layers--open');
         } else {
-            window.alert(`You can add up to 320 items to mandala. Your mandala has ${numberOfItems} items.`)
+            dispatch(sendMessage(`You can add up to 320 items to mandala. Your mandala has ${numberOfItems} items.`));
         }
     }
 

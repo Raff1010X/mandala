@@ -6,6 +6,8 @@ import { selectMandalaArr, selectTransform } from '../mandalaSlice';
 import { MouseEvent, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { classRemove } from './handleMenu';
+import { send } from 'process';
+import { sendMessage } from '../../../features/message/messageSlice';
 
 function Post() {
     const dispatch = useAppDispatch();
@@ -53,9 +55,7 @@ function Post() {
         if (!cookieTime || allowPost) {
             document.cookie = `time=${Date.now()}`;
         } else if (!allowPost) {
-            window.alert(
-                'Please wait at least 5 minutes before posting new mandala.'
-            );
+            dispatch(sendMessage('Please wait at least 5 minutes before posting new mandala.'));
             return;
         }
 
