@@ -68,9 +68,12 @@ self.addEventListener('fetch', (event: any) => {
         (async () => {
           const db: IDBDatabase | any = await openDB('gallery', 1, 'mandala-store');
           const mandala = await getAll(db, 'mandala-store');
+          
           let id = Number(event.request.url.split('/').pop());
-          if (id === -1 || id > mandala.length) id = 1;
+          if (id > mandala.length) id = 1;
+          if (id < 1) id = mandala.length;
           const item = mandala.filter((item: any) => item.value.id === id);
+
           if (item.length > 0) {
             return new Response(JSON.stringify(item[0].value));
           } else {
