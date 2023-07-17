@@ -23,9 +23,9 @@ registerRoute(
 );
 
 // save to indexedDB for '/api/mandala'
-async function saveMandalaToIndexedDB(databaseName: string, data: any, storeName = 'mandala-store') {
+async function saveMandalaToIndexedDB(databaseName: string, data: any, storeName = 'mandala-store', json = true) {
   if ('SyncManager' in self) {
-    const object = await data.json()
+    const object = json ? await data.json() : data;
     const db = await openDB(databaseName, 1, storeName)
     saveObject(db, object, storeName)
       .then(() => {
@@ -68,7 +68,7 @@ self.addEventListener('fetch', (event: any) => {
         (async () => {
           const db: IDBDatabase | any = await openDB('gallery', 1, 'mandala-store');
           const mandala = await getAll(db, 'mandala-store');
-          
+
           let id = Number(event.request.url.split('/').pop());
           if (id > mandala.length) id = 1;
           if (id < 1) id = mandala.length;
@@ -97,6 +97,7 @@ self.addEventListener('fetch', (event: any) => {
 
 // background sync for '/api/mandala'
 async function syncMandala() {
+  // post mandala from indexedDB to api/mandala
   const db: IDBDatabase | any = await openDB('background-sync', 1, 'mandala-store');
   const mandala = await getAll(db, 'mandala-store');
   mandala.forEach(async (item: any) => {
@@ -107,8 +108,27 @@ async function syncMandala() {
     } else {
       console.log('Mandala sync failed: ', item.key)
     }
-
   });
+
+  // get mandala for gallery from api/mandala/:id and save to indexedDB
+  const db2: IDBDatabase | any = await openDB('gallery', 1, 'mandala-store');
+  const mandala2 = await getAll(db2, 'mandala-store');
+  const response = await API.makeGet('/api/mandala/-1');
+  if (response.status === 'ok') {
+    const id = response.id;
+    const length = mandala2.length;
+    if (id > length) {
+      for (let i = id; i > 0; i--) {
+        const item = mandala2.filter((item: any) => item.value.id === i);
+        if (item.length === 0) {
+          const response = await API.makeGet('/api/mandala/' + i);
+          if (response.status === 'ok') {
+            saveMandalaToIndexedDB('gallery', response, 'mandala-store', false);
+          }
+        }
+      }
+    }
+  }
 }
 
 self.addEventListener('sync', async (event: any) => (event.tag === 'mandala-sync') && await syncMandala());
