@@ -11,7 +11,13 @@ declare const self: ServiceWorkerGlobalScope;
 
 clientsClaim();
 
-precacheAndRoute(self.__WB_MANIFEST);
+precacheAndRoute(self.__WB_MANIFEST
+  .concat(
+      // Add custom service worker caching here
+      { url: './fonts/Roboto/Roboto-Light.ttf', revision: null },
+      { url: './fonts/Anton/Anton-Regular.ttf', revision: null },
+  )
+);
 
 const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$');
 registerRoute(
