@@ -8,6 +8,7 @@
     overflow-y: auto;
     height: 100vh;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 .main::-webkit-scrollbar {
@@ -28,6 +29,7 @@
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     perspective: 900;
+    scroll-snap-align: center;
 }
 
 @-webkit-keyframes showUp {
@@ -173,6 +175,7 @@
     justify-content: center;
     gap: 7vh;
     overflow: hidden;
+    scroll-snap-align: center;
 }
 
 .main-bottom--visible {

@@ -26,14 +26,14 @@ const useAutoScroll = (main: refType, mainTop: refType, mainBottom: refType, bac
         function handleIntersectBottom(entries: IntersectionObserverEntry[]) {
             entries.forEach((entry) => {
                 if (entry.intersectionRatio <= 0.5) {
-                    main?.current?.scrollTo(0, 0);
+                    // main?.current?.scrollTo(0, 0);
                     MainTop?.classList.remove('main-top--hidden');
                     MainBottom?.classList.remove(
                         'main-bottom--visible'
                     );
                 }
                 if (entry.intersectionRatio >= 0.5) {
-                    main?.current?.scrollTo(0, 10000);
+                    // main?.current?.scrollTo(0, 10000);
                     MainTop?.classList.add('main-top--hidden');
                     MainBottom?.classList.add(
                         'main-bottom--visible'

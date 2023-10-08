@@ -6,7 +6,6 @@ import { selectMandalaArr, selectTransform } from '../mandalaSlice';
 import { MouseEvent, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { classRemove } from './handleMenu';
-import { send } from 'process';
 import { sendMessage } from '../../../features/message/messageSlice';
 
 function Post() {
@@ -45,15 +44,12 @@ function Post() {
         )
             return;
 
-        const cookieTime = document.cookie
-            .split('; ')
-            .find((row) => row.startsWith('time='))
-            ?.split('=')[1];
+        const saveTime = localStorage.getItem('time');
+    
+        const allowPost = Date.now() - Number(saveTime) > 1000 * 60 * 5;
 
-        const allowPost = Date.now() - Number(cookieTime) > 1000 * 60 * 5;
-
-        if (!cookieTime || allowPost) {
-            document.cookie = `time=${Date.now()}`;
+        if (!saveTime || allowPost) {
+            localStorage.setItem('time', `${Date.now()}`);
         } else if (!allowPost) {
             dispatch(sendMessage('Please wait at least 5 minutes before posting new mandala.'));
             return;

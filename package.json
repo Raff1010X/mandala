@@ -48,7 +48,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-dev": "cross-env BUILD_PATH='../mandalaServer/public/build' GENERATE_SOURCEMAP=false react-scripts build",
+    "build-dev": "cross-env BUILD_PATH='../mandalaServer/public/build' GENERATE_SOURCEMAP=false react-scripts build && compress-cra",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -75,6 +75,7 @@
     "@babel/generator": "^7.22.7",
     "@types/babel__core": "^7.20.1",
     "@types/downloadjs": "^1.4.3",
-    "@types/lodash": "^4.14.191"
+    "@types/lodash": "^4.14.191",
+    "compress-create-react-app": "^1.4.2"
   }
 }
