@@ -79,6 +79,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         if (status !== 'idle') return
         classAdd('gallery-mandala', 'gallery-mandala--loading');
         classAdd('loader2', 'loader--loading');
+        classAdd('gallery-info', 'gallery-mandala--loading');
         setTimeout(() => {
             dispatch(getMandala(fileName - 1));
         }, 350);
@@ -88,6 +89,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
         if (status !== 'idle') return
         classAdd('gallery-mandala', 'gallery-mandala--loading');
         classAdd('loader2', 'loader--loading');
+        classAdd('gallery-info', 'gallery-mandala--loading');
         setTimeout(() => {
             dispatch(getMandala(fileName + 1));
         }, 350);
@@ -108,6 +110,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
             timer = setTimeout(() => {
                 classRemove('gallery-mandala', 'gallery-mandala--loading');
                 classRemove('loader2', 'loader--loading');
+                classRemove('gallery-info', 'gallery-mandala--loading');
             }, 350);
         } 
         return () => clearTimeout(timer);
@@ -129,7 +132,7 @@ function Gallery({ handle }: { handle: FullScreenHandle }) {
                 }}
             ></div>
             <LogoEditable />
-            <div className="gallery-info">
+            <div className="gallery-info" id="gallery-info">
                 <i>
                     <FormatQuoteIcon />
                 </i>
